@@ -67,9 +67,6 @@ const createList = (availableItems) => {
   availableItems.forEach((value, i) =>{
     if (value.available === true){returnList.push(value.name);}
   });
-  // availableItems.forEach((value, i) =>{
-  //   if (value.available === false){availableItems.splice(i, 1);}
-  // });
   console.log(availableItems);
   return returnList;
 };
