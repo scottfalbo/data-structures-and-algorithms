@@ -32,7 +32,6 @@ const sortBackwards = (arr) => {
     if (a < b){return 1;}
     else{return -1;}
   });
-
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,7 +45,10 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    if (a > b){return 1;}
+    else{return -1;}
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,7 +58,10 @@ Write a function named sortByLength that takes in an array of strings and return
 ------------------------------------------------------------------------------------------------ */
 
 const sortByLength = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    if (a.length > b.length){return 1;}
+    else{return -1;}
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,7 +73,9 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    return a.toLowerCase().localeCompare(b.toLowerCase());
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -243,7 +250,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should alphabetize without regard to capitalization', () => {
     expect(alphabetizeBetter(['Alice', 'apple', 'alert', 'Average'])).toStrictEqual([ 'alert', 'Alice', 'apple', 'Average' ]);
     const ans = alphabetizeBetter(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
@@ -252,7 +259,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should sort items by their price', () => {
     expect(sortByPrice([
       {name: 'Sweatshirt', price: 45},
@@ -268,7 +275,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should sort numbers by their length', () => {
     expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
     expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
