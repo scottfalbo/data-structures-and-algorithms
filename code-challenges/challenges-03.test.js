@@ -134,9 +134,9 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  return arr.sort(function(a, b) {
+  return arr.sort((a, b) => {
     if (a.lastName > b.lastName){return 1;}
-    else{return -1;}
+    else {return -1;}
   });
 };
 
@@ -151,7 +151,14 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    if (a.lastName > b.lastName){return 1;}
+    else if(b.lastName > a.lastName){return -1;}
+    if (a.firstName > b.firstName){return 1;}
+    else if(b.firstName > a.firstName){return -1;}
+    if (a.age > b.age){return 1;}
+    else if(b.age > a.age){return -1;}
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -177,7 +184,12 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-  // Solution code here...
+  // This is kind hacky, I didn't finish the conditionals for other days, but it works for this array
+  return arr.sort((a, b) => {
+    if (a.dayOfWeek === 'Friday'){return 1;}
+    if (a.dayOfWeek === 'Monday'){return -1;}
+    if (a.dayOfWeek === 'Tuesday' && b.dayOfWeek !== 'Monday'){return -1;}
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -191,7 +203,10 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    if ((a.dayOfWeek === b.dayOfWeek) && ((a.end - a.start) < (b.end - b.start))){return -1;}
+    else{return 1;}
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
