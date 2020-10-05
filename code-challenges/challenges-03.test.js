@@ -223,7 +223,7 @@ $ = createSnippetWithJQuery(`
 `);
 
 const addPearClass = () => {
-  // Solution code here...
+  $('li').text('Pear').addClass('pear');
 };
 
 /* ------------------------------------------------------------------------------------------------
