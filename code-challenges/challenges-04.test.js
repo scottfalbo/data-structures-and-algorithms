@@ -39,10 +39,8 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  // Solution code here...
   let validator = /[0-9]/g;
   return validator.test(input);
-  // return input.match(/\d/g) ? true : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -54,7 +52,10 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // Solution code here...
+  let validator = /[A-Z]\w+/g;
+  if(validator.test(str)){
+    return str.match(validator);
+  } else {return [];}
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -160,7 +161,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should only return words that begin with a capital letter', () => {
     const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
 
