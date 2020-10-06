@@ -66,7 +66,7 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   let returnArray = [];
-  let validator = /^[A-J]/;
+  let validator = /^[a-jA-J]/;
   arr.forEach(value => {
     if (validator.test(value)){
       returnArray.push(value);
@@ -81,7 +81,8 @@ CHALLENGE 5 - Stretch Goal
 
 You have created a game application and begin by asking users an easy question: In which month is Halloween?
 
-Write a function named matchMonth which uses a regular expression pattern to match any of these inputs: October, Oct, october, oct
+Write a function named matchMonth which uses a regular expression pattern to match any of these inputs:
+//-----------------------------   October, Oct, october, oct  --------------------------------
 
 If the user enters any of these four inputs, return true. For any other input, return false.
 
@@ -89,9 +90,10 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  let validator = /\b(\w*oct)\b/g;
+  let validator = /^[Oo]ct(ober)?$/g;
   if (validator.test(input)){
     console.log(input);
+    return true;
   }
 };
 
@@ -201,7 +203,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should match any of the acceptable inputs', () => {
     expect(matchMonth('Oct')).toBeTruthy();
     expect(matchMonth('oct')).toBeTruthy();
