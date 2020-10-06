@@ -66,9 +66,9 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   let returnArray = [];
+  let validator = /^[A-J]/;
   arr.forEach(value => {
-    let validator = /^[A-J]/;
-    if (validator.test(value) === true){
+    if (validator.test(value)){
       returnArray.push(value);
     }
   });
@@ -89,7 +89,10 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+  let validator = /\b(\w*oct)\b/g;
+  if (validator.test(input)){
+    console.log(input);
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
