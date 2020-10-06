@@ -92,7 +92,6 @@ Do not use the vertical bar (pipe) in your pattern.
 const matchMonth = (input) => {
   let validator = /^[Oo]ct(ober)?$/g;
   if (validator.test(input)){
-    console.log(input);
     return true;
   }
 };
@@ -108,7 +107,13 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  // Solution code here...
+  let returnArray = [];
+  let validator = /\w+ /g;
+  if (validator.test(str)){
+    returnArray.push(str.match(validator));
+  }
+  console.log (returnArray);
+  return returnArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
