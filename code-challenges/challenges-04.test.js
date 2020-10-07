@@ -66,7 +66,7 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   let returnArray = [];
-  let validator = /^[A-J]/;
+  let validator = /^[a-jA-J]/;
   arr.forEach(value => {
     if (validator.test(value)){
       returnArray.push(value);
@@ -81,7 +81,8 @@ CHALLENGE 5 - Stretch Goal
 
 You have created a game application and begin by asking users an easy question: In which month is Halloween?
 
-Write a function named matchMonth which uses a regular expression pattern to match any of these inputs: October, Oct, october, oct
+Write a function named matchMonth which uses a regular expression pattern to match any of these inputs:
+//-----------------------------   October, Oct, october, oct  --------------------------------
 
 If the user enters any of these four inputs, return true. For any other input, return false.
 
@@ -89,9 +90,9 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  let validator = /\b(\w*oct)\b/g;
+  let validator = /^[Oo]ct(ober)?$/g;
   if (validator.test(input)){
-    console.log(input);
+    return true;
   }
 };
 
@@ -106,7 +107,13 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  // Solution code here...
+  // let returnArray = [];
+  let validator = /\w+ /g;
+  if (validator.test(str)){
+    return str.match(validator);
+  }
+  // console.log (returnArray);
+  // return returnArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -122,7 +129,11 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  // Solution code here...
+  let valid = /[aeiou]/gi;
+  if (valid.test(str)){
+    str = str.replace(valid, '_');
+  }
+  return str;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -138,7 +149,10 @@ Hint: All of these words end with the letters "ells".
 const seashells = 'She sells seashells by the seashore. The shells she sells are surely seashells. So if she sells shells on the seashore, I\'m sure she sells seashore shells.';
 
 const findShells = (str) => {
-  // Solution code here...
+  let valid = /\b(sea)?s[hs]?(ells)/gi;
+  if (valid.test(str)) {
+    return str.match(valid);
+  }
 };
 
 /*  ------------------------------------------------------------------------------------------------
@@ -201,7 +215,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should match any of the acceptable inputs', () => {
     expect(matchMonth('Oct')).toBeTruthy();
     expect(matchMonth('oct')).toBeTruthy();
@@ -219,7 +233,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia vel massa sed egestas. Nunc faucibus iaculis elit, a scelerisque enim condimentum sed. Aenean ac scelerisque sem, et pharetra diam.';
 
   test('It should only return words that are immediately followed by a space', () => {
@@ -233,7 +247,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   let startString = 'This is a regex challenge. We are trying to create a hangman phrase where all of the vowels are missing!';
 
   test('It should remove the vowels from the hangman string and replace them with underscores', () => {
@@ -246,7 +260,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return an array of instances of "sells", shells", and "seashells"', () => {
     expect(findShells(seashells)).toStrictEqual(['sells', 'seashells', 'shells', 'sells', 'seashells', 'sells', 'shells', 'sells', 'shells']);
     expect(findShells(seashells).length).toStrictEqual(9);
