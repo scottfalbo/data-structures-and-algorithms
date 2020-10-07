@@ -107,13 +107,10 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  // let returnArray = [];
   let validator = /\w+ /g;
   if (validator.test(str)){
     return str.match(validator);
   }
-  // console.log (returnArray);
-  // return returnArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
