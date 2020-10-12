@@ -108,7 +108,9 @@ Write a function named getHouses that returns a new array containing the names o
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+  arr.forEach(value => {
+    houses.push(value.house);
+  });
   return houses;
 };
 
@@ -125,8 +127,9 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
-
+  for (let chars in arr){
+    if(character === arr[chars].name && arr[chars].children){return true;}
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -223,7 +226,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
   });
