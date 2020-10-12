@@ -37,7 +37,6 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const templateWithJQuery = () => {
-  // Solution code here...
   const $template = $('#template');
   starWarsPeople.forEach(value => {
     let $newItem = $template.clone();
@@ -63,7 +62,9 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  // Solution code here...
+  for (let i = 0; i < str.length+1; i++){
+    result.push(str.slice(i, str.length));
+  }
   return result;
 };
 
@@ -253,7 +254,7 @@ describe('Testing challenge 1', () => {
   })
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return a list of shortening words', () => {
     expect(howMuchPencil('Welcome')).toStrictEqual(['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', '']);
     expect(howMuchPencil('Welcome').length).toStrictEqual(8);
