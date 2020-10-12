@@ -178,12 +178,9 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  arr.forEach((value, i) => {
-    if (value%2 === 0){arr.splice(i, 1);}
-    arr.forEach((value, i) => {
-      if (value%2 === 0){arr.splice(i, 1);}
-    });
-  });
+  for (let i = arr.length; i >= 0; i--){
+    if (arr[i]%2 === 0){arr.splice(i, 1);}
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -232,9 +229,11 @@ For example, removeVowels('gregor') returns 'grgr'.
 
 const removeVowels = (str) => {
   const vowels = ['a', 'e', 'i', 'o', 'u'];
-  vowels.forEach(value => {
-    str = str.replace(value, '');
-  });
+  for (let i = str.length; i >= 0; i--){
+    vowels.forEach(value => {
+      if (str[i] === value){str = str.replace(value, '');}
+    });
+  }
   return str;
 };
 
@@ -249,7 +248,19 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => {
-  // Solution code here...
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  let vowelStr = '';
+  str.split('').forEach(value => {
+    vowels.forEach(vowel => {
+      if (value === vowel){vowelStr += value;}
+    });
+  });
+  let tempArray = vowelStr.split('');
+  tempArray.sort((a, b) => {
+    if (a > b){return 1;}
+    else{return -1;}
+  });
+  return [removeVowels(str), tempArray.join('')];
 };
 
 /* ------------------------------------------------------------------------------------------------
