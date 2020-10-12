@@ -124,7 +124,9 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.ingredients.forEach(value => {
+    result.push(value.slice((value.indexOf(' ', 5))+1, value.length));
+  });
   return result;
 };
 
@@ -251,7 +253,7 @@ describe('Testing challenge 1', () => {
     expect($('section:nth-child(2) h2').text()).toStrictEqual('Luke Skywalker');
     expect($('section:nth-child(3) h3').text()).toStrictEqual('167');
     expect($('section:nth-child(4) p').text()).toStrictEqual('red');
-  })
+  });
 });
 
 describe('Testing challenge 2', () => {
@@ -272,7 +274,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return a list of foods', () => {
     expect(listFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
     expect(listFoods(gruffaloCrumble).length).toStrictEqual(11);
@@ -349,4 +351,4 @@ xdescribe('Testing challenge 11', () => {
 
 function createSnippetWithJQuery(html){
   return cheerio.load(html);
-};
+}
