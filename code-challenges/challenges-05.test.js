@@ -140,7 +140,10 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  return listFoods(recipe);
+  recipe.ingredients.forEach(value => {
+    result.push((value.split(' ').splice(2)).join(' '));
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
