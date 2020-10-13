@@ -93,7 +93,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 
 const getCourseKeys = (obj) => {
   const returnArray = [];
-  for (let key in courseInfo){
+  for (let key in obj){
     returnArray.push(key);
   }
   return returnArray;
