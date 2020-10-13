@@ -127,8 +127,8 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  for (let char in arr){
-    if (arr[char].name === character && Object.values(arr[char].children)){return true;}
+  for (let value in arr){
+    if (arr[value].name === character && Object.values(arr[value].children)){return true;}
   }
 };
 
@@ -141,8 +141,8 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  for (let char in arr){
-    if (arr[char].name === character && Object.entries(arr[char].children).length > 0){return true;}
+  for (let value in arr){
+    if (arr[value].name === character && Object.entries(arr[value].children).length > 0){return true;}
   }
 };
 
@@ -153,7 +153,13 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let numberOfChars = 0;
+  arr.forEach(value => {
+    numberOfChars++;
+    if (value.spouse){numberOfChars++;}
+    numberOfChars += value.children.length;
+  });
+  return numberOfChars;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -168,9 +174,18 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  // Solution code here...
+  arr.forEach(value => {
+    let familyMembers = 1;
+    if (value.spouse){familyMembers++;}
+    familyMembers += value.children.length;
+    sizes.push({
+      house: value.house,
+      members: familyMembers
+    });
+  });
   return sizes;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -248,13 +263,13 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return the number of characters in the array', () => {
     expect(totalCharacters(characters)).toStrictEqual(26);
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return an object for each house containing the name and size', () => {
     expect(houseSize(characters)).toStrictEqual([{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, { house: 'Lannister', members: 5 }, { house: 'Targaryen', members: 5 }, { house: 'Tyrell', members: 4 }, { house: 'Greyjoy', members: 1 }, { house: 'Snow', members: 1 }]);
     expect(houseSize(characters).length).toStrictEqual(7);
