@@ -193,7 +193,12 @@ const snorlaxStats = {
 };
 
 const extractStats = (arr) => {
-  // Solution code here...
+  return arr.map(value => {
+    return {
+      name: value.stat.name,
+      total: value.effort+value.baseStat
+    };
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -283,7 +288,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return an array containing objects with name and total values', () => {
     expect(extractStats(snorlaxStats.stats)).toStrictEqual([
       { name: 'speed', total: 35, },
