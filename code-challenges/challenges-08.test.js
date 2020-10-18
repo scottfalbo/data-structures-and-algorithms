@@ -51,10 +51,16 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 
 const filterStringsWithVowels = (arr) => {
-  // Solution code here...
+  let valid = /[aeiou]/gi;
+  return arr.filter(value => {
+    if (value.match(valid)){
+      // return value;
+      return value;
+    }
+  });
 };
 
-
+// str.match(validator);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -233,7 +239,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return an array containing only words that have vowels', () => {
     expect(filterStringsWithVowels(['gregor','hound','xyz'])).toStrictEqual(['gregor', 'hound']);
     expect(filterStringsWithVowels(['gregor','hound','xyz']).length).toStrictEqual(2);
