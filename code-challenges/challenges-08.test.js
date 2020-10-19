@@ -59,7 +59,6 @@ const filterStringsWithVowels = (arr) => {
   });
 };
 
-// str.match(validator);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -70,15 +69,11 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   return arr.filter(value => {
-    forbiddenValues.forEach(notIt => {
-      if (value === notIt) {
-        return false;
-      } else {
-        return true;
-      }
-    });
+    if(forbiddenValues.includes(value)){return false;}
+    else {return true;}
   });
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -275,7 +270,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   const firstNums = [1, 2, 3];
   const secondNums = [1, 2, 3, 4];
 
