@@ -22,7 +22,12 @@ const createServer = () => {
 
 
 function sayHello(request, response){
-  response.send('Hello');
+  try {
+    response.send('Hello');
+  }
+  catch {
+    response.status(404);
+  }
 }
 
 /* ------------------------------------------------------------------------------------------------
