@@ -23,9 +23,9 @@ const createServer = () => {
 
 function sayHello(request, response){
   try {
-    response.send('Hello');
+    response.send('Hello from the back-end');
   }
-  catch {
+  catch(error) {
     response.status(404);
   }
 }
