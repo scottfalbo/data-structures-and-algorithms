@@ -71,7 +71,11 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 const notInFirstArray = (forbiddenValues, arr) => {
   return arr.filter(value => {
     forbiddenValues.forEach(notIt => {
-      value === notIt ? false : true;
+      if (value === notIt) {
+        return false;
+      } else {
+        return true;
+      }
     });
   });
 };
@@ -189,9 +193,7 @@ const characters = [
 
 const getCharactersWithoutChildren = (arr) => {
   return arr.filter(value => {
-    if (!('children' in value)){
-      return true;
-    }
+    if (!('children' in value)){return true;}
   });
 };
 
@@ -204,7 +206,14 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 ------------------------------------------------------------------------------------------------ */
 
 const evenOddNumericValues = (arr) => {
-  // Solution code here...
+  let filter = arr.filter(value => {
+    if (typeof value === 'string'){return false;}
+    else {return true;}
+  });
+  return filter.map(value => {
+    if(value%2 === 0){return 'even';}
+    else {return 'odd';}
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -329,7 +338,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should remove non-integers and return "even" or "odd', () => {
     expect(evenOddNumericValues(['Gregor', 2, 4, 1])).toStrictEqual(['even', 'even', 'odd']);
     expect(evenOddNumericValues(['Gregor', 2, 4, 1]).length).toStrictEqual(3);
