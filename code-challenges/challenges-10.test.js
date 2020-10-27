@@ -42,10 +42,8 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   return input.reduce((output, value) => {
-    value.filter(search => {
-      if (search === target){output++;}
-    });
-    return output;
+    return output += (value.filter(search => search === target)).length;
+    // return output;
   },0);
 };
 
