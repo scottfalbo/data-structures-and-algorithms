@@ -437,7 +437,16 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------ */
 
 const extractChildren = (arr) => {
-  // Solution code here...
+  const findLetter = /[aA]/g;
+  const returnArray = arr.filter(value => {
+    if (value.name.match(findLetter)){return true;}
+  });
+  return returnArray.reduce((accumulator, value) => {
+    if(value.children){
+      accumulator = accumulator.concat(value.children);
+    }
+    return accumulator;
+  },[]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -526,7 +535,7 @@ describe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should return an array containing the names of the children', () => {
     expect(extractChildren(characters)).toStrictEqual([ 'Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras' ]);
     expect(extractChildren(characters).length).toStrictEqual(10);
