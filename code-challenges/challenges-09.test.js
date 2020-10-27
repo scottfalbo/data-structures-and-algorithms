@@ -270,7 +270,7 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 const reversedString = (str) => {
   return str.split('').reduce((accumulator, value) => {
     return value + accumulator;
-  });
+  },'');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -323,7 +323,12 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.reduce((accumulator, value) => {
+    if (value.children){
+      accumulator += value.children.length;
+    }
+    return accumulator;
+  },0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -478,7 +483,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return the total number of children', () => {
     expect(countNumberOfChildren(characters)).toStrictEqual(14);
   });
