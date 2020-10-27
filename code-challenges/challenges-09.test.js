@@ -159,21 +159,6 @@ const currentEvents = {
     }
   ]
 };
-// First, write a function called mapCurrentEvents that maps over the current events object, runs it through a constructor function and returns the resulting array.
-
-// The constructor function should be a stand alone function named Events and should have the following keys:
-// * author
-// * categories
-// * summary
-// * img_url
-// * date
-// * title
-
-// Then, write an `/events` route with a callback function called getCurrentEvents.
-
-// Next, write a function named getCurrentEvents that takes in the request and response as parameters. This function should call the mapCurrentEvents function and send the result to the front-end.
-
-
 
 function getCurrentEvents(request, response){
   response.status(200).send(mapCurrentEvents());
@@ -205,7 +190,10 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  // Solution code here...
+  return arr.reduce(accumulator => {
+    accumulator++;
+    return accumulator;
+  },0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -466,7 +454,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return the length of the array', () => {
     expect(countNumberOfElements([1, 2, 3, 4, 5])).toStrictEqual(5);
   });
