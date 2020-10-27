@@ -411,8 +411,19 @@ const snorlaxData = {
   weight: 4600,
 };
 
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 8 - Stretch Goal
+
+Write a function named extractState that, given the snorlaxData, below, uses reduce to return the object whose 'name' property matches the given string.
+
+If the input array does not have a stat with that specific name, the function should return null.
+------------------------------------------------------------------------------------------------ */
+
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  return arr.reduce((accumulator, value) => {
+    if (value.stat.name === statName){accumulator = value;}
+    return accumulator;
+  },{});
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -509,7 +520,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return any stats that match the input', () => {
     expect(extractStat('speed', snorlaxData.stats)).toStrictEqual({ stat: { url: 'https://pokeapi.co/api/v2/stat/6/', name: 'speed' }, effort: 5, baseStat: 30 });
   });
