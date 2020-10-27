@@ -78,7 +78,6 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   return input.map(outer => {
-    // console.log('outer', outer);
     outer = outer.filter(inner => !(inner%5)&&(typeof inner === 'number')).map(value => {
       return Math.pow(2, value);
     });
@@ -149,7 +148,12 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+  const checker = /male/g;
+  const returnArray = [];
+  data.filter(value => value.gender.match(checker)).forEach(char => {
+    returnArray.push(char.name);
+  });
+  return returnArray.join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -246,7 +250,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return only characters that are male or female', () => {
     expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
     expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
