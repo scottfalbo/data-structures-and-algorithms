@@ -27,6 +27,9 @@ const createServer = () => {
 
   // Routes go here
   app.get('/events', getCurrentEvents);
+  app.get('*', (request, response) => {
+    response.status(404).send('nopers');
+  });
   // Solution code here...
 
   var server = app.listen(3301, function () {
@@ -161,7 +164,12 @@ const currentEvents = {
 };
 
 function getCurrentEvents(request, response){
-  response.status(200).send(mapCurrentEvents());
+  try{
+    response.status(200).send(mapCurrentEvents());
+  }
+  catch(error){
+    response.status(404).send('nope');
+  }
 }
 
 const mapCurrentEvents = () => {

@@ -29,8 +29,7 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 
 const sortBackwards = (arr) => {
   return arr.sort((a, b) => {
-    if (a < b){return 1;}
-    else{return -1;}
+    return b-a;
   });
 };
 
