@@ -131,7 +131,13 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  let returnTotal = 1;
+  numbers.forEach(arrays => {
+    arrays.forEach(value => {
+      returnTotal *= value;
+    });
+  });
+  return returnTotal;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -263,7 +269,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should multiply all the numbers together', () => {
     expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
