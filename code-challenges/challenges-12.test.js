@@ -38,8 +38,13 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
-
+  return stores[0].map((hourly, i) => {
+    let total = 0;
+    for (let store = 0; store < stores.length; store++){
+      total += stores[store][i];
+    }
+    return total;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -192,7 +197,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should add the hourly totals array', () => {
     expect(grandTotal(cookieStores)).toStrictEqual([88, 153, 252, 286, 139, 161, 145, 232, 276, 207, 161, 169]);
   });
