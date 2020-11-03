@@ -50,7 +50,6 @@ const validateEmail = (email) => {
   const emailCheck = /^\w+.?\w+[@]\w*.(com|net|org)$/g;
   return email.match(emailCheck) ? true : false;
 };
-// /^\w+.?\w+@\w+.(com|net|org)$/.test(email);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -73,9 +72,9 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  const checkNumber = /^([(]\d{3}[)]|\d{3}?)[-\s]?\d{3}?[-\s]?\d{4}$/g;
+  return checkNumber.test(phoneNumber);
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
@@ -152,7 +151,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should match the acceptable phone number formats', () => {
     expect(validatePhoneNumber('(555) 555-5555')).toBeTruthy();
     expect(validatePhoneNumber('555 555-5555')).toBeTruthy();
