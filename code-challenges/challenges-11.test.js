@@ -26,7 +26,9 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
-  // Solution code here...
+  const pinCheck = /^\d{4}$/gm;
+  if (pinCheck.test(pin)){return true;}
+  // console.log(temp);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -100,14 +102,14 @@ Run your tests from the console: jest solutions-11.test.js
 describe('Testing challenge 1', () => {
   test('It should convert object to full name string', () => {
 
-    const people = [{ firstName: "Jane", lastName: "Doe" }, { firstName: "James", lastName: "Bond" }];
+    const people = [{ firstName: 'Jane', lastName: 'Doe' }, { firstName: 'James', lastName: 'Bond' }];
 
-    expect(toLastNames(people)).toStrictEqual(["Jane Doe", "James Bond"]);
+    expect(toLastNames(people)).toStrictEqual(['Jane Doe', 'James Bond']);
 
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should validate a PIN of exactly four digits', () => {
     expect(validatePin(1234)).toBeTruthy();
     expect(validatePin(123)).toBeFalsy();
