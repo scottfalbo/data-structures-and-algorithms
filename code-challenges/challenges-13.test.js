@@ -115,7 +115,7 @@ const findEvery = (arr, target) => {
   // Solution code here...
 };
 
-/* ------------------------------------------------------------------------------------------------
+/* -----------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
 
 We've been testing a new course enrollment system, and we think we have the bugs worked out, but in the meantime, Brook enrolled himself in a bunch of different classes to test if it was working.
