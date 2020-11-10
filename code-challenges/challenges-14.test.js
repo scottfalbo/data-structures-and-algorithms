@@ -145,7 +145,10 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    if (a[property] > b[property]){
+      return 1;} else {return -1;}
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -247,7 +250,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should sort items by a price', () => {
 
     expect(sortBy('price', [
