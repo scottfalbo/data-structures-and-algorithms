@@ -189,7 +189,23 @@ Here is a sample board:
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
+  for (let r = 0; r < board.length; r++){
+    if(board[r][0] === board[r][1] && board[r][0] === board[r][2] && board[r][0] !== ''){
+      return true;
+    }
+    if(board[0][r] === board[1][r] && board[0][r] === board[2][r] && board[0][r] !== ''){
+      return true;
+    }
+  }
+  if (board[0][0] === board[1][1] && board[0][0] === board[2][2] && board[0][0] !== ''){
+    return true;
+  }
+  if (board[0][2] === board[1][1] && board[0][2] === board[2][0] && board[0][2] !== ''){
+    return true;
+  }
+  return false;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -289,7 +305,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return true if there are three in a row', () => {
     expect(detectTicTacToeWin([['X', '', 'O'], ['X', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(true);
     expect(detectTicTacToeWin([['O', '', 'X'], ['X', 'O', 'X'], ['X', '', 'O']])).toStrictEqual(true);
