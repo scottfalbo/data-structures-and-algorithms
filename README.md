@@ -8,3 +8,6 @@
 ## 401 Data Structures, Code Challenges
 401 ASP .NET code challenges are in the `c-sharp/challenges` directory.<br>
 [401 ASP .NET README](./c-sharp/README.md)
+
+
+** I'm going to refactor this whole whole README to get everything on the top level and properly organized! **
