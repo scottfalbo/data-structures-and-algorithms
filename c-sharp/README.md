@@ -5,10 +5,10 @@
 Reverse array code challenge.
 
 ## Challenge
-Write a method to reverse an array without using an built in libraries or methods.
+Write a method to reverse an array without using any built in libraries or methods.
 
 ## Approach & Efficiency
-I'm using a while loop iterate over the array and swapping the first and last indexes moving inwards.  Iteration stops when it reaches the center of the array.
+I'm using a while loop to iterate over the array, swapping the first and last indexes moving inwards.  Iteration stops when it reaches the center of the array.
 
 ## Solution
 ![array reverse whiteboard](./assets/array-reverse.jpg)
