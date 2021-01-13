@@ -29,6 +29,5 @@ I created a second array one index longer than the argument.  Found the center b
 
 
 
-
 <br><br>
 [Return to Main Page](../README.md)
