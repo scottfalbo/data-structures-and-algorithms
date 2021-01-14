@@ -12,8 +12,9 @@ namespace BinarySearch
         {
             int start = 0;
             int last = arr.Length - 1;
-            int mid = (start + last) / 2;
-            do
+            int mid = last / 2;
+
+            while (start <= last)
             {
                 if (arr[mid] == query)
                     return mid;
@@ -21,7 +22,8 @@ namespace BinarySearch
                     start = mid + 1;
                 else
                     last = mid - 1;
-            } while (start !> last);
+                mid = (start + last) / 2;
+            } 
             return -1;
         }
     }
