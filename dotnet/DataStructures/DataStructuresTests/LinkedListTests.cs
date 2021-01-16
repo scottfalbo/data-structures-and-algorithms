@@ -39,5 +39,17 @@ namespace DataStructuresTests
             testList.Insert(9);
             Assert.Equal(oldHead, testList.Head.Next);
         }
+
+        /// <summary>
+        /// Given an empty parameter can LinkedList isntantiate an empty object by default
+        /// </summary>
+        [Fact]
+        public void Can_Successfully_Instantiate_An_Empty_Linked_List()
+        {
+            LinkedList testList = new LinkedList();
+            Assert.Equal(null, testList.Head);
+        }
+
+
     }
 }

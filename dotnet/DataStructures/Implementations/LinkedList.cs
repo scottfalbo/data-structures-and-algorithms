@@ -66,6 +66,12 @@ namespace DataStructures
             ToStringRecurive(node.Next);
         }
 
+        /// <summary>
+        /// Takes in integer and iterates over the linked list, return true if value is present
+        /// usage: bool contains = myListObject.Includes(3);
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         public bool Includes(int query)
         {
             Node current = Head;
