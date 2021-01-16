@@ -47,9 +47,75 @@ namespace DataStructuresTests
         public void Can_Successfully_Instantiate_An_Empty_Linked_List()
         {
             LinkedList testList = new LinkedList();
-            Assert.Equal(null, testList.Head);
+            Assert.Null(testList.Head);
+        }
+
+        /// <summary>
+        /// Make sure Include() returns true if the value is in the list
+        /// </summary>
+        [Fact]
+        public void Check_For_Value_In_Linked_List_True()
+        {
+            LinkedList testList = new LinkedList();
+            testList.Insert(9);
+            bool result = testList.Includes(9);
+            Assert.True(result);
+        }
+
+        /// <summary>
+        /// Make sure Include() returns false if the value is not in the list
+        /// </summary>
+        [Fact]
+        public void Check_For_Value_In_Linked_List_False()
+        {
+            LinkedList testList = new LinkedList();
+            testList.Insert(3);
+            bool result = testList.Includes(6);
+            Assert.False(result);
+        }
+
+        /// <summary>
+        /// Ensure that multiple nodes can be added to the list.
+        /// Popluate a list, iternate over tracking length, verify length after insertion
+        /// </summary>
+        [Fact]
+        public void Properly_Insert_Multiple_Nodes_Into_A_Linked_List()
+        {
+            // create and linked list and insert 4 nodes
+            LinkedList testList = new LinkedList();
+            testList.Insert(1);
+            testList.Insert(2);
+            testList.Insert(3);
+            testList.Insert(4);
+
+            Node current = testList.Head;
+            int lengthTracker = 0;
+
+            //iterare over linked list and track length
+            while (current != null)
+            {
+                lengthTracker++;
+                current = current.Next;
+            }
+
+            Assert.Equal(4, lengthTracker);
         }
 
 
+        [Fact]
+        public void Properly_Return_A_Colletion_Of_All_Values()
+        {
+            // create and linked list and insert 4 nodes
+            LinkedList testList = new LinkedList();
+            testList.Insert(1);
+            testList.Insert(2);
+            testList.Insert(3);
+            testList.Insert(4);
+
+            string expected = "[4] => [3] => [2] => [1] => Null";
+            string result = testList.ToString();
+
+            Assert.Equal(expected, result);
+        }
     }
 }

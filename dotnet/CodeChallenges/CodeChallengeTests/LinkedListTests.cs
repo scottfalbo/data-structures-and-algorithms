@@ -13,7 +13,7 @@ namespace CodeChallengeTests
       public void Linked_List_Activity_Test()
         {
             bool itWorks = LinkListActivity();
-            Assert.Equal(true, itWorks);
+            Assert.True(itWorks);
         }
     }
 }
