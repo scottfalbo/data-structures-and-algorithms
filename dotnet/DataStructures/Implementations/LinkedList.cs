@@ -40,7 +40,7 @@ namespace DataStructures
         /// <summary>
         /// Iterate over the list with a while loop and write the Linked List
         /// </summary>
-        public void PrintMe()
+        public void ToString()
         {
             Node current = Head;
 
@@ -55,7 +55,7 @@ namespace DataStructures
         /// <summary>
         /// Iterate over the list recursively and write Linked List
         /// </summary>
-        public void PrintWithRecusion(Node node)
+        public void ToStringRecurive(Node node)
         {
             if (node == null)
             {
@@ -63,7 +63,18 @@ namespace DataStructures
                 return;
             }
             Console.Write($"[{node.Value}] => ");
-            PrintWithRecusion(node.Next);
+            ToStringRecurive(node.Next);
         }
+
+        public bool Includes(int query)
+        {
+            Node current = Head;
+            while (current != null)
+            {
+                if (current.Value == query)
+                    return true;
+            }
+            return false;
+        } 
     }
 }

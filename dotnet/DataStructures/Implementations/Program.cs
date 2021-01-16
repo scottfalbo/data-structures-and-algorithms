@@ -13,9 +13,9 @@ namespace DataStructures
             myList.Insert(5);
             myList.Insert(6);
 
-            myList.PrintMe();
+            myList.ToString();
             Console.WriteLine("\n");
-            myList.PrintWithRecusion(myList.Head);
+            myList.ToStringRecurive(myList.Head);
        }
 
     }
