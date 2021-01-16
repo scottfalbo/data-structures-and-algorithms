@@ -40,16 +40,18 @@ namespace DataStructures
         /// <summary>
         /// Iterate over the list with a while loop and write the Linked List
         /// </summary>
-        public void ToString()
+        public string ToString()
         {
             Node current = Head;
+            string returnList = "";
 
             while (current != null)
             {
-                Console.Write($"[{current.Value}] => ");
+                returnList += $"[{current.Value}] => ";
                 current = current.Next;
             }
-            Console.Write("Null");
+            returnList +=  "Null";
+            return returnList;
         }
 
         /// <summary>
@@ -79,6 +81,7 @@ namespace DataStructures
             {
                 if (current.Value == query)
                     return true;
+                current = current.Next;
             }
             return false;
         } 
