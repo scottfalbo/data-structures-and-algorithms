@@ -1,4 +1,6 @@
-# DOT .NET: DATA STRUCTURES AND ALGORITHMS
+# DOT .NET
+## DATA STRUCTURES AND ALGORITHMS
+[Back to Root Menu](./../README.md)
 
 ## Challege Class 05: Linked List Implementation
 
@@ -29,3 +31,6 @@ Write three methods for the `LinkedList` class.
   + ### Usage: `myListObject.ToString();`
 + `ToStringRecursive(Node)` - Takes in a `Node` object as an argument.  Based on that nodes `Head` recursively iterates over the `LinkedList` object and writes the values to the terminal.
   + ### Usage: `myListObject.ToStringRecursive(myListObject.Head);`
+
+
+[Back to Root Menu](./../README.md)
