@@ -34,33 +34,40 @@
 ### `Insert()`
 + Insert a new node at the beginning of a linked list as the new `Head`.
   + `myList.Insert(value)`
+  + + O(1) / O(1)
 
 ### `Includes()`
 + Search through a linked list to see if it contains a provided value.  <br>returns `true` : `false`
   + `bool isInList = myList.Include(value)`
+  + O(N) / O(1)
 
 ### `ToString()`
 + Iterates through the list using a while loop,  and writes the values of all nodes of a linked list to the terminal.
   + `myList.ToString()`
+  + O(N) / O(1)
 
 ### `ToStringRecursive()`
 + Iterates through the list recursively,  and writes the values of all nodes of a linked list to the terminal.
   + `myList.ToStringRecursive(myList.Head)`
+  + O(N) / O(1)
 
 ### `Append()`
 + Append a `new Node` with a provided value to the end of a linked list.
   + `myList.Append(value)`
+  + O(N) / O(1)
   + [whiteboard](./assets/append.png)
 
 ### `InsertBefore()`
 + Given a `targetValue` and a `newValue`, insert the `newValue`, before the target value in a linked list.  If the list is empty or the `targetValue` does not exist `throw` and exception.
+  + O(N) / O(1)
   + `myList.InsertBefore(targetValue, newValue)`
   + [whiteboard](./assets/insert_before.png)
 
 ### `InsertAfter()`
 + Given a `targetValue` and a `newValue`, insert the `newValue`, after the target value in a linked list.  If the list is empty or the `targetValue` does not exist `throw` and exception.
+  + O(N) / O(1)
   + `myList.InsertAfter(targetValue, newValue)`
-  + [whiteboard]()
+  + [whiteboard](./assets/insert_after.png)
 
 <hr>
 
