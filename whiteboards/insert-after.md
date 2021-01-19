@@ -1,5 +1,5 @@
 # `InsertAfter()` Whiteboard
-[Back to README](./../README.md)
+[Back to README](./../README.md#insertafter)
 
 <br>
 
@@ -7,4 +7,4 @@
 
 <br>
 
-[Back to README](./../README.md)
+[Back to README](./../README.md#insertafter)

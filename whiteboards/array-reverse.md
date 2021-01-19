@@ -1,5 +1,5 @@
 # Reverse Array Whiteboard
-[Back to README](./../README.md)
+[Back to README](./../README.md#reverse-an-array)
 
 <br>
 
@@ -7,4 +7,4 @@
 
 <br>
 
-[Back to README](./../README.md)
+[Back to README](./../README.md#reverse-an-array)

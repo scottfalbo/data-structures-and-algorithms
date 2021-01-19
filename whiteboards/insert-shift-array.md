@@ -1,5 +1,5 @@
 # Insert Shift Array Whiteboard
-[Back to README](./../README.md)
+[Back to README](./../README.md#insert-shift-array)
 
 <br>
 
@@ -7,4 +7,4 @@
 
 <br>
 
-[Back to README](./../README.md)
+[Back to README](./../README.md#insert-shift-array)

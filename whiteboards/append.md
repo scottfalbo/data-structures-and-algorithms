@@ -1,5 +1,5 @@
 # `Append()` Whiteboard
-[Back to README](./../README.md)
+[Back to README](./../README.md#append)
 
 <br>
 
@@ -7,4 +7,4 @@
 
 <br>
 
-[Back to README](./../README.md)
+[Back to README](./../README.md#append)

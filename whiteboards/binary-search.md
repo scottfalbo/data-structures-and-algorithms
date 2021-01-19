@@ -1,5 +1,5 @@
 # Binary Search Whiteboard
-[Back to README](./../README.md)
+[Back to README](./../README.md#binary-search)
 
 <br>
 
@@ -7,4 +7,4 @@
 
 <br>
 
-[Back to README](./../README.md)
+[Back to README](./../README.md#binary-search)

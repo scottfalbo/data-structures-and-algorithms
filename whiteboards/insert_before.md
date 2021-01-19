@@ -1,5 +1,5 @@
 # `InsertBefore()` Whiteboard
-[Back to README](./../README.md)
+[Back to README](./../README.md#insertbefore)
 
 <br>
 
@@ -7,4 +7,4 @@
 
 <br>
 
-[Back to README](./../README.md)
+[Back to README](./../README.md#insertbefore)
