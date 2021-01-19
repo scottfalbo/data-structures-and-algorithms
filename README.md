@@ -55,19 +55,19 @@
 + Append a `new Node` with a provided value to the end of a linked list.
   + `myList.Append(value)`
   + O(N) / O(1)
-  + [whiteboard](./assets/append.png)
+  + [whiteboard](./whiteboards/append.md)
 
 ### `InsertBefore()`
 + Given a `targetValue` and a `newValue`, insert the `newValue`, before the target value in a linked list.  If the list is empty or the `targetValue` does not exist `throw` and exception.
   + O(N) / O(1)
   + `myList.InsertBefore(targetValue, newValue)`
-  + [whiteboard](./assets/insert_before.png)
+  + [whiteboard](./whiteboards/insert_before.md)
 
 ### `InsertAfter()`
 + Given a `targetValue` and a `newValue`, insert the `newValue`, after the target value in a linked list.  If the list is empty or the `targetValue` does not exist `throw` and exception.
   + O(N) / O(1)
   + `myList.InsertAfter(targetValue, newValue)`
-  + [whiteboard](./assets/insert_after.png)
+  + [whiteboard](./whiteboards/insert-after.md)
 
 <hr>
 
@@ -83,7 +83,7 @@ Write a method to reverse an array without using any built in libraries or metho
 ### Approach & Efficiency
 I'm using a while loop to iterate over the array, swapping the first and last indexes moving inwards.  Iteration stops when it reaches the center of the array.
 
-[whiteboard](./assets/array-reverse.jpg)<br>
+[whiteboard](./whiteboards/array-reverse.md)<br>
 [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/c-sharp/CodeChallenges/ArrayReverse/Program.cs)
 
 <hr>
@@ -97,7 +97,7 @@ Take in an array and a value.  Insert that value into the middle index of the ar
 ### Approach & Efficiency
 I created a second array one index longer than the argument.  Found the center based on length, then dropped the input value in the middle index.  Then I iterated over the new array and using conditionals populating the first half and second half based on the mid point.
 
-[whiteboard](./assets/insertShiftArray.png)<br>
+[whiteboard](./whiteboards/insert-shift-array.md)<br>
 [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/c-sharp/CodeChallenges/ArrayShift/Program.cs)
 
 <hr>
@@ -111,7 +111,7 @@ Without using any built in C# methods take in an ordered array and a value.  Ret
 ### Approach & Efficiency
 We tracked the start, end and mid point of the array with variables.  Used a while loop to start at the middle of the array.  If the value matched the mid point return the value. Or move either up or down to a new mid point in the array and do it again.
 
-[whiteboard](./assets/binary_search.png)<br>
+[whiteboard](./whiteboards/binary-search.md)<br>
 [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/c-sharp/CodeChallenges/BinarySearch/Program.cs)
 
 <hr>
