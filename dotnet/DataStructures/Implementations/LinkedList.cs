@@ -107,5 +107,47 @@ namespace DataStructures
 
             current.Next = newNode;
         }
+
+        /// <summary>
+        /// Insert a value before a targetted value in a linked list.  Checks for edge cases including:
+        /// A list of only one node, an empty list, and missing targetted value.
+        /// Usage: myList.InsertBefore(targetValue, newValue);
+        /// </summary>
+        /// <param name="targetValue"></param>
+        /// <param name="newValue"></param>
+        public void InsertBefore(int targetValue, int newValue)
+        {
+            Node newNode = new Node(newValue);
+            Node current = Head;
+
+            if (current == null)
+            {
+                throw new Exception("The Linked List is empty, nothing to insert before");
+            }
+            else if (current.Next == null)
+            {
+                Head = newNode;
+                newNode.Next = current;
+            }
+            else
+            {
+                while (current != null)
+                {
+                    if (current.Next.Value == targetValue)
+                    {
+                        newNode.Next = current.Next;
+                        current.Next = newNode;
+                        break;
+                    }
+                    current = current.Next;
+                }
+            }
+            if (newNode.Next == null)
+            {
+                throw new Exception($"The targetted value of {targetValue} does in exist in the Linked List");
+            }
+            
+        }
+
     }
 }
