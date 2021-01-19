@@ -194,11 +194,12 @@ namespace DataStructuresTests
             Assert.Equal(insert, result.Value);
         }
 
-        // Helper method to find the middle of a linked list
+        // Helper method to find the middle value of a linked list
         public int FindTheMiddle(LinkedList list)
         {
             Node current = list.Head;
 
+            // Iterate the length of the list and half the counter
             int lengthCounter = 0;
             while (current != null)
             {
@@ -206,7 +207,16 @@ namespace DataStructuresTests
                 current = current.Next;
             }
 
-            return lengthCounter / 2;
+            // iterate the the middle and get the value of the node 
+            int counter = 0;
+            current = list.Head;
+            while (counter < (lengthCounter/2) +1)
+            {
+                counter++;
+                current = current.Next;
+            }
+            // return the value of the middle node 
+            return current.Value;
         }
 
         /// <summary>
@@ -214,7 +224,54 @@ namespace DataStructuresTests
         /// Then iterates to the middle again and checks the against the value inserted
         /// </summary>
         [Fact]
-        public void Can_Insert_Node_Into_Middle_Of_List()
+        public void Can_Insert_Node_Before_Middle_Node_Of_List()
+        {
+            // populate a linked list with the above helper method
+            LinkedList testList = PopulateList(new LinkedList());
+            Node current = testList.Head;
+
+            // use the above helper method to find the middle value of the list
+            int targetValue = (FindTheMiddle(testList)) + 1;
+
+            // call insert method, reset current node and counter,
+            // and iterate to the middle again to check the new value
+            testList.InsertBefore(targetValue, 66);
+            int counter = 0;
+            int middleValue = 0;
+            while (current != null) 
+            {
+                counter++;
+                if (current.Value == 66) break;
+                current = current.Next;
+            }
+            if (current.Value == 66) middleValue = current.Value;
+
+            Assert.Equal(66, middleValue);
+        }
+
+        /// <summary>
+        /// Make sure that a new node can be inserted after the last node in a list
+        /// </summary>
+        [Fact]
+        public void Can_Insert_Node_After_Last_Node_Of_Linked_List()
+        {
+            LinkedList testList = PopulateList(new LinkedList());
+            Node current = testList.Head;
+
+            testList.InsertAfter(1, 5);
+            int lastValue = 0;
+
+            while (current != null)
+            {
+                if (current.Next == null) lastValue = current.Value;
+                current = current.Next;
+            }
+
+            Assert.Equal(5, lastValue);
+        }
+        
+        [Fact]
+        public void Can_Insert_Node_After_Middle_Node_Of_List()
         {
             // populate a linked list with the above helper method
             LinkedList testList = PopulateList(new LinkedList());
@@ -222,35 +279,14 @@ namespace DataStructuresTests
 
             // use the above helper method to find the middle of the array and,
             // add 1 to offset the floor and get behind the center node
-            int middle = (FindTheMiddle(testList)) + 1;
+            int targetValue = (FindTheMiddle(testList)) + 1;
 
-            // iterate the the middle and get the value of the node 
-            int counter = 0;
-            while (counter < middle)
-            {
-                counter++;
-                current = current.Next;
-            }
-            int targetValue = current.Value;
+            testList.InsertAfter(targetValue, 66);
 
-            // call insert method, reset current node and counter,
-            // and iterate to the middle again to check the new value
-            testList.InsertBefore(targetValue, 66);
-            counter = 0;
-            current = testList.Head;
-            int middleValue = 0;
-            while (counter < middle) 
-            {
-                counter++;
-                current = current.Next;
-            }
-            if (current.Value == 66) middleValue = current.Value;
 
-            Assert.Equal(66, middleValue);
         }
     }
 }
 
 
 //Can successfully insert after a node in the middle of the linked list
-//Can successfully insert a node after the last node of the linked list

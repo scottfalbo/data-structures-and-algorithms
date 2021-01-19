@@ -149,5 +149,29 @@ namespace DataStructures
             
         }
 
+        public void InsertAfter(int targetValue, int newValue)
+        {
+            Node current = Head;
+            Node newNode = new Node(newValue);
+
+            if (current == null)
+            {
+                throw new Exception("The Linked List is empty, nothing to insert before");
+            }
+            else
+            {
+                while (current != null)
+                {
+                    if (current.Value == targetValue)
+                    {
+                        newNode.Next = current.Next;
+                        current.Next = newNode;
+                        break;
+                    }
+                    current = current.Next;
+                }
+            }
+        }
+
     }
 }
