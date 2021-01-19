@@ -40,7 +40,7 @@ namespace DataStructures
         /// <summary>
         /// Iterate over the list with a while loop and write the Linked List
         /// </summary>
-        public string ToString()
+        public override string ToString()
         {
             Node current = Head;
             string returnList = "";
@@ -85,5 +85,27 @@ namespace DataStructures
             }
             return false;
         } 
+
+        /// <summary>
+        /// Takes in an integer and appends it to the end of the linked list
+        /// usage: myList.Append(5);
+        /// </summary>
+        /// <param name="value"></param>
+        public void Append(int value)
+        {
+            Node newNode = new Node(value);
+            Node current = Head;
+
+            if (Head == null)
+            {
+                Head = newNode;
+                return;
+            }
+
+            while(current.Next != null)
+                current = current.Next;
+
+            current.Next = newNode;
+        }
     }
 }

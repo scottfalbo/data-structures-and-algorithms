@@ -101,21 +101,85 @@ namespace DataStructuresTests
             Assert.Equal(4, lengthTracker);
         }
 
+        // Helper method to populate a generic linked list for the following tests
+        public LinkedList PopulateList(LinkedList list)
+        {
+            list.Insert(1);
+            list.Insert(2);
+            list.Insert(3);
+            list.Insert(4);
+            return list;
+        }
 
         [Fact]
         public void Properly_Return_A_Colletion_Of_All_Values()
         {
-            // create and linked list and insert 4 nodes
-            LinkedList testList = new LinkedList();
-            testList.Insert(1);
-            testList.Insert(2);
-            testList.Insert(3);
-            testList.Insert(4);
+            LinkedList testList = PopulateList(new LinkedList());
 
             string expected = "[4] => [3] => [2] => [1] => Null";
             string result = testList.ToString();
 
             Assert.Equal(expected, result);
         }
+
+        /// <summary>
+        /// Test to ensure that .Append() can properly append a new node to the end of a list
+        /// </summary>
+        [Fact]
+        public void Append_Node_To_End_Of_The_List()
+        {
+            LinkedList testList = PopulateList(new LinkedList());
+
+            testList.Append(5);
+            Node current = testList.Head;
+            int result = 0;
+
+            while(current != null)
+            {
+                if (current.Next == null)
+                    result = current.Value;
+                current = current.Next;
+            }
+
+            Assert.Equal(5, result);
+        }
+
+        /// <summary>
+        /// Ensure multiple nodes can be Appended to a list by adding a dynamic amount of nodes,
+        /// and then tracking the length of the list.
+        /// </summary>
+        /// <param name="numberOfNodesToAdd"></param>
+        [Theory]
+        [InlineData(4)]
+        [InlineData(10)]
+        [InlineData(15)]
+        [InlineData(20)]
+        [InlineData(2)]
+        public void Append_Multiple_Values_To_The_End_Of_A_List(int numberOfNodesToAdd)
+        {
+            // instantiate a new list 4 nodes long
+            LinkedList testList = PopulateList(new LinkedList());
+            Node current = testList.Head;
+
+            // append numberOfNodesToAdd amount of nodes to the list
+            for (int i = 0; i < numberOfNodesToAdd; i++)
+                testList.Append(i);
+
+            // iterate over and track length of the new list
+            int listLength = 0;
+            while (current != null)
+            {
+                listLength++;
+                current = current.Next;
+            }
+                
+            Assert.Equal(numberOfNodesToAdd + 4, listLength);
+        }
     }
 }
+
+//Can successfully add multiple nodes to the end of a linked list
+//Can successfully insert a node before a node located i the middle of a linked list
+//Can successfully insert a node before the first node of a linked list
+//Can successfully insert after a node in the middle of the linked list
+//Can successfully insert a node after the last node of the linked list

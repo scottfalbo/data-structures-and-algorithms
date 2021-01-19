@@ -12,6 +12,7 @@ namespace DataStructures
             myList.Insert(4);
             myList.Insert(5);
             myList.Insert(6);
+            myList.Append(10);
 
             Console.WriteLine(myList.ToString());
             //Console.WriteLine("\n");
