@@ -7,9 +7,9 @@
 ### Data Structures
 
 + [Linked Lists](#linked-lists)
-  + [`Insert()`](#insert())
-  + [`Includes()`](#includes())
-  + [`ToString()`](#tostring())
+  + [`Insert()`](#insert)
+  + [`Includes()`](#includes)
+  + [`ToString()`](#tostring)
   + [`ToStringRecursive()`](#tostringrecursive)
   + [`Append()`](#append)
   + [`InsertBefore()`](#insertbefore)
