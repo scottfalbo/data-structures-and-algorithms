@@ -40,7 +40,7 @@ namespace DataStructures
         /// <summary>
         /// Iterate over the list with a while loop and write the Linked List
         /// </summary>
-        public string ToString()
+        public override string ToString()
         {
             Node current = Head;
             string returnList = "";
@@ -85,5 +85,93 @@ namespace DataStructures
             }
             return false;
         } 
+
+        /// <summary>
+        /// Takes in an integer and appends it to the end of the linked list
+        /// usage: myList.Append(5);
+        /// </summary>
+        /// <param name="value"></param>
+        public void Append(int value)
+        {
+            Node newNode = new Node(value);
+            Node current = Head;
+
+            if (Head == null)
+            {
+                Head = newNode;
+                return;
+            }
+
+            while(current.Next != null)
+                current = current.Next;
+
+            current.Next = newNode;
+        }
+
+        /// <summary>
+        /// Insert a value before a targetted value in a linked list.  Checks for edge cases including:
+        /// A list of only one node, an empty list, and missing targetted value.
+        /// Usage: myList.InsertBefore(targetValue, newValue);
+        /// </summary>
+        /// <param name="targetValue"></param>
+        /// <param name="newValue"></param>
+        public void InsertBefore(int targetValue, int newValue)
+        {
+            Node newNode = new Node(newValue);
+            Node current = Head;
+
+            if (current == null)
+            {
+                throw new Exception("The Linked List is empty, nothing to insert before");
+            }
+            else if (current.Next == null)
+            {
+                Head = newNode;
+                newNode.Next = current;
+            }
+            else
+            {
+                while (current != null)
+                {
+                    if (current.Next.Value == targetValue)
+                    {
+                        newNode.Next = current.Next;
+                        current.Next = newNode;
+                        break;
+                    }
+                    current = current.Next;
+                }
+            }
+            if (newNode.Next == null)
+            {
+                throw new Exception($"The targetted value of {targetValue} does in exist in the Linked List");
+            }
+            
+        }
+
+        public void InsertAfter(int targetValue, int newValue)
+        {
+            Node current = Head;
+            Node newNode = new Node(newValue);
+
+            if (current == null)
+            {
+                throw new Exception("The Linked List is empty, nothing to insert before");
+            }
+            else
+            {
+                while (current != null)
+                {
+                    if (current.Value == targetValue)
+                    {
+                        newNode.Next = current.Next;
+                        current.Next = newNode;
+                        break;
+                    }
+                    current = current.Next;
+                }
+            }
+        }
+
     }
 }
