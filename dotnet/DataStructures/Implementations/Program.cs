@@ -16,7 +16,7 @@ namespace DataStructures
 
             Console.WriteLine("start app");
             //myList.InsertAfter(10, 7);
-            int result = myList.KthFromEnd(6);
+            int result = myList.KthFromEnd(4);
 
 
             Console.WriteLine(result);

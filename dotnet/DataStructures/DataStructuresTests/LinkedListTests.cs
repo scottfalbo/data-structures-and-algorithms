@@ -293,29 +293,67 @@ namespace DataStructuresTests
         }
 
         /// <summary>
-        /// Test to see if 
+        /// Test for case when given an argument greater than the length of the list
         /// </summary>
         [Fact]
         public void K_Is_Greater_Than_Length_Of_List()
         {
             LinkedList testList = PopulateList(new LinkedList());
             int result = testList.KthFromEnd(45);
-           
+            Assert.Equal(-1, result);
         }
 
+        /// <summary>
+        /// Test for case when argument equals the length of the list
+        /// </summary>
+        [Fact]
+        public void K_Is_Equal_To_The_Length_Of_List()
+        {
+            LinkedList testList = PopulateList(new LinkedList());
+            int result = testList.KthFromEnd(40);
+            Assert.Equal(-1, result);
+        }
+
+        /// <summary>
+        /// Test for negative integer input for k
+        /// </summary>
+        [Fact]
+        public void K_Is_Not_A_Positive_Integer()
+        {
+            LinkedList testList = PopulateList(new LinkedList());
+            int result = testList.KthFromEnd(-6);
+            Assert.Equal(-1, result);
+        }
+
+        /// <summary>
+        /// Edge case where list is only one node long, returns -1 error
+        /// </summary>
+        [Fact]
+        public void List_Is_Only_One_Node_In_Length()
+        {
+            LinkedList testList = new LinkedList(1);
+            int result = testList.KthFromEnd(0);
+            Assert.Equal(-1, result);
+        }
+
+        /// <summary>
+        /// Happy Path with good data
+        /// </summary>
+        /// <param name="expected">int of expected Node.Value</param>
+        /// <param name="k">int argument for search</param>
+        [Theory]
+        [InlineData(34, 5)]
+        [InlineData(24, 15)]
+        [InlineData(20, 19)]
+        [InlineData(31, 8)]
+        [InlineData(0, 39)]
+        public void Happy_Path_Finds_The_Right_Value_All_Is_Well(int expected, int k)
+        {
+            LinkedList testList = PopulateList(new LinkedList());
+            int result = testList.KthFromEnd(k);
+            Assert.Equal(expected, result);
+        }
 
     }
 }
 
-
-//Can successfully insert after a node in the middle of the linked list
-
-//Where k is greater than the length of the linked list
-
-//Where k and the length of the list are the same
-
-//Where k is not a positive integer
-
-//Where the linked list is of a size 1
-
-//“Happy Path” where k is not at the end, but somewhere in the middle of the linked list
