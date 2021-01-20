@@ -173,5 +173,34 @@ namespace DataStructures
             }
         }
 
+        public int KthFromEnd(int k)
+        {
+            Node current = Head;
+            int counter = 0;
+
+            if ( k > -1 && Head != null)
+            {
+                while (current != null)
+                {
+                    counter++;
+                    current = current.Next;
+                }
+            }
+            else
+                throw new Exception("Given arguments outside of parameters");
+
+            current = Head;
+            if (counter > k)
+            {
+                for (int i = 0; i < counter-k-1; i++)
+                    current = current.Next;
+            }
+            else
+                throw new Exception("Input value out of range");
+
+
+            return current.Value;
+        }
+
     }
 }

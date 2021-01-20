@@ -104,17 +104,19 @@ namespace DataStructuresTests
         // Helper method to populate a generic linked list for the following tests
         public LinkedList PopulateList(LinkedList list)
         {
-            list.Insert(1);
-            list.Insert(2);
-            list.Insert(3);
-            list.Insert(4);
+            for (int i = 0; i < 40; i++)
+                list.Append(i);
             return list;
         }
 
         [Fact]
         public void Properly_Return_A_Colletion_Of_All_Values()
         {
-            LinkedList testList = PopulateList(new LinkedList());
+            LinkedList testList = new LinkedList();
+            testList.Append(4);
+            testList.Append(3);
+            testList.Append(2);
+            testList.Append(1);
 
             string expected = "[4] => [3] => [2] => [1] => Null";
             string result = testList.ToString();
@@ -173,7 +175,7 @@ namespace DataStructuresTests
                 current = current.Next;
             }
                 
-            Assert.Equal(numberOfNodesToAdd + 4, listLength);
+            Assert.Equal(numberOfNodesToAdd + 40, listLength);
         }
 
         /// <summary>
@@ -220,7 +222,7 @@ namespace DataStructuresTests
         }
 
         /// <summary>
-        /// Finds the middle of a linked list and inserts a new value.
+        /// Finds the middle of a linked list and inserts a new value before the middle node.
         /// Then iterates to the middle again and checks the against the value inserted
         /// </summary>
         [Fact]
@@ -258,7 +260,7 @@ namespace DataStructuresTests
             LinkedList testList = PopulateList(new LinkedList());
             Node current = testList.Head;
 
-            testList.InsertAfter(1, 5);
+            testList.InsertAfter(39, 5);
             int lastValue = 0;
 
             while (current != null)
@@ -269,7 +271,11 @@ namespace DataStructuresTests
 
             Assert.Equal(5, lastValue);
         }
-        
+
+        /// <summary>
+        /// Finds the middle of a linked list and inserts a new value after the middle node.
+        /// Then iterates to the middle again and checks the against the value inserted
+        /// </summary>
         [Fact]
         public void Can_Insert_Node_After_Middle_Node_Of_List()
         {
@@ -285,8 +291,31 @@ namespace DataStructuresTests
 
 
         }
+
+        /// <summary>
+        /// Test to see if 
+        /// </summary>
+        [Fact]
+        public void K_Is_Greater_Than_Length_Of_List()
+        {
+            LinkedList testList = PopulateList(new LinkedList());
+            int result = testList.KthFromEnd(45);
+           
+        }
+
+
     }
 }
 
 
 //Can successfully insert after a node in the middle of the linked list
+
+//Where k is greater than the length of the linked list
+
+//Where k and the length of the list are the same
+
+//Where k is not a positive integer
+
+//Where the linked list is of a size 1
+
+//“Happy Path” where k is not at the end, but somewhere in the middle of the linked list
