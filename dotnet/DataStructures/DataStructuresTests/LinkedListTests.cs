@@ -104,17 +104,19 @@ namespace DataStructuresTests
         // Helper method to populate a generic linked list for the following tests
         public LinkedList PopulateList(LinkedList list)
         {
-            list.Insert(1);
-            list.Insert(2);
-            list.Insert(3);
-            list.Insert(4);
+            for (int i = 0; i < 40; i++)
+                list.Append(i);
             return list;
         }
 
         [Fact]
         public void Properly_Return_A_Colletion_Of_All_Values()
         {
-            LinkedList testList = PopulateList(new LinkedList());
+            LinkedList testList = new LinkedList();
+            testList.Append(4);
+            testList.Append(3);
+            testList.Append(2);
+            testList.Append(1);
 
             string expected = "[4] => [3] => [2] => [1] => Null";
             string result = testList.ToString();
@@ -173,7 +175,7 @@ namespace DataStructuresTests
                 current = current.Next;
             }
                 
-            Assert.Equal(numberOfNodesToAdd + 4, listLength);
+            Assert.Equal(numberOfNodesToAdd + 40, listLength);
         }
 
         /// <summary>
@@ -220,7 +222,7 @@ namespace DataStructuresTests
         }
 
         /// <summary>
-        /// Finds the middle of a linked list and inserts a new value.
+        /// Finds the middle of a linked list and inserts a new value before the middle node.
         /// Then iterates to the middle again and checks the against the value inserted
         /// </summary>
         [Fact]
@@ -258,7 +260,7 @@ namespace DataStructuresTests
             LinkedList testList = PopulateList(new LinkedList());
             Node current = testList.Head;
 
-            testList.InsertAfter(1, 5);
+            testList.InsertAfter(39, 5);
             int lastValue = 0;
 
             while (current != null)
@@ -269,7 +271,11 @@ namespace DataStructuresTests
 
             Assert.Equal(5, lastValue);
         }
-        
+
+        /// <summary>
+        /// Finds the middle of a linked list and inserts a new value after the middle node.
+        /// Then iterates to the middle again and checks the against the value inserted
+        /// </summary>
         [Fact]
         public void Can_Insert_Node_After_Middle_Node_Of_List()
         {
@@ -285,8 +291,69 @@ namespace DataStructuresTests
 
 
         }
+
+        /// <summary>
+        /// Test for case when given an argument greater than the length of the list
+        /// </summary>
+        [Fact]
+        public void K_Is_Greater_Than_Length_Of_List()
+        {
+            LinkedList testList = PopulateList(new LinkedList());
+            int result = testList.KthFromEnd(45);
+            Assert.Equal(-1, result);
+        }
+
+        /// <summary>
+        /// Test for case when argument equals the length of the list
+        /// </summary>
+        [Fact]
+        public void K_Is_Equal_To_The_Length_Of_List()
+        {
+            LinkedList testList = PopulateList(new LinkedList());
+            int result = testList.KthFromEnd(40);
+            Assert.Equal(-1, result);
+        }
+
+        /// <summary>
+        /// Test for negative integer input for k
+        /// </summary>
+        [Fact]
+        public void K_Is_Not_A_Positive_Integer()
+        {
+            LinkedList testList = PopulateList(new LinkedList());
+            int result = testList.KthFromEnd(-6);
+            Assert.Equal(-1, result);
+        }
+
+        /// <summary>
+        /// Edge case where list is only one node long, returns -1 error
+        /// </summary>
+        [Fact]
+        public void List_Is_Only_One_Node_In_Length()
+        {
+            LinkedList testList = new LinkedList(1);
+            int result = testList.KthFromEnd(0);
+            Assert.Equal(-1, result);
+        }
+
+        /// <summary>
+        /// Happy Path with good data
+        /// </summary>
+        /// <param name="expected">int of expected Node.Value</param>
+        /// <param name="k">int argument for search</param>
+        [Theory]
+        [InlineData(34, 5)]
+        [InlineData(24, 15)]
+        [InlineData(20, 19)]
+        [InlineData(31, 8)]
+        [InlineData(0, 39)]
+        public void Happy_Path_Finds_The_Right_Value_All_Is_Well(int expected, int k)
+        {
+            LinkedList testList = PopulateList(new LinkedList());
+            int result = testList.KthFromEnd(k);
+            Assert.Equal(expected, result);
+        }
+
     }
 }
 
-
-//Can successfully insert after a node in the middle of the linked list
