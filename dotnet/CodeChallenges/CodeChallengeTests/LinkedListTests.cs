@@ -19,7 +19,6 @@ namespace CodeChallengeTests
         }
 
         [Fact]
-
         public void Zip_List_Happy_Paths_Returning_As_Expected_Even_Length_Lists()
         {
             LinkedList listA = new LinkedList();
@@ -39,6 +38,19 @@ namespace CodeChallengeTests
 
             string expected = "[1] => [2] => [3] => [4] => [5] => [6] => Null";
             Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Empty_List_Passed_In_As_Argument()
+        {
+            LinkedList listA = new LinkedList();
+            listA.Append(1);
+
+            LinkedList listB = new LinkedList();
+
+            Node testReference = Program.ZipList(listA, listB);
+
+            Assert.Null(testReference);
         }
     }
 }
