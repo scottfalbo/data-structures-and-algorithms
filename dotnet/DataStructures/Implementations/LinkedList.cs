@@ -43,6 +43,23 @@ namespace DataStructures
         }
 
         /// <summary>
+        /// Returns the length of the list
+        /// </summary>
+        /// <returns></returns>
+        public int ListLength()
+        {
+            Node current = Head;
+            int counter = 0;
+
+            while (current != null)
+            {
+                counter++;
+                current = current.Next;
+            }
+            return counter;
+        }
+
+        /// <summary>
         /// Iterate over the list with a while loop and write the Linked List
         /// </summary>
         public override string ToString()

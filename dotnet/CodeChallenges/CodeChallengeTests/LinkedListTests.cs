@@ -41,11 +41,9 @@ namespace CodeChallengeTests
         }
 
         [Fact]
-        public void Empty_List_Passed_In_As_Argument()
+        public void Empty_Lists_Passed_In_As_Argument()
         {
             LinkedList listA = new LinkedList();
-            listA.Append(1);
-
             LinkedList listB = new LinkedList();
 
             Node testReference = Program.ZipList(listA, listB);

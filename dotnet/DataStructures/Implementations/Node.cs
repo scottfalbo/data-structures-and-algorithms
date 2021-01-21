@@ -10,6 +10,11 @@ namespace DataStructures
         public int Value { get; set; }
         public Node Next { get; set; }
 
+        public Node()
+        {
+
+        }
+
         /// <summary>
         /// Constructor for Node class
         /// Usage Node node = new Node(3);
