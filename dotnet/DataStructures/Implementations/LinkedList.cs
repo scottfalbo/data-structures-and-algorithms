@@ -26,6 +26,11 @@ namespace DataStructures
             Head = node;
         }
 
+        public LinkedList(Node node)
+        {
+            Head = node;
+        }
+
         /// <summary>
         /// Insert a new node and make it the new Head
         /// </summary>

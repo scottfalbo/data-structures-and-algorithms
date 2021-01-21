@@ -20,6 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\DataStructures\Implementations\Implementations.csproj" />
+    <ProjectReference Include="..\..\LLZip\LLZip.csproj" />
     <ProjectReference Include="..\LinkedLists\LinkedLists.csproj" />
   </ItemGroup>
 
