@@ -21,6 +21,7 @@
 + [Reverse Array](#reverse-an-array)
 + [Insert Shift Array](#insert-shift-array)
 + [Binary Search](#binary-search)
++ [Zip List](#zip-list)
 
 <hr>
 
@@ -124,6 +125,21 @@ We tracked the start, end and mid point of the array with variables.  Used a whi
 
 ## [whiteboard](./whiteboards/binary-search.md)<br>
 ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/c-sharp/CodeChallenges/BinarySearch/Program.cs)
+
+<hr>
+
+## **Zip List**
+Combine two lists together by every other item.
+
+### Challenge Description
+Create a method to take in two `LinkedLists` and combine them alternating every other value.  Return a reference to the `Head` of the new list.  Do not use any built in methods.
+
+### Approach & Efficiency
+Create a new `LinkedList`.  Iterate through the 2 provided lists at the same time until the are both null.  Use tracking variables to adjust the pointers of each node as we iterate.  When both reach null return the reference to the `Head` of the new list.
+  + O(N) / O(1)
+
+## [whiteboard](./whiteboards/ziplist.md)<br>
+### [code]()
 
 <hr>
 
