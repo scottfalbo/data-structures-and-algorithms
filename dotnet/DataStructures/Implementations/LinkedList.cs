@@ -26,6 +26,11 @@ namespace DataStructures
             Head = node;
         }
 
+        public LinkedList(Node node)
+        {
+            Head = node;
+        }
+
         /// <summary>
         /// Insert a new node and make it the new Head
         /// </summary>
@@ -35,6 +40,23 @@ namespace DataStructures
             Node node = new Node(value);
             node.Next = Head;
             Head = node;
+        }
+
+        /// <summary>
+        /// Returns the length of the list
+        /// </summary>
+        /// <returns></returns>
+        public int ListLength()
+        {
+            Node current = Head;
+            int counter = 0;
+
+            while (current != null)
+            {
+                counter++;
+                current = current.Next;
+            }
+            return counter;
         }
 
         /// <summary>
