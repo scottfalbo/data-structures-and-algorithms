@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DataStructures
 {
-    public class LinkedList
+    public class LinkedList<T>
     { 
-        public Node Head { get; set; }
+        public Node<T> Head { get; set; }
 
         /// <summary>
         /// Plain, Empty Linked List
@@ -20,13 +20,13 @@ namespace DataStructures
         /// usage: LinkedList myList = new LinkedList(5);
         /// </summary>
         /// <param name="value"></param>
-        public LinkedList(int value)
+        public LinkedList(T value)
         {
-            Node node = new Node(value);
+            Node<T> node = new Node<T>(value);
             Head = node;
         }
 
-        public LinkedList(Node node)
+        public LinkedList(Node<T> node)
         {
             Head = node;
         }
@@ -35,9 +35,9 @@ namespace DataStructures
         /// Insert a new node and make it the new Head
         /// </summary>
         /// <param name="value"></param>
-        public void Insert(int value)
+        public void Insert(T value)
         {
-            Node node = new Node(value);
+            Node<T> node = new Node<T>(value);
             node.Next = Head;
             Head = node;
         }
@@ -48,7 +48,7 @@ namespace DataStructures
         /// <returns></returns>
         public int ListLength()
         {
-            Node current = Head;
+            Node<T> current = Head;
             int counter = 0;
 
             while (current != null)
@@ -64,7 +64,7 @@ namespace DataStructures
         /// </summary>
         public override string ToString()
         {
-            Node current = Head;
+            Node<T> current = Head;
             string returnList = "";
 
             while (current != null)
@@ -79,7 +79,7 @@ namespace DataStructures
         /// <summary>
         /// Iterate over the list recursively and write Linked List
         /// </summary>
-        public void ToStringRecurive(Node node)
+        public void ToStringRecurive(Node<T> node)
         {
             if (node == null)
             {
@@ -96,12 +96,12 @@ namespace DataStructures
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public bool Includes(int query)
+        public bool Includes(T query)
         {
-            Node current = Head;
+            Node<T> current = Head;
             while (current != null)
             {
-                if (current.Value == query)
+                if (current.Value.Equals(query))
                     return true;
                 current = current.Next;
             }
@@ -113,10 +113,10 @@ namespace DataStructures
         /// usage: myList.Append(5);
         /// </summary>
         /// <param name="value"></param>
-        public void Append(int value)
+        public void Append(T value)
         {
-            Node newNode = new Node(value);
-            Node current = Head;
+            Node<T> newNode = new Node<T>(value);
+            Node<T> current = Head;
 
             if (Head == null)
             {
@@ -137,10 +137,12 @@ namespace DataStructures
         /// </summary>
         /// <param name="targetValue"></param>
         /// <param name="newValue"></param>
-        public void InsertBefore(int targetValue, int newValue)
+        
+
+        public void InsertBefore(T targetValue, T newValue)
         {
-            Node newNode = new Node(newValue);
-            Node current = Head;
+            Node<T> newNode = new Node<T>(newValue);
+            Node<T> current = Head;
 
             if (current == null)
             {
@@ -155,7 +157,7 @@ namespace DataStructures
             {
                 while (current != null)
                 {
-                    if (current.Next.Value == targetValue)
+                    if (current.Next.Value.Equals(targetValue))
                     {
                         newNode.Next = current.Next;
                         current.Next = newNode;
@@ -171,10 +173,10 @@ namespace DataStructures
             
         }
 
-        public void InsertAfter(int targetValue, int newValue)
+        public void InsertAfter(T targetValue, T newValue)
         {
-            Node current = Head;
-            Node newNode = new Node(newValue);
+            Node<T> current = Head;
+            Node<T> newNode = new Node<T>(newValue);
 
             if (current == null)
             {
@@ -184,7 +186,7 @@ namespace DataStructures
             {
                 while (current != null)
                 {
-                    if (current.Value == targetValue)
+                    if (current.Value.Equals(targetValue))
                     {
                         newNode.Next = current.Next;
                         current.Next = newNode;
@@ -195,9 +197,10 @@ namespace DataStructures
             }
         }
 
-        public int KthFromEnd(int k)
+        /*
+        public int KthFromEnd(T k)
         {
-            Node current = Head;
+            Node<T> current = Head;
             int counter = 0;
 
             if (k < 0) return -1;
@@ -231,6 +234,6 @@ namespace DataStructures
             }
             return -1;
         }
-
+        */
     }
 }

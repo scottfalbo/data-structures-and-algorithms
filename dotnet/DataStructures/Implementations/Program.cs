@@ -6,7 +6,30 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            LinkedList myList = new LinkedList();
+            StackStuff();
+        }
+
+        static void StackStuff()
+        {
+
+            Stacks<string> cats = new Stacks<string>();
+            cats.Push("Spaceghost");
+            cats.Push("Harry");
+            cats.Push("Lucipurr");
+            cats.Push("Ethel");
+
+            //iterate the stack
+            while (!cats.IsEmpty())
+            {
+                Node<string> cat = cats.Pop();
+                Console.WriteLine(cat.Value);
+            }
+                
+        }
+
+        static void LinkedListStuff()
+        {
+            LinkedList<int> myList = new LinkedList<int>();
             myList.Append(2);
             myList.Append(3);
             myList.Append(4);
@@ -16,15 +39,12 @@ namespace DataStructures
 
             Console.WriteLine("start app");
             //myList.InsertAfter(10, 7);
-            int result = myList.KthFromEnd(4);
 
 
-            Console.WriteLine(result);
             //Console.WriteLine(myList.ToString());
             //Console.WriteLine("\n");
             //myList.ToStringRecurive(myList.Head);
             Console.WriteLine("end app");
         }
-
     }
 }
