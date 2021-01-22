@@ -5,6 +5,7 @@ namespace LLZip
 {
     public class Program
     {
+        /*
         static void Main(string[] args)
         {
             LinkedList listA = new LinkedList();
@@ -53,5 +54,6 @@ namespace LLZip
 
             return newList.Head;
         }
+        */
     }
 }
