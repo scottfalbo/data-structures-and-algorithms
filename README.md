@@ -15,6 +15,11 @@
   + [`InsertBefore()`](#insertbefore)
   + [`InsertAfter()`](#insertafter)
   + [`KthFromEnd()`](#kthfromend)
++ [Stacks](#Stacks)
+  + [`Peek()`](#peek)
+  + [`Push()`](#push)
+  + [`Pop()`](#pop)
+  + [`IsEmpty()`](#isempty)
 
 
 ### Challenges
@@ -32,7 +37,7 @@
 ## Data Structures
 
 ## **Linked Lists**
-[code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/DataStructures/Implementations/LinkedList.cs)<br>
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/DataStructures/Implementations/LinkedList.cs)<br>
 ### `Insert()`
 + Insert a new node at the beginning of a linked list as the new `Head`.
   + `myList.Insert(value)`
@@ -80,6 +85,21 @@
 + O(N) / O(1)
 + `int result = myList.KthFromEnd(int k)`
   + ## [whiteboard](./whiteboards/kth-from-end.md)
+
+
+## Stacks
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/DataStructures/Implementations/Stack.cs)<br>
+### `Peek()`
++ Returns the Value of the `Top` Node in the `Stack` object.
+
+### `Push(T)`
++ Puts a new Node onto the `Stack` object.
+
+### `Pop()`
++ Retruns the Node Value and removes the node from the stack.
+
+### `IsEmpty()`
++ Returns true if the `Stack` object is empty.
 
 <hr>
 

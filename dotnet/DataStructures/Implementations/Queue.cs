@@ -6,6 +6,7 @@ namespace DataStructures
 {
     class Queue<T>
     {
+        public int counter = 0;
         public Node<T> Front { get; set; }
 
         public Node<T> Rear { get; set; }
@@ -19,6 +20,7 @@ namespace DataStructures
             Node<T> node = new Node<T>(value);
             Rear.Next = node;
             Rear = node;
+            counter++;
         }
 
         /// <summary>
@@ -30,6 +32,7 @@ namespace DataStructures
             Node<T> holder = Front;
             Front = Front.Next;
             holder.Next = null;
+            counter--;
             return holder.Value;
         }
 

@@ -4,15 +4,26 @@ using System.Text;
 
 namespace DataStructures
 {
-    public class Stacks<T>
+    public class Stack<T>
     {
+        public int counter = 0;
         public Node<T> Top { get; set; }
 
         /// <summary>
         /// Return the Value of the top node
         /// </summary>
         /// <returns></returns>
-        public T Peek() => Top.Value;
+        public T Peek() 
+        {
+            try
+            {
+                return Top.Value;
+            }
+            catch (NullReferenceException e)
+            {
+                throw new NullReferenceException($"{e}");
+            }
+        }
 
         /// <summary>
         /// Returns true if the Stack object is empty
@@ -21,7 +32,7 @@ namespace DataStructures
         public bool IsEmpty() => Top == null;
 
         /// <summary>
-        /// Puts a new Node onto the Stack object
+        /// Puts a new Node onto the Stack object, adds to stack count
         /// </summary>
         /// <param name="value"></param>
         public void Push(T value)
@@ -29,19 +40,31 @@ namespace DataStructures
             Node<T> node = new Node<T>(value);
             node.Next = Top;
             Top = node;
+            counter++;
         }
 
         /// <summary>
-        /// Returns and removes the Top Node object from the Stack object
+        /// Returns and removes the Top Node object from the Stack object, decrements stack count
         /// </summary>
         /// <returns></returns>
-        public Node<T> Pop()
+        public T Pop()
         {
-            Node<T> holder = Top;
-            Top = holder.Next;
-            holder.Next = null;
-            return holder;
+            try
+            {
+                Node<T> holder = Top;
+                Top = holder.Next;
+                holder.Next = null;
+                counter--;
+                return holder.Value;
+            }
+            catch (NullReferenceException e)
+            {
+                throw new NullReferenceException($"{e}");
+            }                
+            
         }
+
+
     }
 
 
