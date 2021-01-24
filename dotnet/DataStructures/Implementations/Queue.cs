@@ -4,12 +4,33 @@ using System.Text;
 
 namespace DataStructures
 {
-    class Queue<T>
+    public class Queue<T>
     {
         public int counter = 0;
-        public Node<T> Front { get; set; }
+        public Node<T> Front { get; set; } = null;
+        public Node<T> Rear { get; set; } = null;
 
-        public Node<T> Rear { get; set; }
+        /// <summary>
+        /// Returns the Value of the Front Node in the Queue object
+        /// </summary>
+        /// <returns></returns>
+        public T Peek()
+        {
+            try
+            {
+                return Front.Value;
+            }
+            catch (NullReferenceException e)
+            {
+                throw new NullReferenceException($"{e}");
+            }
+        }
+
+        /// <summary>
+        /// Returns true if the Queue object is empty
+        /// </summary>
+        /// <returns></returns>
+        public bool IsEmpty() => Front == null;
 
         /// <summary>
         /// Add a Node object to the Queue object and attatch to to the end of the line
@@ -18,8 +39,16 @@ namespace DataStructures
         public void Enqueue(T value)
         {
             Node<T> node = new Node<T>(value);
-            Rear.Next = node;
-            Rear = node;
+            if (Front == null)
+            {
+                Front = node;
+                Rear = node;
+            }
+            else
+            {
+                node.Next = Rear;
+                Rear = node;
+            }
             counter++;
         }
 
@@ -29,23 +58,19 @@ namespace DataStructures
         /// <returns></returns>
         public T Dequeue()
         {
-            Node<T> holder = Front;
-            Front = Front.Next;
-            holder.Next = null;
-            counter--;
-            return holder.Value;
+            try
+            {
+                Node<T> holder = Front;
+                Front = Front.Next;
+                holder.Next = null;
+                counter--;
+                return holder.Value;
+            }
+            catch (NullReferenceException e)
+            {
+                throw new NullReferenceException($"{e}");
+            }
         }
 
-        /// <summary>
-        /// Returns the Value of the Front Node in the Queue object
-        /// </summary>
-        /// <returns></returns>
-        public T Peek() => Front.Value;
-
-        /// <summary>
-        /// Returns true if the Queue object is empty
-        /// </summary>
-        /// <returns></returns>
-        public bool IsEmpty() => Front == null;
     }
 }

@@ -5,21 +5,14 @@
 ## C# .NET
 
 ### Data Structures
+  + *links contain each structs methods*
 
-+ [Linked Lists](#linked-lists)
-  + [`Insert()`](#insert)
-  + [`Includes()`](#includes)
-  + [`ToString()`](#tostring)
-  + [`ToStringRecursive()`](#tostringrecursive)
-  + [`Append()`](#append)
-  + [`InsertBefore()`](#insertbefore)
-  + [`InsertAfter()`](#insertafter)
-  + [`KthFromEnd()`](#kthfromend)
-+ [Stacks](#Stacks)
-  + [`Peek()`](#peek)
-  + [`Push()`](#push)
-  + [`Pop()`](#pop)
-  + [`IsEmpty()`](#isempty)
++ ## [Linked Lists](#linked-lists)
+
++ ## [Stacks](#stacks)
+
++ ## [Queues](#queues)
+
 
 
 ### Challenges
@@ -36,8 +29,10 @@
 
 ## Data Structures
 
-## **Linked Lists**
+# **Linked Lists**
+A data structure of linked together `Node` objects.  The `LinkedList` object has one property of `Head`, which is a reference to the first node in the list.
 ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/DataStructures/Implementations/LinkedList.cs)<br>
++ `LinkedList<T> newLinkedList = new LinkedList<T>();`
 ### `Insert()`
 + Insert a new node at the beginning of a linked list as the new `Head`.
   + `myList.Insert(value)`
@@ -86,20 +81,62 @@
 + `int result = myList.KthFromEnd(int k)`
   + ## [whiteboard](./whiteboards/kth-from-end.md)
 
+<hr>
 
-## Stacks
+# **Stacks**
+A data structure that follows a *"first in, last out"* rule for adding and removing `Node` objects.  The `Stack` object has one property of `Top`, which is a reference to the top node object in the stack.  
 ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/DataStructures/Implementations/Stack.cs)<br>
++ `Stack<T> newStack = new Stack<T>();`
 ### `Peek()`
-+ Returns the Value of the `Top` Node in the `Stack` object.
++ Return the Value of the `Top` Node in the `Stack` object.
+  + `var value = newStack.Peek()` => The value of the `Top` `Node` object in the `Stack` object.
+    + `throw` NullReferenceException if the `Stack` object is empty
+  + O(1) / O(1)
+
+### `IsEmpty()`
++ Return true if the `Stack` object is empty.
+  + `newStack.IsEmpty` => true : false
+  + O(1) / O(1)
 
 ### `Push(T)`
 + Puts a new Node onto the `Stack` object.
+   + `newStack.Push(T)` => no return, adds new `Node` object of the given type.
+   + O(1) / O(1)
 
 ### `Pop()`
-+ Retruns the Node Value and removes the node from the stack.
++ Return the Node Value and removes the node from the stack.
+  + `var value = newStack.Pop()` => The value of the `Top` `Node` object in the `Stack` object.
+    + `throw` NullReferenceException if the `Stack` object is empty
+  + O(1) / O(1)
+
+<hr>
+
+# **Queues**
+A data structure that follows a *"first in, first out"* rule for adding and removing 'Node' objects.  The `Queue` has two properties.  The `Front`, which is a reference to the front object in the queue.  And the `Rear`, which references the last object.
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/DataStructures/Implementations/Queue.cs)<br>
++ `Queue<T> newQueue = new Queue<T>();`
+
+### `Peek()`
++ Return the Value of the `Front` Node in the `Queue` object.
+  + `var value = newQueue.Peek()` => The value of the `Front` `Node` object in the `Queue` object.
+    + `throw` NullReferenceException if the `Queue` object is empty
+  + O(1) / O(1)
 
 ### `IsEmpty()`
-+ Returns true if the `Stack` object is empty.
++ Return true if the `Queue` object is empty.
+  + `newQueue.IsEmpty` => true : false
+  + O(1) / O(1)
+
+### `Enqueue(T)`
++ Puts a new Node onto the `Queue` object.
+   + `newQueue.Enqueue(T)` => no return, adds new `Node` object of the given type.
+   + O(1) / O(1)
+
+### `Dequeue()`
++ Return the Node Value and removes the node from the Queue.
+  + `var value = newQueue.Dequeue()` => The value of the `Front` `Node` object in the `Queue` object.
+    + `throw` NullReferenceException if the `Queue` object is empty
+  + O(1) / O(1)
 
 <hr>
 

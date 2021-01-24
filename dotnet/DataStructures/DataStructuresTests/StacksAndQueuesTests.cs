@@ -38,8 +38,7 @@ namespace DataStructuresTests
             Stack<int> testStack = PopulateStack();
             while (!testStack.IsEmpty())
                 testStack.Pop();
-            bool isEmpty = testStack.IsEmpty();
-            Assert.True(isEmpty);
+            Assert.True(testStack.IsEmpty());
         }
 
         [Fact]
@@ -61,21 +60,95 @@ namespace DataStructuresTests
         [Fact]
         public void Calling_Pop_On_Empty_Stack_Raises_Exception()
         {
-            Stack<int> newStack = new Stack<int>();
-            Assert.Throws<NullReferenceException>(() => newStack.Pop());
+            Stack<int> testStack = new Stack<int>();
+            Assert.Throws<NullReferenceException>(() => testStack.Pop());
         }
 
         [Fact]
         public void Calling_Peek_On_Empty_Stack_Raises_Exception()
         {
-            Stack<int> newStack = new Stack<int>();
-            Assert.Throws<NullReferenceException>(() => newStack.Peek());
+            Stack<int> testStack = new Stack<int>();
+            Assert.Throws<NullReferenceException>(() => testStack.Peek());
         }
 
-        
+        [Fact]
+        public void Can_Successfully_Enqueue_Into_A_Queue()
+        {
+            Queue<string> testQueue = new Queue<string>();
+            testQueue.Enqueue("In we go!");
+            Assert.Equal(1, testQueue.counter);
+        }
+
+        [Fact]
+        public void Can_Successfully_Enqueue_Multiple_Values_Into_A_Queue()
+        {
+            Queue<string> testQueue = PopulateQueue();
+            Assert.Equal(5, testQueue.counter);
+        }
+
+        [Fact]
+        public void Can_Successfullt_Dequeue_The_Expected_Value()
+        {
+            Queue<string> testQueue = PopulateQueue();
+            string testString = testQueue.Dequeue();
+            Assert.Equal("Thing 1", testString);
+        }
+
+        [Fact]
+        public void Can_Successfully_Peek_The_Front_Value_Of_A_Queue()
+        {
+            Queue<string> testQueue = PopulateQueue();
+            string testString = testQueue.Peek();
+            Assert.Equal("Thing 1", testString);
+        }
+
+        [Fact]
+        public void Can_Successfully_Empty_A_Queue_After_Multiple_Dequeues()
+        {
+            Queue<string> testQueue = PopulateQueue();
+            while (!testQueue.IsEmpty())
+                testQueue.Dequeue();
+            Assert.True(testQueue.IsEmpty());
+        }
+
+        [Fact]
+        public void Can_Successfully_Instantiate_An_Empty_Queue()
+        {
+            Queue<string> testQueue = (new Queue<string>());
+            Assert.True(testQueue.IsEmpty());
+        }
+
+        [Fact]
+        public void Calling_Dequeue_On_Empty_Queue_Raises_Exception()
+        {
+            Queue<string> testQueue = (new Queue<string>());
+            Assert.Throws<NullReferenceException>(() => testQueue.Dequeue());
+        }
+
+        [Fact]
+        public void Calling_Peek_On_Empty_Queue_Raises_Exception()
+        {
+            Queue<string> testQueue = (new Queue<string>());
+            Assert.Throws<NullReferenceException>(() => testQueue.Peek());
+        }
 
         /// <summary>
-        /// Helper method to make and populate a stack
+        /// Helper method to instantiate, populate and return a Queue object
+        /// </summary>
+        /// <returns></returns>
+        public Queue<string> PopulateQueue()
+        {
+            Queue<string> newQueue = (new Queue<string>());
+            newQueue.Enqueue("Thing 1");
+            newQueue.Enqueue("Thing 2");
+            newQueue.Enqueue("Thing 3");
+            newQueue.Enqueue("Thing 4");
+            newQueue.Enqueue("Thing 5");
+            return newQueue;
+        }
+
+        /// <summary>
+        /// Helper method to instantiate, populate and return a Stack object
         /// </summary>
         /// <returns></returns>
         public Stack<int> PopulateStack()

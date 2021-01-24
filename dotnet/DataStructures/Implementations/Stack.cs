@@ -7,10 +7,11 @@ namespace DataStructures
     public class Stack<T>
     {
         public int counter = 0;
-        public Node<T> Top { get; set; }
+        public Node<T> Top { get; set; } = null;
 
         /// <summary>
         /// Return the Value of the top node
+        /// throws null reference exception if the object is empty.
         /// </summary>
         /// <returns></returns>
         public T Peek() 
@@ -45,6 +46,7 @@ namespace DataStructures
 
         /// <summary>
         /// Returns and removes the Top Node object from the Stack object, decrements stack count
+        /// throws null reference exception if the object is empty.
         /// </summary>
         /// <returns></returns>
         public T Pop()
@@ -61,12 +63,8 @@ namespace DataStructures
             {
                 throw new NullReferenceException($"{e}");
             }                
-            
         }
 
-
     }
-
-
 
 }
