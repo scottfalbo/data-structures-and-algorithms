@@ -6,7 +6,7 @@ namespace DataStructuresTests
 {
     public class LinkedListTests
     {
-        /*
+        
         /// <summary>
         /// Test to unsure our LinkedList class is returning a Head
         /// </summary>
@@ -14,7 +14,7 @@ namespace DataStructuresTests
         public void Linked_List_Created_With_A_Value_Has_A_Head()
         {
             int value = 2;
-            LinkedList testList = new LinkedList(value);
+            LinkedList<int> testList = new LinkedList<int>(value);
             Assert.Equal(value, testList.Head.Value);
         }
 
@@ -24,7 +24,7 @@ namespace DataStructuresTests
         [Fact]
         public void After_Insert_New_Node_Is_the_Head()
         {
-            LinkedList testList = new LinkedList(9);
+            LinkedList<int> testList = new LinkedList<int>(9);
             testList.Insert(9);
             Assert.Equal(9, testList.Head.Value);
         }
@@ -35,8 +35,8 @@ namespace DataStructuresTests
         [Fact]
         public void After_insert_The_New_Head_Next_Is_Old_Head()
         {
-            LinkedList testList = new LinkedList(3);
-            Node oldHead = testList.Head;
+            LinkedList<int> testList = new LinkedList<int>(3);
+            Node<int> oldHead = testList.Head;
             testList.Insert(9);
             Assert.Equal(oldHead, testList.Head.Next);
         }
@@ -47,7 +47,7 @@ namespace DataStructuresTests
         [Fact]
         public void Can_Successfully_Instantiate_An_Empty_Linked_List()
         {
-            LinkedList testList = new LinkedList();
+            LinkedList<int> testList = new LinkedList<int>();
             Assert.Null(testList.Head);
         }
 
@@ -57,7 +57,7 @@ namespace DataStructuresTests
         [Fact]
         public void Check_For_Value_In_Linked_List_True()
         {
-            LinkedList testList = new LinkedList();
+            LinkedList<int> testList = new LinkedList<int>();
             testList.Insert(9);
             bool result = testList.Includes(9);
             Assert.True(result);
@@ -69,7 +69,7 @@ namespace DataStructuresTests
         [Fact]
         public void Check_For_Value_In_Linked_List_False()
         {
-            LinkedList testList = new LinkedList();
+            LinkedList<int> testList = new LinkedList<int>();
             testList.Insert(3);
             bool result = testList.Includes(6);
             Assert.False(result);
@@ -83,13 +83,13 @@ namespace DataStructuresTests
         public void Properly_Insert_Multiple_Nodes_Into_A_Linked_List()
         {
             // create and linked list and insert 4 nodes
-            LinkedList testList = new LinkedList();
+            LinkedList<int> testList = new LinkedList<int>();
             testList.Insert(1);
             testList.Insert(2);
             testList.Insert(3);
             testList.Insert(4);
 
-            Node current = testList.Head;
+            Node<int> current = testList.Head;
             int lengthTracker = 0;
 
             //iterare over linked list and track length
@@ -103,7 +103,7 @@ namespace DataStructuresTests
         }
 
         // Helper method to populate a generic linked list for the following tests
-        public LinkedList<> PopulateList(LinkedList list)
+        public LinkedList<int> PopulateList(LinkedList<int> list)
         {
             for (int i = 0; i < 40; i++)
                 list.Append(i);
@@ -113,7 +113,7 @@ namespace DataStructuresTests
         [Fact]
         public void Properly_Return_A_Colletion_Of_All_Values()
         {
-            LinkedList testList = new LinkedList();
+            LinkedList<int> testList = new LinkedList<int>();
             testList.Append(4);
             testList.Append(3);
             testList.Append(2);
@@ -131,10 +131,10 @@ namespace DataStructuresTests
         [Fact]
         public void Append_Node_To_End_Of_The_List()
         {
-            LinkedList testList = PopulateList(new LinkedList());
+            LinkedList<int> testList = PopulateList(new LinkedList<int>());
 
             testList.Append(5);
-            Node current = testList.Head;
+            Node<int> current = testList.Head;
             int result = 0;
 
             while(current != null)
@@ -161,8 +161,8 @@ namespace DataStructuresTests
         public void Append_Multiple_Values_To_The_End_Of_A_List(int numberOfNodesToAdd)
         {
             // instantiate a new list 4 nodes long
-            LinkedList testList = PopulateList(new LinkedList());
-            Node current = testList.Head;
+            LinkedList<int> testList = PopulateList(new LinkedList<int>());
+            Node<int> current = testList.Head;
 
             // append numberOfNodesToAdd amount of nodes to the list
             for (int i = 0; i < numberOfNodesToAdd; i++)
@@ -190,17 +190,17 @@ namespace DataStructuresTests
         [InlineData(27, 3)]
         public void Insert_A_Node_Before_The_First_Node(int target, int insert)
         {
-            LinkedList testList = new LinkedList(target);
+            LinkedList<int> testList = new LinkedList<int>(target);
             testList.InsertBefore(target, insert);
 
-            Node result = testList.Head;
+            Node<int> result = testList.Head;
             Assert.Equal(insert, result.Value);
         }
 
         // Helper method to find the middle value of a linked list
-        public int FindTheMiddle(LinkedList list)
+        public int FindTheMiddle(LinkedList<int> list)
         {
-            Node current = list.Head;
+            Node<int> current = list.Head;
 
             // Iterate the length of the list and half the counter
             int lengthCounter = 0;
@@ -230,8 +230,8 @@ namespace DataStructuresTests
         public void Can_Insert_Node_Before_Middle_Node_Of_List()
         {
             // populate a linked list with the above helper method
-            LinkedList testList = PopulateList(new LinkedList());
-            Node current = testList.Head;
+            LinkedList<int> testList = PopulateList(new LinkedList<int>());
+            Node<int> current = testList.Head;
 
             // use the above helper method to find the middle value of the list
             int targetValue = (FindTheMiddle(testList)) + 1;
@@ -258,8 +258,8 @@ namespace DataStructuresTests
         [Fact]
         public void Can_Insert_Node_After_Last_Node_Of_Linked_List()
         {
-            LinkedList testList = PopulateList(new LinkedList());
-            Node current = testList.Head;
+            LinkedList<int> testList = PopulateList(new LinkedList<int>());
+            Node<int> current = testList.Head;
 
             testList.InsertAfter(39, 5);
             int lastValue = 0;
@@ -281,8 +281,7 @@ namespace DataStructuresTests
         public void Can_Insert_Node_After_Middle_Node_Of_List()
         {
             // populate a linked list with the above helper method
-            LinkedList testList = PopulateList(new LinkedList());
-            Node current = testList.Head;
+            LinkedList<int> testList = PopulateList(new LinkedList<int>());
 
             // use the above helper method to find the middle of the array and,
             // add 1 to offset the floor and get behind the center node
@@ -299,7 +298,7 @@ namespace DataStructuresTests
         [Fact]
         public void K_Is_Greater_Than_Length_Of_List()
         {
-            LinkedList testList = PopulateList(new LinkedList());
+            LinkedList<int> testList = PopulateList(new LinkedList<int>());
             int result = testList.KthFromEnd(45);
             Assert.Equal(-1, result);
         }
@@ -310,7 +309,7 @@ namespace DataStructuresTests
         [Fact]
         public void K_Is_Equal_To_The_Length_Of_List()
         {
-            LinkedList testList = PopulateList(new LinkedList());
+            LinkedList<int> testList = PopulateList(new LinkedList<int>());
             int result = testList.KthFromEnd(40);
             Assert.Equal(-1, result);
         }
@@ -321,7 +320,7 @@ namespace DataStructuresTests
         [Fact]
         public void K_Is_Not_A_Positive_Integer()
         {
-            LinkedList testList = PopulateList(new LinkedList());
+            LinkedList<int> testList = PopulateList(new LinkedList<int>());
             int result = testList.KthFromEnd(-6);
             Assert.Equal(-1, result);
         }
@@ -332,7 +331,7 @@ namespace DataStructuresTests
         [Fact]
         public void List_Is_Only_One_Node_In_Length()
         {
-            LinkedList testList = new LinkedList(1);
+            LinkedList<int> testList = new LinkedList<int>(1);
             int result = testList.KthFromEnd(0);
             Assert.Equal(-1, result);
         }
@@ -350,11 +349,11 @@ namespace DataStructuresTests
         [InlineData(0, 39)]
         public void Happy_Path_Finds_The_Right_Value_All_Is_Well(int expected, int k)
         {
-            LinkedList testList = PopulateList(new LinkedList());
+            LinkedList<int> testList = PopulateList(new LinkedList<int>());
             int result = testList.KthFromEnd(k);
             Assert.Equal(expected, result);
         }
-        */
+        
     }
 }
 

@@ -38,8 +38,10 @@ namespace DataStructures
         /// <param name="value"></param>
         public void Push(T value)
         {
-            Node<T> node = new Node<T>(value);
-            node.Next = Top;
+            Node<T> node = new Node<T>(value)
+            {
+                Next = Top
+            };
             Top = node;
             counter++;
         }

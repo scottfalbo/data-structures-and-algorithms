@@ -2,11 +2,17 @@
 
 namespace DataStructures
 {
+    /// <summary>
+    /// Playground class seeing output
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
         {
-            StackStuff();
+            Console.WriteLine("start app");
+            //LinkedListStuff();
+            //StackStuff();
+            Console.WriteLine("end app");
         }
 
         static void StackStuff()
@@ -36,15 +42,12 @@ namespace DataStructures
             myList.Append(5);
             myList.Append(6);
             myList.Append(10);
-
-            Console.WriteLine("start app");
+ 
             //myList.InsertAfter(10, 7);
-
 
             //Console.WriteLine(myList.ToString());
             //Console.WriteLine("\n");
             //myList.ToStringRecurive(myList.Head);
-            Console.WriteLine("end app");
         }
     }
 }

@@ -37,8 +37,10 @@ namespace DataStructures
         /// <param name="value"></param>
         public void Insert(T value)
         {
-            Node<T> node = new Node<T>(value);
-            node.Next = Head;
+            Node<T> node = new Node<T>(value)
+            {
+                Next = Head
+            };
             Head = node;
         }
 
@@ -197,8 +199,8 @@ namespace DataStructures
             }
         }
 
-        /*
-        public int KthFromEnd(T k)
+        
+        public int KthFromEnd(int k)
         {
             Node<T> current = Head;
             int counter = 0;
@@ -226,7 +228,7 @@ namespace DataStructures
                     Console.WriteLine("It would appear the input is out of range, womp womp.");
                     throw new ArgumentOutOfRangeException();
                 }
-                return current.Value;
+                return Convert.ToInt32(current.Value);
             }
             catch (ArgumentOutOfRangeException e)
             {
@@ -234,6 +236,6 @@ namespace DataStructures
             }
             return -1;
         }
-        */
+        
     }
 }
