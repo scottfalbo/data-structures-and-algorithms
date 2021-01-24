@@ -12,7 +12,7 @@ namespace DataStructures
         static void StackStuff()
         {
 
-            Stacks<string> cats = new Stacks<string>();
+            Stack<string> cats = new Stack<string>();
             cats.Push("Spaceghost");
             cats.Push("Harry");
             cats.Push("Lucipurr");
@@ -21,8 +21,8 @@ namespace DataStructures
             //iterate the stack
             while (!cats.IsEmpty())
             {
-                Node<string> cat = cats.Pop();
-                Console.WriteLine(cat.Value);
+                string cat = cats.Pop();
+                Console.WriteLine(cat);
             }
                 
         }
