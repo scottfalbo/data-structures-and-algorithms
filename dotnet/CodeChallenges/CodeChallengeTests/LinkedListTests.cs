@@ -28,16 +28,48 @@ namespace CodeChallengeTests
             listA.Append(5);
 
             LinkedList<int> listB = new LinkedList<int>();
-            listA.Append(2);
-            listA.Append(4);
-            listA.Append(6);
 
-            Node<int> testReference = LLZip.ZipList(listA, listB);
-            LinkedList<int> testList = new LinkedList<int>(testReference);
+            listB.Append(2);
+            listB.Append(4);
+            listB.Append(6);
+
+            Node<int> testListHead = LLZip.ZipList(listA, listB);
+            LinkedList<int> testList = new LinkedList<int>(testListHead);
+
 
             string result = testList.ToString();
 
             string expected = "[1] => [2] => [3] => [4] => [5] => [6] => Null";
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Zip_List_Can_Combine_Uneven_length_Lists_When_ListA_Is_Longer()
+        {
+            LinkedList<int> listA = MakeList(6, 0);
+            LinkedList<int> listB = MakeList(3, 1);
+
+            Node<int> testListHead = LLZip.ZipList(listA, listB);
+            LinkedList<int> testList = new LinkedList<int>(testListHead);
+
+            string result = testList.ToString();
+
+            string expected = "[0] => [1] => [0] => [1] => [0] => [1] => [0] => [0] => [0] => Null";
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Zip_List_Can_Combine_Uneven_length_Lists_When_ListB_Is_Longer()
+        {
+            LinkedList<int> listA = MakeList(3, 0);
+            LinkedList<int> listB = MakeList(6, 1);
+
+            Node<int> testListHead = LLZip.ZipList(listA, listB);
+            LinkedList<int> testList = new LinkedList<int>(testListHead);
+
+            string result = testList.ToString();
+
+            string expected = "[0] => [1] => [0] => [1] => [0] => [1] => [1] => [1] => [1] => Null";
             Assert.Equal(expected, result);
         }
 
@@ -51,6 +83,23 @@ namespace CodeChallengeTests
 
             Assert.Null(testReference);
         }
-        
+
+
+        /// <summary>
+        /// Helper method that makes a list n things long and puts in a given value.
+        /// </summary>
+        /// <param name="len"> int: length of list </param>
+        /// <param name="input"> int: input value </param>
+        /// <returns></returns>
+        public LinkedList<int> MakeList(int len, int input)
+        {
+            LinkedList<int> newList = new LinkedList<int>();
+
+            for (int i = 0; i < len; i++)
+                newList.Append(input);
+
+            return newList;
+        }
+
     }
 }

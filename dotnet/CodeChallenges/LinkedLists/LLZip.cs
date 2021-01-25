@@ -8,33 +8,34 @@ namespace LinkedLists
     {
         public static Node<int> ZipList(LinkedList<int> listA, LinkedList<int> listB)
         {
-            //if (listA.ListLength() == 0 || listB.ListLength() == 0)
-            //  return null;
+            // Variables to track the current nodes while we iterate
+            Node<int> currentA = listA.Head;
+            Node<int> currentB = listB.Head;
 
-            LinkedList<int> newList = new LinkedList<int>(listA.Head);
-            Node<int> nodeA = listA.Head.Next;
-            Node<int> nodeB = listB.Head;
-            Node<int> nodeC = newList.Head;
-            while (nodeA != null && nodeB != null)
+            // Two discard variables to temporarly hold nodes
+            _ = new Node<int>();
+            _ = new Node<int>();
+
+            // Iterates as long as one of the lists has items in it.
+            while (currentA != null && currentB != null)
             {
-                if (nodeA == null && nodeB != null)
-                {
-                    nodeC.Next = nodeB;
+                // Member nodeA Next, and the set it's Next to nodeB
+                Node<int> memberberryA = currentA.Next;
+                currentA.Next = currentB;
+
+                // If listA runs out first we have to break to avoid a null reference exception
+                if (memberberryA == null)
                     break;
-                }
-                if (nodeB == null && nodeA != null)
-                {
-                    nodeC.Next = nodeA;
-                    break;
-                }
-                nodeC.Next = nodeB;
-                nodeB = nodeB.Next;
-                nodeC = nodeC.Next;
-                nodeC.Next = nodeA;
-                nodeA = nodeA.Next;
-                nodeC = nodeC.Next;
+
+                // Member nodeB Next, and set it's Next to memberA (nodeA original Next)
+                Node<int> memberberryB = currentB.Next;
+                currentB.Next = memberberryA;
+
+                currentA = memberberryA;
+                currentB = memberberryB;
             }
-            return newList.Head;
+
+            return listA.Head;
         }
     }
 }

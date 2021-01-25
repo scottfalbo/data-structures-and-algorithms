@@ -7,7 +7,20 @@ namespace LinkedLists
     {
         static void Main(string[] args)
         {
+            LinkedList<int> listA = new LinkedList<int>();
+            listA.Append(1);
+            listA.Append(3);
+            listA.Append(5);
 
+            LinkedList<int> listB = new LinkedList<int>();
+            listA.Append(2);
+            listA.Append(4);
+            listA.Append(6);
+            Node<int> testReference = LLZip.ZipList(listA, listB);
+            LinkedList<int> testList = new LinkedList<int>(testReference);
+
+            string result = testList.ToString();
+            Console.WriteLine(testList);
         }
 
         /// <summary>
