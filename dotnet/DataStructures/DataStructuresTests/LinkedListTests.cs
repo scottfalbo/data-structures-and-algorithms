@@ -102,14 +102,6 @@ namespace DataStructuresTests
             Assert.Equal(4, lengthTracker);
         }
 
-        // Helper method to populate a generic linked list for the following tests
-        public LinkedList<int> PopulateList(LinkedList<int> list)
-        {
-            for (int i = 0; i < 40; i++)
-                list.Append(i);
-            return list;
-        }
-
         [Fact]
         public void Properly_Return_A_Colletion_Of_All_Values()
         {
@@ -197,31 +189,6 @@ namespace DataStructuresTests
             Assert.Equal(insert, result.Value);
         }
 
-        // Helper method to find the middle value of a linked list
-        public int FindTheMiddle(LinkedList<int> list)
-        {
-            Node<int> current = list.Head;
-
-            // Iterate the length of the list and half the counter
-            int lengthCounter = 0;
-            while (current != null)
-            {
-                lengthCounter++;
-                current = current.Next;
-            }
-
-            // iterate the the middle and get the value of the node 
-            int counter = 0;
-            current = list.Head;
-            while (counter < (lengthCounter/2) +1)
-            {
-                counter++;
-                current = current.Next;
-            }
-            // return the value of the middle node 
-            return current.Value;
-        }
-
         /// <summary>
         /// Finds the middle of a linked list and inserts a new value before the middle node.
         /// Then iterates to the middle again and checks the against the value inserted
@@ -229,27 +196,25 @@ namespace DataStructuresTests
         [Fact]
         public void Can_Insert_Node_Before_Middle_Node_Of_List()
         {
-            // populate a linked list with the above helper method
             LinkedList<int> testList = PopulateList(new LinkedList<int>());
             Node<int> current = testList.Head;
 
-            // use the above helper method to find the middle value of the list
-            int targetValue = (FindTheMiddle(testList)) + 1;
+            int targetValue = FindTheMiddle(testList);
 
-            // call insert method, reset current node and counter,
-            // and iterate to the middle again to check the new value
             testList.InsertBefore(targetValue, 66);
-            int counter = 0;
-            int middleValue = 0;
+            int result = 0;
+
             while (current != null) 
             {
-                counter++;
-                if (current.Value == 66) break;
+                if (current.Next.Value == targetValue)
+                {
+                    result = current.Value;
+                    break;
+                }
                 current = current.Next;
             }
-            if (current.Value == 66) middleValue = current.Value;
 
-            Assert.Equal(66, middleValue);
+            Assert.Equal(66, result);
         }
 
         /// <summary>
@@ -280,16 +245,25 @@ namespace DataStructuresTests
         [Fact]
         public void Can_Insert_Node_After_Middle_Node_Of_List()
         {
-            // populate a linked list with the above helper method
             LinkedList<int> testList = PopulateList(new LinkedList<int>());
+            Node<int> current = testList.Head;
 
-            // use the above helper method to find the middle of the array and,
-            // add 1 to offset the floor and get behind the center node
-            int targetValue = (FindTheMiddle(testList)) + 1;
+            int targetValue = FindTheMiddle(testList);
 
             testList.InsertAfter(targetValue, 66);
+            int result = 0;
 
+            while (current != null)
+            {
+                if (current.Value == targetValue)
+                {
+                    result = current.Next.Value;
+                    break;
+                }
+                current = current.Next;
+            }
 
+            Assert.Equal(66, result);
         }
 
         /// <summary>
@@ -353,7 +327,39 @@ namespace DataStructuresTests
             int result = testList.KthFromEnd(k);
             Assert.Equal(expected, result);
         }
-        
+
+        // Helper method to populate a generic linked list for the following tests
+        public LinkedList<int> PopulateList(LinkedList<int> list)
+        {
+            for (int i = 0; i < 40; i++)
+                list.Append(i);
+            return list;
+        }
+
+        // Helper method to find the middle value of a linked list
+        public int FindTheMiddle(LinkedList<int> list)
+        {
+            Node<int> current = list.Head;
+
+            // Iterate the length of the list and half the counter
+            int lengthCounter = 0;
+            while (current != null)
+            {
+                lengthCounter++;
+                current = current.Next;
+            }
+
+            // iterate the the middle and get the value of the node 
+            int counter = 0;
+            current = list.Head;
+            while (counter < (lengthCounter / 2) + 1)
+            {
+                counter++;
+                current = current.Next;
+            }
+            // return the value of the middle node 
+            return current.Value;
+        }
     }
 }
 
