@@ -8,6 +8,7 @@ namespace CodeChallengeTests
 {
     public class LinkedListTests
     {
+      
       /// <summary>
       /// Activity test, return true or false that it did something
       /// </summary>
@@ -27,12 +28,14 @@ namespace CodeChallengeTests
             listA.Append(5);
 
             LinkedList<int> listB = new LinkedList<int>();
+
             listB.Append(2);
             listB.Append(4);
             listB.Append(6);
 
             Node<int> testListHead = LLZip.ZipList(listA, listB);
             LinkedList<int> testList = new LinkedList<int>(testListHead);
+
 
             string result = testList.ToString();
 
@@ -81,6 +84,7 @@ namespace CodeChallengeTests
             Assert.Null(testReference);
         }
 
+
         /// <summary>
         /// Helper method that makes a list n things long and puts in a given value.
         /// </summary>
@@ -96,6 +100,6 @@ namespace CodeChallengeTests
 
             return newList;
         }
-        
+
     }
 }

@@ -31,7 +31,7 @@ namespace LinkedLists
             LinkedList<int> myList = new LinkedList<int>(3);
             myList.Insert(6);
             Console.WriteLine(myList.Head.Value);
-            return myList.Head != null ? true : false;
+            return myList.Head != null;
         }
     }
 }
