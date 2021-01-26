@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructuresTests", "Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeChallengeTests", "CodeChallenges\CodeChallengeTests\CodeChallengeTests.csproj", "{7D75F3B3-A063-4408-AF12-96014BAB787B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedLists", "CodeChallenges\LinkedLists\LinkedLists.csproj", "{E40CB1B7-2777-4AEE-9AE1-16026B98CFA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Challenges", "CodeChallenges\LinkedLists\Challenges.csproj", "{E40CB1B7-2777-4AEE-9AE1-16026B98CFA0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStrcutures", "DataStrcutures", "{91256C3F-E6F5-4522-9EAB-A874D60107C5}"
 EndProject

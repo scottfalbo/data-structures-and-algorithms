@@ -20,6 +20,7 @@
 + [Insert Shift Array](#insert-shift-array)
 + [Binary Search](#binary-search)
 + [Zip List](#zip-list)
++ [Queue with Stacks](#queue-with-stacks)
 
 <hr>
 
@@ -196,8 +197,20 @@ Create a new `LinkedList`.  Iterate through the 2 provided lists at the same tim
   + O(N) / O(1)
 
 ## [whiteboard](./whiteboards/ziplist.md)<br>
-### [code]()
+<!-- ### [code]() -->
 
 <hr>
+
+## **Queue with Stacks**
+Create Queue behavior with two stacks.
+
+### Challenge Description
+Make a class called PseudoQueue, which using two Stack objects to mimic the behavior of a Queue object.  Include two methods, one to enqueue, and one to dequeue.
+
+### Approach & Efficiency
+Used two stacks to slinky the nodes back and forth.  `Pop()` all of nodes in stack1 into stack2.  `Peek()` or `Pop()` the `Top` of stack2.  Then `Pop()` all of the nodes back into stack1.  If it's enqueue push the new value.
+
+## [whiteboard](./whiteboards/queue-with-stacks.md)<br>
+<!-- ### [code]() -->
 
 [return to top of page](#data-structures-and-algorithms)
