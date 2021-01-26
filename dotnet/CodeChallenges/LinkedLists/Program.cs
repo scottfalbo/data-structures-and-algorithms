@@ -1,7 +1,7 @@
 ﻿using System;
 using DataStructures;
 
-namespace LinkedLists
+namespace Challenges
 {
     public class Program
     {
