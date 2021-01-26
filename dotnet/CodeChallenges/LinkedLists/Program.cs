@@ -1,12 +1,13 @@
 ﻿using System;
 using DataStructures;
 
-namespace LinkedLists
+namespace Challenges
 {
     public class Program
     {
         static void Main(string[] args)
         {
+            /*
             LinkedList<int> listA = new LinkedList<int>();
             listA.Append(1);
             listA.Append(3);
@@ -16,11 +17,12 @@ namespace LinkedLists
             listA.Append(2);
             listA.Append(4);
             listA.Append(6);
-            Node<int> testReference = LLZip.ZipList(listA, listB);
-            LinkedList<int> testList = new LinkedList<int>(testReference);
+            */
+            //Node<int> testReference = LLZip.ZipList(listA, listB);
+            //LinkedList<int> testList = new LinkedList<int>(testReference);
 
-            string result = testList.ToString();
-            Console.WriteLine(testList);
+            //string result = testList.ToString();
+            //Console.WriteLine(testList);
         }
 
         /// <summary>

@@ -1,7 +1,7 @@
 using System;
 using Xunit;
-using static LinkedLists.Program;
-using LinkedLists;
+using static Challenges.Program;
+using Challenges;
 using DataStructures;
 
 namespace CodeChallengeTests

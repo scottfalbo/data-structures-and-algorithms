@@ -2,7 +2,7 @@
 using System.Text;
 using DataStructures;
 
-namespace LinkedLists
+namespace Challenges
 {
     public class LLZip
     {
