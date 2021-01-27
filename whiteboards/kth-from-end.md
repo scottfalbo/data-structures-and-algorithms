@@ -1,4 +1,4 @@
-# Reverse Array Whiteboard
+# Kth From The End Whiteboard
 [Back to README](./../README.md#kthfromend)
 
 <br>

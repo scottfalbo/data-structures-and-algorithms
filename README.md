@@ -21,6 +21,7 @@
 + [Binary Search](#binary-search)
 + [Zip List](#zip-list)
 + [Queue with Stacks](#queue-with-stacks)
++ [FIFO Animal Shelter](#fifo-animal-shelter)
 
 <hr>
 
@@ -197,7 +198,7 @@ Create a new `LinkedList`.  Iterate through the 2 provided lists at the same tim
   + O(N) / O(1)
 
 ## [whiteboard](./whiteboards/ziplist.md)<br>
-<!-- ### [code]() -->
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/queue-with-stacks/dotnet/CodeChallenges/LinkedLists/LLZip.cs)
 
 <hr>
 
@@ -211,6 +212,26 @@ Make a class called PseudoQueue, which using two Stack objects to mimic the beha
 Used two stacks to slinky the nodes back and forth.  `Pop()` all of nodes in stack1 into stack2.  `Peek()` or `Pop()` the `Top` of stack2.  Then `Pop()` all of the nodes back into stack1.  If it's enqueue push the new value.
 
 ## [whiteboard](./whiteboards/queue-with-stacks.md)<br>
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/queue-with-stacks/dotnet/CodeChallenges/LinkedLists/QueueWithStacks.cs)
+
+<hr>
+
+## **FIFO Animal Shelter**
+First in, first out principle Animal Shelter
+
+### Challenge Description
+Create a class called AnimalShelter which holds only dogs and cats. The shelter operates using a first-in, first-out approach.  Implement two methods, one to enqueue an animal object, and one to dequeue the first cat or dog based on input.
+
+### Approach & Efficiency
+Enqueue was the same logic as the regular `Queue.Enqueue` with logic to validate the input object.
+
+Dequeue utilizes a second queue that we can move objects into one by one, checking for cats or dogs.  When we find the first instance of either it is stored in a variable and not put into temp queue.  Set a bool to stop searching and continue moving the queue. Then move all of the objects back to the first queue and return the saved object.
++ O(N) / O(1)
+
+## [whiteboard](./whiteboards/fifo-animals.md)<br>
 <!-- ### [code]() -->
+<hr>
+
+
 
 [return to top of page](#data-structures-and-algorithms)
