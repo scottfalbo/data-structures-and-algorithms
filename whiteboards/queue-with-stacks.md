@@ -1,4 +1,4 @@
-# `Append()` Whiteboard
+# `QueueWithStacks()` Whiteboard
 [Back to README](./../README.md#queue-with-stacks)
 
 <br>
