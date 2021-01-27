@@ -6,7 +6,7 @@ namespace Challenges
 {
     public class FifoAnimalShelter
     {
-        public static Queue<Animal> AnimalList { get; set; }
+        public Queue<Animal> AnimalList { get; set; }
 
         public FifoAnimalShelter()
         {
@@ -17,10 +17,8 @@ namespace Challenges
         /// Then puts the object in the shelter using Queue.Enqueue
         /// </summary>
         /// <param name="animal"> Animal object (Cat or Dog) </param>
-        public static void Enqueue(Animal animal)
+        public void Enqueue(Animal animal)
         {
-            Queue<Animal> AnimalList = new Queue<Animal>();
-
             if (animal is Cat || animal is Dog)
                 AnimalList.Enqueue(animal);
             else throw new ArgumentException("This shelter only takes cats and dogs.");     
@@ -31,16 +29,16 @@ namespace Challenges
         /// </summary>
         /// <param name="pref"> string, "cat" or "dog" </param>
         /// <returns></returns>
-        public static Animal Dequeue(string pref)
+        public Animal Dequeue(string pref)
         {
             Queue<Animal> HolderList = new Queue<Animal>();
-
             bool foundOne = false;
+
             pref = pref.ToLower();
             if (pref != "cat" || pref != "dog")
                 return null;
 
-            Animal adoptMe = new Cat();
+            Animal adoptMe = new Animal();
             while (!AnimalList.IsEmpty())
             {
                 Animal holder = AnimalList.Dequeue();
@@ -49,12 +47,13 @@ namespace Challenges
                     adoptMe = holder;
                     foundOne = true;
                 }
-                HolderList.Enqueue(holder);
+                else
+                    HolderList.Enqueue(holder);
             }
             while (!HolderList.IsEmpty())
                 AnimalList.Enqueue(HolderList.Dequeue());
 
-            return foundOne ? adoptMe : throw new Exception($"We don't have any {pref}s");
+            return adoptMe;
         }
     }
 
