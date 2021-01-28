@@ -9,15 +9,6 @@ namespace CodeChallengeTests
     public class LinkedListTests
     {
       
-      /// <summary>
-      /// Activity test, return true or false that it did something
-      /// </summary>
-      [Fact]
-      public void Linked_List_Activity_Test()
-        {
-            bool itWorks = LinkListActivity();
-            Assert.True(itWorks);
-        }
 
         [Fact]
         public void Zip_List_Happy_Paths_Returning_As_Expected_Even_Length_Lists()
