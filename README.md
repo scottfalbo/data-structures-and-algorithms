@@ -22,6 +22,7 @@
 + [Zip List](#zip-list)
 + [Queue with Stacks](#queue-with-stacks)
 + [FIFO Animal Shelter](#fifo-animal-shelter)
++ [Multi Bracket Validation](#multi-bracket-validation)
 
 <hr>
 
@@ -229,8 +230,22 @@ Dequeue utilizes a second queue that we can move objects into one by one, checki
 + O(N) / O(1)
 
 ## [whiteboard](./whiteboards/fifo-animals.md)<br>
-<!-- ### [code]() -->
+<!-- ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/FifoAnimalShelter.cs) -->
+
 <hr>
+
+## **Multi Bracket Validation**
+Validates patterns in a string
+
+### Challenge Description
+Your function should take a string as its only argument, and should return a boolean representing whether or not the brackets in the string are balanced. There are 3 types of brackets.
+
+### Approach and Efficiency
+Iterate over the string one character at a time.  If it's an opening bracket, (, {, or [, it goes into a `Stack` object.  If it's a closing bracket the method uses a switch conditional to check the current character against the `Top` `Stack` object.  If it's not a match we return false.  If it is a match `Pop()` the `Top` object and keep going.  Throws exceptions for empty string and no brackets.
+  + O(N) / O(1)
+
+## [whiteboard](./whiteboards/multi-bracket.md)<br>
+<!-- ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/MultiBracketValidation.cs) -->
 
 
 
