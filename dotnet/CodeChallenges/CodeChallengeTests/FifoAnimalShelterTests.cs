@@ -44,7 +44,7 @@ namespace CodeChallengeTests
             Paws.Enqueue(Lucipurr);
             Paws.Enqueue(Ethel);
             Paws.Enqueue(Apple);
-            Animal result = Paws.Dequeue("dog");
+            Dog result = (Dog)Paws.Dequeue("dog");
             Assert.Equal("Pickles", result.Name);
         }
 
