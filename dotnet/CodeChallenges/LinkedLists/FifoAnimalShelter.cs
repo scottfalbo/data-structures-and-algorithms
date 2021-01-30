@@ -53,6 +53,7 @@ namespace Challenges
             while (!HolderList.IsEmpty())
                 AnimalList.Enqueue(HolderList.Dequeue());
 
+            if (!foundOne) throw new Exception($"We have no {pref}s");
             return adoptMe;
         }
     }
