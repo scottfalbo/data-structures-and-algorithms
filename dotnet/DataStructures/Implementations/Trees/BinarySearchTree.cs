@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataStructures.Trees
 {
-    class BinarySearchTree<T>
+    public class BinarySearchTree<T>
     {
         public int counter = 0;
         public Node<T> Root { get; set; } = null;

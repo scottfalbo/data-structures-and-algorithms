@@ -52,6 +52,7 @@ namespace DataStructures
             counter++;
         }
 
+
         /// <summary>
         /// Returns the Value of the First object in the Queue object and then removes it
         /// </summary>
@@ -61,7 +62,8 @@ namespace DataStructures
             try
             {
                 Node<T> holder = Front;
-                Front = Front.Next;
+                if (Front.Next != null)
+                    Front = Front.Next;
                 holder.Next = null;
                 counter--;
                 return holder.Value;

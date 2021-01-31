@@ -8,6 +8,8 @@ namespace DataStructures
     { 
         public Node<T> Head { get; set; }
 
+        public int counter = 0;
+
         /// <summary>
         /// Plain, Empty Linked List
         /// Head will be null
@@ -37,6 +39,7 @@ namespace DataStructures
         /// <param name="value"></param>
         public void Insert(T value)
         {
+            counter++;
             Node<T> node = new Node<T>(value)
             {
                 Next = Head
@@ -117,6 +120,7 @@ namespace DataStructures
         /// <param name="value"></param>
         public void Append(T value)
         {
+            counter++;
             Node<T> newNode = new Node<T>(value);
             Node<T> current = Head;
 
