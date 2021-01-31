@@ -13,6 +13,8 @@
 
 + ## [Queues](#queues)
 
++ ## [Binary Trees](#binary-trees)
+
 
 
 ### Challenges
@@ -140,6 +142,25 @@ A data structure that follows a *"first in, first out"* rule for adding and remo
   + `var value = newQueue.Dequeue()` => The value of the `Front` `Node` object in the `Queue` object.
     + `throw` NullReferenceException if the `Queue` object is empty
   + O(1) / O(1)
+
+<hr>
+
+# **Binary Trees**
+A Data Structure in which a `Root` node is linked to two children nodes, `Left`, and `Right`.  In a binary tree each node only has two children. This makes for efficient transversal as most time will be O(logN).
+
+## `BinaryTree()`
++ ### `PreOrder()`
+  + root - > left -> right
++ ### `InOrder()`
+  + left -> root -> right
++ ### `PostOrder()`
+  + left -> right -> root
+## `BinarySearchTree`
+*A sorted Binary Tree where values < Root goto the left, and values > root goto the right.*
++ ### `Add()`
+  + Add a new `Node` object to the appropriate spot in the binary tree object.
++ ### `Contains()`
+  + Transverse the `BinarySearchTree` object to see if a value exists within.
 
 <hr>
 

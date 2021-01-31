@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStructures.Trees;
+using System;
 
 namespace DataStructures
 {
@@ -13,6 +14,7 @@ namespace DataStructures
             //LinkedListStuff();
             //StackStuff();
             Console.WriteLine("end app");
+            TreeTest();
         }
 
         static void StackStuff()
@@ -48,6 +50,29 @@ namespace DataStructures
             //Console.WriteLine(myList.ToString());
             //Console.WriteLine("\n");
             //myList.ToStringRecurive(myList.Head);
+        }
+        static void TreeTest()
+        {
+            Console.WriteLine("tree");
+            BinaryTree<char> newTree = new BinaryTree<char>();
+
+            Trees.Node<char> nodeA = new Trees.Node<char>('A');
+            Trees.Node<char> nodeB = new Trees.Node<char>('B');
+            Trees.Node<char> nodeC = new Trees.Node<char>('C');
+            Trees.Node<char> nodeD = new Trees.Node<char>('D');
+            Trees.Node<char> nodeE = new Trees.Node<char>('E');
+            Trees.Node<char> nodeF = new Trees.Node<char>('F');
+
+            nodeA.Left = nodeB;
+            nodeA.Right = nodeC;
+            nodeB.Left = nodeD;
+            nodeB.Right = nodeE;
+            nodeC.Left = nodeF;
+
+            newTree.Root = nodeA;
+
+            newTree.PreOrder(newTree.Root);
+
         }
     }
 }
