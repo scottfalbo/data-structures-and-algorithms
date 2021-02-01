@@ -45,6 +45,21 @@ namespace DataStructuresTests
             Assert.Equal(expected, testValues);
         }
 
+        [Fact]
+        public void Can_Check_If_Binary_tree_Contains_A_Value_True()
+        {
+            BinarySearchTree<int> testTree = PopulateBinarySearchTree();
+            bool result = testTree.Contains(17);
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void Can_Check_If_Binary_tree_Contains_A_Value_False()
+        {
+            BinarySearchTree<int> testTree = PopulateBinarySearchTree();
+            bool result = testTree.Contains(99);
+            Assert.False(result);
+        }
         /// <summary>
         /// Helper method to create and populate a Binary Search Tree
         /// input <-- 9, 4, 17, 3, 6, 22, 5, 7, 20
