@@ -60,6 +60,26 @@ namespace DataStructuresTests
             bool result = testTree.Contains(99);
             Assert.False(result);
         }
+
+        [Fact]
+        public void Exception_For_Empty_Tree_Object_PreOrder()
+        {
+            BinaryTree<int> testTree = new BinaryTree<int>();
+            Assert.Throws<NullReferenceException>(() => testTree.PreOrder());
+        }
+        [Fact]
+        public void Exception_For_Empty_Tree_Object_InOrder()
+        {
+            BinaryTree<int> testTree = new BinaryTree<int>();
+            Assert.Throws<NullReferenceException>(() => testTree.InOrder());
+        }
+        [Fact]
+        public void Exception_For_Empty_Tree_Object_PostOrder()
+        {
+            BinaryTree<int> testTree = new BinaryTree<int>();
+            Assert.Throws<NullReferenceException>(() => testTree.PostOrder());
+        }
+
         /// <summary>
         /// Helper method to create and populate a Binary Search Tree
         /// input <-- 9, 4, 17, 3, 6, 22, 5, 7, 20

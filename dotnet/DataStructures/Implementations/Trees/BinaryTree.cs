@@ -19,7 +19,15 @@ namespace DataStructures.Trees
         {
             LinkedList<T> treeValues = new LinkedList<T>();
             Node<T> root = Root;
-            PreOrder(treeValues, root);
+            try
+            {
+                PreOrder(treeValues, root);
+            }
+            catch(ArgumentException e)
+            {
+                throw new NullReferenceException($"womp womp, {e}");
+            }
+
 
             return QueueToArray(treeValues);
         }
@@ -44,7 +52,14 @@ namespace DataStructures.Trees
         {
             LinkedList<T> treeValues = new LinkedList<T>();
             Node<T> root = Root;
-            InOrder(treeValues, root);
+            try
+            {
+                InOrder(treeValues, root);
+            }
+            catch (ArgumentException e)
+            {
+                throw new NullReferenceException($"womp womp, {e}");
+            }
 
             return QueueToArray(treeValues);
         }
@@ -68,7 +83,14 @@ namespace DataStructures.Trees
         {
             LinkedList<T> treeValues = new LinkedList<T>();
             Node<T> root = Root;
-            PostOrder(treeValues, root);
+            try
+            {
+                PostOrder(treeValues, root);
+            }
+            catch (ArgumentException e)
+            {
+                throw new NullReferenceException($"womp womp, {e}");
+            }
 
             return QueueToArray(treeValues);
         }
