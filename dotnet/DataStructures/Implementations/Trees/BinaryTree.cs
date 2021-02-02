@@ -6,10 +6,8 @@ namespace DataStructures.Trees
 {
     public class BinaryTree<T>
     {
-        public int counter = 0;
         public Node<T> Root { get; set; } = null;
 
-        
         public BinaryTree() { }
 
         /// <summary>
@@ -17,10 +15,19 @@ namespace DataStructures.Trees
         /// Usage: var myValues[] = myTree.PreOrder();
         /// </summary>
         /// <returns> Array of values in the tree object </returns>
-        public T[] PreOrder(Node<T> root)
+        public T[] PreOrder()
         {
             LinkedList<T> treeValues = new LinkedList<T>();
-            PreOrder(treeValues, root);
+            Node<T> root = Root;
+            try
+            {
+                PreOrder(treeValues, root);
+            }
+            catch(ArgumentException e)
+            {
+                throw new NullReferenceException($"womp womp, {e}");
+            }
+
 
             return QueueToArray(treeValues);
         }
@@ -41,10 +48,18 @@ namespace DataStructures.Trees
         /// Usage: var myValues[] = myTree.InOrder();
         /// </summary>
         /// <returns> Array of values in the tree object </returns>
-        public T[] InOrder(Node<T> root)
+        public T[] InOrder()
         {
             LinkedList<T> treeValues = new LinkedList<T>();
-            InOrder(treeValues, root);
+            Node<T> root = Root;
+            try
+            {
+                InOrder(treeValues, root);
+            }
+            catch (ArgumentException e)
+            {
+                throw new NullReferenceException($"womp womp, {e}");
+            }
 
             return QueueToArray(treeValues);
         }
@@ -64,10 +79,18 @@ namespace DataStructures.Trees
         /// Usage: var myValues[] = myTree.PostOrder();
         /// </summary>
         /// <returns> Array of values in the tree object </returns>
-        public T[] PostOrder(Node<T> root)
+        public T[] PostOrder()
         {
             LinkedList<T> treeValues = new LinkedList<T>();
-            PostOrder(treeValues, root);
+            Node<T> root = Root;
+            try
+            {
+                PostOrder(treeValues, root);
+            }
+            catch (ArgumentException e)
+            {
+                throw new NullReferenceException($"womp womp, {e}");
+            }
 
             return QueueToArray(treeValues);
         }

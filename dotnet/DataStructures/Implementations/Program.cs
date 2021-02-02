@@ -71,7 +71,7 @@ namespace DataStructures
 
             newTree.Root = nodeA;
 
-            newTree.PreOrder(newTree.Root);
+            newTree.PreOrder();
 
         }
     }

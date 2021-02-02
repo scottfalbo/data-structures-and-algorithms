@@ -14,7 +14,7 @@ namespace DataStructuresTests
         {
             BinaryTree<char> testTree = PopulateBinaryTree();
             char[] expected = new char[6] { 'A', 'B', 'D', 'E', 'C', 'F' };
-            char[] result = testTree.PreOrder(testTree.Root);
+            char[] result = testTree.PreOrder();
             Assert.Equal(expected, result);
         }
 
@@ -23,7 +23,7 @@ namespace DataStructuresTests
         {
             BinaryTree<char> testTree = PopulateBinaryTree();
             char[] expected = new char[6] { 'D', 'B', 'E', 'A', 'F', 'C' };
-            char[] result = testTree.InOrder(testTree.Root);
+            char[] result = testTree.InOrder();
             Assert.Equal(expected, result);
         }
 
@@ -32,10 +32,78 @@ namespace DataStructuresTests
         {
             BinaryTree<char> testTree = PopulateBinaryTree();
             char[] expected = new char[6] { 'D', 'E', 'B', 'F', 'C', 'A' };
-            char[] result = testTree.PostOrder(testTree.Root);
+            char[] result = testTree.PostOrder();
             Assert.Equal(expected, result);
         }
 
+        [Fact]
+        public void Can_Add_Node_To_Binary_Search_Tree_In_Proper_Spot()
+        {
+            BinarySearchTree<int> testTree = PopulateBinarySearchTree();
+            int[] testValues = testTree.PreOrder();
+            int[] expected = new int[] { 9, 4, 3, 6, 5, 7, 17, 22, 20 };
+            Assert.Equal(expected, testValues);
+        }
+
+        [Fact]
+        public void Can_Check_If_Binary_tree_Contains_A_Value_True()
+        {
+            BinarySearchTree<int> testTree = PopulateBinarySearchTree();
+            bool result = testTree.Contains(17);
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void Can_Check_If_Binary_tree_Contains_A_Value_False()
+        {
+            BinarySearchTree<int> testTree = PopulateBinarySearchTree();
+            bool result = testTree.Contains(99);
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void Exception_For_Empty_Tree_Object_PreOrder()
+        {
+            BinaryTree<int> testTree = new BinaryTree<int>();
+            Assert.Throws<NullReferenceException>(() => testTree.PreOrder());
+        }
+        [Fact]
+        public void Exception_For_Empty_Tree_Object_InOrder()
+        {
+            BinaryTree<int> testTree = new BinaryTree<int>();
+            Assert.Throws<NullReferenceException>(() => testTree.InOrder());
+        }
+        [Fact]
+        public void Exception_For_Empty_Tree_Object_PostOrder()
+        {
+            BinaryTree<int> testTree = new BinaryTree<int>();
+            Assert.Throws<NullReferenceException>(() => testTree.PostOrder());
+        }
+
+        /// <summary>
+        /// Helper method to create and populate a Binary Search Tree
+        /// input <-- 9, 4, 17, 3, 6, 22, 5, 7, 20
+        /// </summary>
+        /// <returns> populated Binary Search Tree Object </returns>
+        private BinarySearchTree<int> PopulateBinarySearchTree()
+        {
+            BinarySearchTree<int> newTree = new BinarySearchTree<int>();
+            newTree.Add(newTree.Root, 9);
+            newTree.Add(newTree.Root, 4);
+            newTree.Add(newTree.Root, 17);
+            newTree.Add(newTree.Root, 3);
+            newTree.Add(newTree.Root, 6);
+            newTree.Add(newTree.Root, 22);
+            newTree.Add(newTree.Root, 5);
+            newTree.Add(newTree.Root, 7);
+            newTree.Add(newTree.Root, 20);
+            return newTree;
+        }
+
+        /// <summary>
+        /// Helper function to populate a BinaryTree object
+        /// </summary>
+        /// <returns> BinaryTree object </returns>
         private BinaryTree<char> PopulateBinaryTree()
         {
             BinaryTree<char> newTree = new BinaryTree<char>();
