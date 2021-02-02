@@ -7,13 +7,13 @@
 ### Data Structures
   + *links contain each structs methods*
 
-+ ## [Linked Lists](#linked-lists)
++ **[Linked Lists](#linked-lists)**
 
-+ ## [Stacks](#stacks)
++ **[Stacks](#stacks)**
 
-+ ## [Queues](#queues)
++ **[Queues](#queues)**
 
-+ ## [Binary Trees](#binary-trees)
++ **[Binary Trees](#binary-trees)**
 
 
 
@@ -146,21 +146,54 @@ A data structure that follows a *"first in, first out"* rule for adding and remo
 <hr>
 
 # **Binary Trees**
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/tree/master/dotnet/DataStructures/Implementations/Trees)<br>
 A Data Structure in which a `Root` node is linked to two children nodes, `Left`, and `Right`.  In a binary tree each node only has two children. This makes for efficient transversal as most time will be O(logN).
 
 ## `BinaryTree()`
+### Ordered Transversals
+Recursively transverse the Binary Tree in a depth first fashion.  Each method Checks both the `Left` and `Right` props of the current node and recursively recalls itself with the `Left` and `Right` nodes as the new root.
+
+These methods return as array of the values in the `Binary Tree` or `Binary Search Tree` objects.
+
 + ### `PreOrder()`
   + root - > left -> right
+  + PreOrder - stores the data, then iterates `Left`, then `Right`, storing the new nodes data each time before iterating again.
+    + `T[] values = myTree.PreOrder();`
+    + O(N) / O(N)
+
 + ### `InOrder()`
   + left -> root -> right
+  + InOrder -  iterates `Left`, then stores the node value, then iterates to the `Right`, storing the current nodes data between left and right iterations each time.
+  + `T[] values = myTree.InOrder();`
+  + O(N) / O(N)
+
 + ### `PostOrder()`
   + left -> right -> root
+  + PostOrder - iterates `Left`, then `Right`, storing the data of the current node after both iterates have occurred and cleared from the stack.
+    + `T[] values = myTree.PreOrder();`
+    + O(N) / O(N)
+  
++ ### `FindMaxValue()`
+  + Write an instance method called `FindMaxValue`. Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+    + Iterate through the tree with a depth first method.  Compare each value against the next storing the highest each time.  Return highest value.
+    + `int largest = myTree.FindMaxValue()`
+    + O(N) / O(1)
+    + ## [whiteboard](./whiteboards/find-max-value-tree.md)
+
+
 ## `BinarySearchTree`
-*A sorted Binary Tree where values < Root goto the left, and values > root goto the right.*
+*A sorted Binary Tree where values < Root goto the left, and values > root goto the right.*  Inherits from `BinaryTree`
+
 + ### `Add()`
-  + Add a new `Node` object to the appropriate spot in the binary tree object.
+  + Add a new `Node` object to the appropriate spot in the binary search tree object following the rule that lesser values go left, and greater values go right.
+    + `myTree.Add(value)`
+    + O(H) / O(1)
+
 + ### `Contains()`
   + Transverse the `BinarySearchTree` object to see if a value exists within.
+  + Iterate over the tree object incursively comparing the search value to each value in the tree, return `true : false`.
+    + `bool hasValue = myTree.Contains()`
+    + O(N) / O(1)
 
 <hr>
 

@@ -80,6 +80,14 @@ namespace DataStructuresTests
             Assert.Throws<NullReferenceException>(() => testTree.PostOrder());
         }
 
+        [Fact]
+        public void Find_The_Max_Value_In_A_Binary_Tree_Object()
+        {
+            BinarySearchTree<int> testTree = PopulateBinarySearchTree();
+            int result = testTree.FindMaxValue(testTree.Root);
+            Assert.Equal(22, result);
+        }
+
         /// <summary>
         /// Helper method to create and populate a Binary Search Tree
         /// input <-- 9, 4, 17, 3, 6, 22, 5, 7, 20

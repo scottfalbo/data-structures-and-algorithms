@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataStructures.Trees
 {
-    public class BinaryTree<T>
+    public class BinaryTree<T> where T : IComparable
     {
         public Node<T> Root { get; set; } = null;
 
@@ -103,6 +103,31 @@ namespace DataStructures.Trees
                 PostOrder(treeValues, root.Right);
 
             treeValues.Append(root.Value);
+        }
+
+        /// <summary>
+        /// Recursively search a Binary Tree object for the largest number.
+        /// Tracks and compares each value against the last always storing the largest.
+        /// myTree.FindMaxValue(myTree.Root);
+        /// </summary>
+        /// <param name="root"> Node<int> </int>treeObject.Root </param>
+        /// <returns> int largest value </returns>
+        public int FindMaxValue(Node<int> root)
+        {
+            if (root == null)
+                return 0;
+
+            int maxValue = root.Value;
+            int leftValue = FindMaxValue(root.Left);
+            int rightValue = FindMaxValue(root.Right);
+
+            if (leftValue > maxValue)
+                maxValue = leftValue;
+
+            if (rightValue > maxValue)
+                maxValue = rightValue;
+
+            return maxValue;
         }
 
         /// <summary>
