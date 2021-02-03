@@ -180,6 +180,14 @@ These methods return as array of the values in the `Binary Tree` or `Binary Sear
     + O(N) / O(1)
     + ## [whiteboard](./whiteboards/find-max-value-tree.md)
 
++ ### `BreadthFirst()`
+  + Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
+    + `Enqueue` the `Root` node in a `Queue`.  Iteratively go through the queue object until it's null.  While Inside the loop enqueue the roots left and right nodes to iterate down all branches.  `Dequeue` after each iteration storing the values.
+    + `List<T> = myTree.BreadthFirst();`
+      + returns `List<T>` of values in the tree
+    + O(N) / O(N)
+    + ## [whiteboard](./whiteboards/breadth-first.md) 
+
 
 ## `BinarySearchTree`
 *A sorted Binary Tree where values < Root goto the left, and values > root goto the right.*  Inherits from `BinaryTree`
