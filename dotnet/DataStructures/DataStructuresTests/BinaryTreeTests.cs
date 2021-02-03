@@ -3,7 +3,7 @@ using System.Text;
 using Xunit;
 using DataStructures;
 using DataStructures.Trees;
-
+using System.Collections.Generic;
 
 namespace DataStructuresTests
 {
@@ -86,6 +86,24 @@ namespace DataStructuresTests
             BinarySearchTree<int> testTree = PopulateBinarySearchTree();
             int result = testTree.FindMaxValue(testTree.Root);
             Assert.Equal(22, result);
+        }
+
+        [Fact]
+        public void Expected_Return_For_Breadth_First_Transversal()
+        {
+            BinarySearchTree<int> testTree = PopulateBinarySearchTree();
+            List<int> expected = new List<int>();
+            expected.Add(9);
+            expected.Add(4);
+            expected.Add(17);
+            expected.Add(3);
+            expected.Add(6);
+            expected.Add(22);
+            expected.Add(5);
+            expected.Add(7);
+            expected.Add(20);
+            List<int> result = testTree.BreadthFirst();
+            Assert.Equal(expected, result);
         }
 
         /// <summary>

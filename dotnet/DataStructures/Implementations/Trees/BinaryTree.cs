@@ -1,6 +1,7 @@
 ﻿using System;
 using DataStructures;
 using System.Text;
+using System.Collections.Generic;
 
 namespace DataStructures.Trees
 {
@@ -128,6 +129,26 @@ namespace DataStructures.Trees
                 maxValue = rightValue;
 
             return maxValue;
+        }
+
+        public List<T> BreadthFirst()
+        {
+            List<T> treeValues = new List<T>();
+            System.Collections.Generic.Queue<Node<T>> holder = new System.Collections.Generic.Queue<Node<T>>();
+            Node<T> node = Root;
+
+            holder.Enqueue(node);
+            while (holder.Count < 1)
+            {
+                node = holder.Dequeue();
+                treeValues.Add(node.Value);
+
+                if (node.Left != null)
+                    holder.Enqueue(node.Left);
+                if (node.Right != null)
+                    holder.Enqueue(node.Right);
+            }
+            return treeValues;
         }
 
         /// <summary>

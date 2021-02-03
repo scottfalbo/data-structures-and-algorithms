@@ -1,5 +1,6 @@
 ﻿using DataStructures.Trees;
 using System;
+using System.Collections.Generic;
 
 namespace DataStructures
 {
@@ -53,25 +54,21 @@ namespace DataStructures
         }
         static void TreeTest()
         {
-            Console.WriteLine("tree");
-            BinaryTree<char> newTree = new BinaryTree<char>();
+            BinarySearchTree<int> newTree = new BinarySearchTree<int>();
+            newTree.Add(newTree.Root, 9);
+            newTree.Add(newTree.Root, 4);
+            newTree.Add(newTree.Root, 17);
+            newTree.Add(newTree.Root, 3);
+            newTree.Add(newTree.Root, 6);
+            newTree.Add(newTree.Root, 22);
+            newTree.Add(newTree.Root, 5);
+            newTree.Add(newTree.Root, 7);
+            newTree.Add(newTree.Root, 20);
 
-            Trees.Node<char> nodeA = new Trees.Node<char>('A');
-            Trees.Node<char> nodeB = new Trees.Node<char>('B');
-            Trees.Node<char> nodeC = new Trees.Node<char>('C');
-            Trees.Node<char> nodeD = new Trees.Node<char>('D');
-            Trees.Node<char> nodeE = new Trees.Node<char>('E');
-            Trees.Node<char> nodeF = new Trees.Node<char>('F');
+            List<int> result = newTree.BreadthFirst();
+            foreach (int value in result)
+                Console.WriteLine($"{value} -> ");
 
-            nodeA.Left = nodeB;
-            nodeA.Right = nodeC;
-            nodeB.Left = nodeD;
-            nodeB.Right = nodeE;
-            nodeC.Left = nodeF;
-
-            newTree.Root = nodeA;
-
-            newTree.PreOrder();
 
         }
     }
