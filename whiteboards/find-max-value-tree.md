@@ -3,7 +3,7 @@
 
 <br>
 
-![append whiteboard](./../assets/find-max-value-tree.png)
+![append whiteboard](./assets/find-max-value-tree.png)
 
 <br>
 

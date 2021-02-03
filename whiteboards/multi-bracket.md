@@ -3,7 +3,7 @@
 
 <br>
 
-![append whiteboard](./../assets/multi-bracket-valid.png)
+![append whiteboard](./assets/multi-bracket-valid.png)
 
 <br>
 

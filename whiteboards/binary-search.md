@@ -3,7 +3,7 @@
 
 <br>
 
-![append whiteboard](./../assets/binary_search.png)
+![append whiteboard](./assets/binary_search.png)
 
 <br>
 

@@ -3,7 +3,7 @@
 
 <br>
 
-![append whiteboard](./../assets/insert_after.png)
+![append whiteboard](./assets/insert_after.png)
 
 <br>
 

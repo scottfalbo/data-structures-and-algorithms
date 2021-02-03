@@ -3,7 +3,7 @@
 
 <br>
 
-![append whiteboard](./../assets/kth-from-end.png)
+![append whiteboard](./assets/kth-from-end.png)
 
 <br>
 

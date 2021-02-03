@@ -3,7 +3,7 @@
 
 <br>
 
-![append whiteboard](./../assets/array-reverse.jpg)
+![append whiteboard](./assets/array-reverse.jpg)
 
 <br>
 

@@ -3,7 +3,7 @@
 
 <br>
 
-![append whiteboard](./../assets/ziplist.png)
+![append whiteboard](./assets/ziplist.png)
 
 <br>
 

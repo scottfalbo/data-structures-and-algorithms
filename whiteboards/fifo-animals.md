@@ -3,7 +3,7 @@
 
 <br>
 
-![append whiteboard](./../assets/fifo-animal-shelter.png)
+![append whiteboard](./assets/fifo-animal-shelter.png)
 
 <br>
 

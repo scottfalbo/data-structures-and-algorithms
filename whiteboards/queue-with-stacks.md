@@ -3,7 +3,7 @@
 
 <br>
 
-![append whiteboard](./../assets/queue-with-stacks.png)
+![append whiteboard](./assets/queue-with-stacks.png)
 
 <br>
 
