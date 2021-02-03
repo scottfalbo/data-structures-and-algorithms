@@ -186,7 +186,7 @@ These methods return as array of the values in the `Binary Tree` or `Binary Sear
     + `List<T> = myTree.BreadthFirst();`
       + returns `List<T>` of values in the tree
     + O(N) / O(N)
-    + ## [whiteboard](./whiteboards/breadth-first.md) 
+    + ## [whiteboard](whiteboards/breadth-first.md) 
 
 
 ## `BinarySearchTree`
