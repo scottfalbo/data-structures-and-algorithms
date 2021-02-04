@@ -62,8 +62,8 @@ namespace DataStructures
             {
                 Node<T> holder = Front;
                 Front = Front.Next;
-                holder.Next = null;
-                counter--;
+                //holder.Next = null;
+                //counter--;
                 return holder.Value;
             }
             else
