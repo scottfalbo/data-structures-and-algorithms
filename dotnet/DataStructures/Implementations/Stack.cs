@@ -63,7 +63,7 @@ namespace DataStructures
             }
             catch (NullReferenceException e)
             {
-                throw new NullReferenceException($"{e}");
+                throw new NullReferenceException($"Your stack is empty, {e}");
             }                
         }
 
