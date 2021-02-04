@@ -92,16 +92,8 @@ namespace DataStructuresTests
         public void Expected_Return_For_Breadth_First_Transversal()
         {
             BinarySearchTree<int> testTree = PopulateBinarySearchTree();
-            List<int> expected = new List<int>();
-            expected.Add(9);
-            expected.Add(4);
-            expected.Add(17);
-            expected.Add(3);
-            expected.Add(6);
-            expected.Add(22);
-            expected.Add(5);
-            expected.Add(7);
-            expected.Add(20);
+            List<int> expected = new List<int> { 9, 4, 17, 3, 6, 22, 5, 7, 20};
+
             List<int> result = testTree.BreadthFirst();
             Assert.Equal(expected, result);
         }

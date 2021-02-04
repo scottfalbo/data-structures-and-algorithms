@@ -15,6 +15,8 @@
 
 + **[Binary Trees](#binary-trees)**
 
++ **[K-ary Trees](#k-ary-trees)**
+
 
 
 ### Challenges
@@ -25,6 +27,7 @@
 + [Queue with Stacks](#queue-with-stacks)
 + [FIFO Animal Shelter](#fifo-animal-shelter)
 + [Multi Bracket Validation](#multi-bracket-validation)
++ [Fizz Buzz Tree](#fizzbuzztree)
 
 <hr>
 
@@ -205,6 +208,16 @@ These methods return as array of the values in the `Binary Tree` or `Binary Sear
 
 <hr>
 
+## K-Ary Trees
+A binary tree that lets each node have a variable amount of child nodes.
+
++ ### `KAryTree()`
+  + 
+  + 
+  + 
+
+<hr>
+
 ## Challenges
 
 
@@ -308,6 +321,25 @@ Iterate over the string one character at a time.  If it's an opening bracket, (,
 
 ## [whiteboard](./whiteboards/multi-bracket.md)<br>
 <!-- ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/MultiBracketValidation.cs) -->
+
+## **FizzBuzzTree**
+
+### Challenge Description
+Write a function called `FizzBuzzTree()` which takes a k-ary tree as an argument.
+Without utilizing any of the built-in methods available to your language, determine whether or not the value of each node is divisible by 3, 5 or both. Create a new tree with the same structure as the original, but the values modified as follows:
++ If the value is divisible by 3, replace the value with “Fizz”
++ If the value is divisible by 5, replace the value with “Buzz”
++ If the value is divisible by 3 and 5, replace the value with “FizzBuzz”
++ If the value is not divisible by 3 or 5, simply turn the number into a String.
+
+### Approach and Efficiency
+Iterate through the tree in a breadth first fashion.  At each node check it's value and change it to the appropriate fizz buzz replacement.  Return tree of new values.
+  + `var fizzedTree = myTree.FizzBuzzTree(myTree.Root);`
+  + O(N) / O(N)
+
+## [whiteboard](./whiteboards/fizz-buzz.md)
+
+<hr>
 
 
 
