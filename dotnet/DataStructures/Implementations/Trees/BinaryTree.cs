@@ -131,20 +131,26 @@ namespace DataStructures.Trees
             return maxValue;
         }
 
+        /// <summary>
+        /// Breadth first transversal of a binary tree
+        /// </summary>
+        /// <returns> List of node values </returns>
         public List<T> BreadthFirst()
         {
             List<T> treeValues = new List<T>();
-            System.Collections.Generic.Queue<Node<T>> holder = new System.Collections.Generic.Queue<Node<T>>();
+            Queue<Node<T>> holder = new Queue<Node<T>>();
             Node<T> node = Root;
 
             holder.Enqueue(node);
-            while (holder.Count < 1)
+
+            while (holder.counter > 0)
             {
                 node = holder.Dequeue();
                 treeValues.Add(node.Value);
 
                 if (node.Left != null)
                     holder.Enqueue(node.Left);
+
                 if (node.Right != null)
                     holder.Enqueue(node.Right);
             }

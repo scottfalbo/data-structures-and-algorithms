@@ -46,12 +46,11 @@ namespace DataStructures
             }
             else
             {
-                node.Next = Rear;
+                Rear.Next = node;
                 Rear = node;
             }
             counter++;
         }
-
 
         /// <summary>
         /// Returns the Value of the First object in the Queue object and then removes it
@@ -59,20 +58,16 @@ namespace DataStructures
         /// <returns></returns>
         public T Dequeue()
         {
-            try
+            if (!IsEmpty())
             {
                 Node<T> holder = Front;
-                if (Front.Next != null)
-                    Front = Front.Next;
+                Front = Front.Next;
                 holder.Next = null;
                 counter--;
                 return holder.Value;
             }
-            catch (NullReferenceException e)
-            {
-                throw new NullReferenceException($"{e}");
-            }
+            else
+                throw new NullReferenceException("Your queue is empty");
         }
-
     }
 }

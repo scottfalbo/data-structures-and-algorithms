@@ -69,7 +69,8 @@ namespace DataStructures
             foreach (int value in result)
                 Console.WriteLine($"{value} -> ");
 
-
+            BinarySearchTree<int> test = new BinarySearchTree<int>();
+          
         }
     }
 }
