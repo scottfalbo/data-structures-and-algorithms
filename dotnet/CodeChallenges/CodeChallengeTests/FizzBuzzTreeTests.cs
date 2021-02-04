@@ -14,9 +14,10 @@ namespace CodeChallengeTests
         public void Can_Populate_A_Fizz_Buzz_Tree()
         {
             KAryTree<int> testTree = MakeFizzTree();
-            List<int> results = testTree.BreadthFirst();
-            List<int> expected = new List<int>() { 3, 4, 5, 15, 7, 13, 30, 10, 3, 8, 6 };
-            Assert.Equal(expected, results);
+            var temp = testTree.Root.Children[2];
+            int result = temp.Children[1].Value;
+            int expected = 8;
+            Assert.Equal(expected, result);
         }
 
         /// <summary>

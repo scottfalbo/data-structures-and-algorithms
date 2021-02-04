@@ -18,6 +18,7 @@ namespace DataStructures.Trees
             Max = maxChildren;
         }
 
+
         public List<T> BreadthFirst()
         {
             List<T> treeValues = new List<T>();
@@ -33,8 +34,11 @@ namespace DataStructures.Trees
 
                 List<KNode<T>> children = node.Children;
 
-                foreach (var child in children)
-                    holder.Enqueue(child);
+                if (children.Count > 0)
+                {
+                    foreach (var child in children)
+                        holder.Enqueue(child);
+                }
 
             }
             return treeValues;
