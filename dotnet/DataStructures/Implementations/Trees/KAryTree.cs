@@ -18,7 +18,42 @@ namespace DataStructures.Trees
             Max = maxChildren;
         }
 
+        /// <summary>
+        /// PreOrder traversal
+        /// </summary>
+        /// <returns> List of node values </returns>
+        public List<T> PreOrder()
+        {
+            List<T> treeValues = new List<T>();
+            KNode<T> root = Root;
+            try
+            {
+                PreOrder(treeValues, root);
+            }
+            catch (ArgumentException e)
+            {
+                throw new NullReferenceException($"womp womp, {e}");
+            }
+            return treeValues;
+        }
+        private void PreOrder(List<T> treeValues, KNode<T> root)
+        {
+            treeValues.Add(root.Value);
 
+            if (root.Children != null)
+            {
+                foreach (var child in root.Children)
+                    PreOrder(treeValues, child);
+            }
+
+        }
+
+
+
+        /// <summary>
+        /// Breadth First traversal
+        /// </summary>
+        /// <returns> List of node values </returns>
         public List<T> BreadthFirst()
         {
             List<T> treeValues = new List<T>();

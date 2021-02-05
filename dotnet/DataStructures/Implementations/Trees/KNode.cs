@@ -9,7 +9,7 @@ namespace DataStructures.Trees
         public T Value { get; set; }
         public List<KNode<T>> Children { get; set; }
         
-        public KNode() { }
+        public KNode() { Children = new List<KNode<T>>(); }
 
         /// <summary>
         /// Constructor to that sets the nodes value on instantiation
@@ -18,6 +18,7 @@ namespace DataStructures.Trees
         public KNode(T value)
         {
             Value = value;
+            Children = new List<KNode<T>>();
         }
 
         /// <summary>
