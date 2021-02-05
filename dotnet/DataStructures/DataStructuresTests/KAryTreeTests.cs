@@ -1,33 +1,37 @@
-﻿using System;
+﻿using DataStructures.Trees;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
-using DataStructures;
-using DataStructures.Trees;
-using Challenges;
 
-namespace CodeChallengeTests
+namespace DataStructuresTests
 {
-    public class FizzBuzzTreeTests
+    public class KAryTreeTests
     {
+
         [Fact]
-        public void Can_Fizz_Buzz()
+        public void Can_Populate_A_Fizz_Buzz_Tree_And_Sort_Breadth_First()
         {
-            KAryTree<int> testTree = MakeFizzTree();
-            FizzBuzzTree fizzbuzz = new FizzBuzzTree();
-            KAryTree<string> fizzBuzzedTree = fizzbuzz.FizzBuzzer(testTree);
-            List<string> actual = fizzBuzzedTree.PreOrder();
-            List<string> expected = new List<string>() 
-                { "Fizz", "4", "7", "13", "Fizzbuzz", "Buzz", "Buzz", "Fizzbuzz", "Fizz", "8", "Fizz" };
+            KAryTree<int> testTree = PopulateTestTree();
+            List<int> actual = testTree.BreadthFirst();
+            List<int> expected = new List<int>() { 3, 4, 5, 15, 7, 13, 30, 10, 3, 8, 6 };
             Assert.Equal(expected, actual);
-            //{ 3, 4, 7, 13, 30, 5, 10, 15, 3, 8, 6 }
+        }
+
+        [Fact]
+        public void Can_Perform_PreOrder_Traversal_And_Return_List()
+        {
+            KAryTree<int> testTree = PopulateTestTree();
+            List<int> actual = testTree.PreOrder();
+            List<int> expected = new List<int>() { 3, 4, 7, 13, 30, 5, 10, 15, 3, 8, 6 };
+            Assert.Equal(expected, actual);
         }
 
         /// <summary>
         /// Helper method to build a tree to run fizz buzz on
         /// </summary>
         /// <returns></returns>
-        private KAryTree<int> MakeFizzTree()
+        private KAryTree<int> PopulateTestTree()
         {
             // last leaves
             KNode<int> n1 = new KNode<int>(7);
@@ -57,6 +61,5 @@ namespace CodeChallengeTests
 
             return newTree;
         }
-
     }
 }
