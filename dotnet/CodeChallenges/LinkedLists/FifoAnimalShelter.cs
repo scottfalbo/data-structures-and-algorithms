@@ -31,29 +31,28 @@ namespace Challenges
         /// <returns></returns>
         public Animal Dequeue(string pref)
         {
-            Queue<Animal> HolderList = new Queue<Animal>();
-            bool foundOne = false;
-
             pref = pref.ToLower();
-            if (pref != "cat" || pref != "dog")
-                return null;
+            if (pref != "cat" && pref != "dog")
+                throw new ArgumentException("We only have cats and dogs");
 
+            Queue<Animal> holdingQ = new Queue<Animal>();
+            bool foundOne = false;
             Animal adoptMe = new Animal();
             while (!AnimalList.IsEmpty())
             {
-                Animal holder = AnimalList.Dequeue();
-                if (!foundOne && pref == holder.Type)
+                Animal checker = AnimalList.Dequeue();
+                if (checker.Type == pref && !foundOne)
                 {
-                    adoptMe = holder;
+                    adoptMe = checker;
                     foundOne = true;
                 }
-                else
-                    HolderList.Enqueue(holder);
+                else if (!AnimalList.IsEmpty())
+                    holdingQ.Enqueue(AnimalList.Dequeue());
             }
-            while (!HolderList.IsEmpty())
-                AnimalList.Enqueue(HolderList.Dequeue());
+            AnimalList = holdingQ;
 
-            if (!foundOne) throw new Exception($"We have no {pref}s");
+            if (!foundOne)
+                throw new ArgumentOutOfRangeException($"Sorry, we have no {pref}s");
             return adoptMe;
         }
     }

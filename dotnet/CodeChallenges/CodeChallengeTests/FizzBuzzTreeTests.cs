@@ -52,8 +52,10 @@ namespace CodeChallengeTests
             children = new List<KNode<int>>() { n8, n9, n10 };
             KNode<int> n11 = new KNode<int>(3, children);
 
-            KAryTree<int> newTree = new KAryTree<int>(3);
-            newTree.Root = n11;
+            KAryTree<int> newTree = new KAryTree<int>(3)
+            {
+                Root = n11
+            };
 
             return newTree;
         }
