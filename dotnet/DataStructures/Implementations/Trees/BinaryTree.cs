@@ -143,7 +143,7 @@ namespace DataStructures.Trees
 
             holder.Enqueue(node);
 
-            while (holder.counter > 0)
+            while (!holder.IsEmpty())
             {
                 node = holder.Dequeue();
                 treeValues.Add(node.Value);

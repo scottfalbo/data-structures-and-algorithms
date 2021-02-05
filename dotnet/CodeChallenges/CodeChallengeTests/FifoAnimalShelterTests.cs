@@ -61,7 +61,7 @@ namespace CodeChallengeTests
             Paws.Enqueue(Harry);
             Paws.Enqueue(Lucipurr);
             Paws.Enqueue(Ethel);
-            Assert.Throws<Exception>(() => Paws.Dequeue("dog"));
+            Assert.Throws<ArgumentOutOfRangeException>(() => Paws.Dequeue("dog"));
         }
     }
 }
