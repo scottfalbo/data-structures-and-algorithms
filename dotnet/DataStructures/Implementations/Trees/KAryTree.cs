@@ -27,16 +27,14 @@ namespace DataStructures.Trees
 
             holder.Enqueue(node);
 
-            while (holder.counter > 0)
+            while (!holder.IsEmpty())
             {
                 node = holder.Dequeue();
                 treeValues.Add(node.Value);
 
-                List<KNode<T>> children = node.Children;
-
-                if (children.Count > 0)
+                if (node.Children != null)
                 {
-                    foreach (var child in children)
+                    foreach (var child in node.Children)
                         holder.Enqueue(child);
                 }
 

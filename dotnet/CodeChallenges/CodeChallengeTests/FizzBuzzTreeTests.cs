@@ -14,10 +14,9 @@ namespace CodeChallengeTests
         public void Can_Populate_A_Fizz_Buzz_Tree()
         {
             KAryTree<int> testTree = MakeFizzTree();
-            var temp = testTree.Root.Children[2];
-            int result = temp.Children[1].Value;
-            int expected = 8;
-            Assert.Equal(expected, result);
+            List<int> actual = testTree.BreadthFirst();
+            List<int> expected = new List<int>(){ 3, 4, 5, 15, 7, 13, 30, 10, 3, 8, 6 };
+            Assert.Equal(expected, actual);
         }
 
         /// <summary>
@@ -33,7 +32,7 @@ namespace CodeChallengeTests
             KNode<int> n4 = new KNode<int>(10);
             KNode<int> n5 = new KNode<int>(3);
             KNode<int> n6 = new KNode<int>(8);
-            KNode<int> n7 = new KNode<int>(8);
+            KNode<int> n7 = new KNode<int>(6);
 
             // middle tier
             List<KNode<int>> children = new List<KNode<int>>() { n1, n2, n3 };

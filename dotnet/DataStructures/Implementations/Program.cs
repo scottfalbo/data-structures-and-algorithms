@@ -100,10 +100,11 @@ namespace DataStructures
 
             Console.WriteLine(newTree.Root.Value);
 
-            List<KNode<int>> list = newTree.Root.Children;
+            //List<KNode<int>> list = newTree.Root.Children;
 
-            foreach (var child in list)
-                Console.WriteLine(child.Value);
+            List<int> result = newTree.BreadthFirst();
+            foreach (int value in result)
+                Console.Write($"[ {value} ]=>");
         }
     }
 }
