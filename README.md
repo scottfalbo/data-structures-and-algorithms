@@ -28,12 +28,13 @@
 + [FIFO Animal Shelter](#fifo-animal-shelter)
 + [Multi Bracket Validation](#multi-bracket-validation)
 + [Fizz Buzz Tree](#fizzbuzztree)
++ [InsertionSort](#insertionsort)
 
-<hr>
+---
 
 # C# .NET
 
-<hr>
+---
 
 ## Data Structures
 
@@ -89,7 +90,7 @@ A data structure of linked together `Node` objects.  The `LinkedList` object has
 + `int result = myList.KthFromEnd(int k)`
   + ## [whiteboard](./whiteboards/kth-from-end.md)
 
-<hr>
+---
 
 # **Stacks**
 A data structure that follows a *"first in, last out"* rule for adding and removing `Node` objects.  The `Stack` object has one property of `Top`, which is a reference to the top node object in the stack.  
@@ -117,7 +118,7 @@ A data structure that follows a *"first in, last out"* rule for adding and remov
     + `throw` NullReferenceException if the `Stack` object is empty
   + O(1) / O(1)
 
-<hr>
+---
 
 # **Queues**
 A data structure that follows a *"first in, first out"* rule for adding and removing 'Node' objects.  The `Queue` has two properties.  The `Front`, which is a reference to the front object in the queue.  And the `Rear`, which references the last object.
@@ -146,7 +147,7 @@ A data structure that follows a *"first in, first out"* rule for adding and remo
     + `throw` NullReferenceException if the `Queue` object is empty
   + O(1) / O(1)
 
-<hr>
+---
 
 # **Binary Trees**
 ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/tree/master/dotnet/DataStructures/Implementations/Trees)<br>
@@ -206,7 +207,7 @@ These methods return as array of the values in the `Binary Tree` or `Binary Sear
     + `bool hasValue = myTree.Contains()`
     + O(N) / O(1)
 
-<hr>
+---
 
 ## K-Ary Trees
 A binary tree that lets each node have a variable amount of child nodes.
@@ -216,7 +217,7 @@ A binary tree that lets each node have a variable amount of child nodes.
   + 
   + 
 
-<hr>
+---
 
 ## Challenges
 
@@ -233,7 +234,7 @@ I'm using a while loop to iterate over the array, swapping the first and last in
 ## [whiteboard](./whiteboards/array-reverse.md)<br>
 ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/c-sharp/CodeChallenges/ArrayReverse/Program.cs)
 
-<hr>
+---
 
 ## **Insert Shift Array**
 insert a value into the middle index of an array
@@ -247,7 +248,7 @@ I created a second array one index longer than the argument.  Found the center b
 ## [whiteboard](./whiteboards/insert-shift-array.md)<br>
 ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/c-sharp/CodeChallenges/ArrayShift/Program.cs)
 
-<hr>
+---
 
 ## **Binary Search**
 Find a value in a sorted array.
@@ -261,7 +262,7 @@ We tracked the start, end and mid point of the array with variables.  Used a whi
 ## [whiteboard](./whiteboards/binary-search.md)<br>
 ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/c-sharp/CodeChallenges/BinarySearch/Program.cs)
 
-<hr>
+---
 
 ## **Zip List**
 Combine two lists together by every other item.
@@ -276,7 +277,7 @@ Create a new `LinkedList`.  Iterate through the 2 provided lists at the same tim
 ## [whiteboard](./whiteboards/ziplist.md)<br>
 ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/queue-with-stacks/dotnet/CodeChallenges/LinkedLists/LLZip.cs)
 
-<hr>
+---
 
 ## **Queue with Stacks**
 Create Queue behavior with two stacks.
@@ -290,7 +291,7 @@ Used two stacks to slinky the nodes back and forth.  `Pop()` all of nodes in sta
 ## [whiteboard](./whiteboards/queue-with-stacks.md)<br>
 ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/queue-with-stacks/dotnet/CodeChallenges/LinkedLists/QueueWithStacks.cs)
 
-<hr>
+---
 
 ## **FIFO Animal Shelter**
 First in, first out principle Animal Shelter
@@ -305,9 +306,9 @@ Dequeue utilizes a second queue that we can move objects into one by one, checki
 + O(N) / O(1)
 
 ## [whiteboard](./whiteboards/fifo-animals.md)<br>
-<!-- ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/FifoAnimalShelter.cs) -->
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/FifoAnimalShelter.cs)
 
-<hr>
+---
 
 ## **Multi Bracket Validation**
 Validates patterns in a string
@@ -320,7 +321,9 @@ Iterate over the string one character at a time.  If it's an opening bracket, (,
   + O(N) / O(1)
 
 ## [whiteboard](./whiteboards/multi-bracket.md)<br>
-<!-- ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/MultiBracketValidation.cs) -->
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/MultiBracketValidation.cs)
+
+---
 
 ## **FizzBuzzTree**
 
@@ -339,8 +342,21 @@ Iterate through the tree in a breadth first fashion.  At each node check it's va
 
 ## [whiteboard](./whiteboards/fizz-buzz.md)
 
-<hr>
+---
 
+## **InsertionSort**
+### Challenge Description
+Create a method which takes in an array of integers, and sorts them, in place, into ascending order based on value.
+### Approach and Efficiency
+Iterate over the array starting at index[1].  During each iteration loop down through the array comparing each value to it's previous, always swapping the greater value up.
+  + `InsertionSort.Sort({3, 7, 1, 7, 4})` => `{1, 3, 4, 7, 7}`
+  + O(N) / O(1)
+  + Time: Iterate over the array (N)
+  + Space: Change in place, no return (1)
 
+## [blog](assets/insertionSort/insertionSort-blog.md)
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/InsertionSort.cs)
+
+---
 
 [return to top of page](#data-structures-and-algorithms)
