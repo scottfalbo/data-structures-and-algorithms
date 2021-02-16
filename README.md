@@ -306,7 +306,7 @@ Dequeue utilizes a second queue that we can move objects into one by one, checki
 + O(N) / O(1)
 
 ## [whiteboard](./whiteboards/fifo-animals.md)<br>
-<!-- ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/FifoAnimalShelter.cs) -->
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/FifoAnimalShelter.cs)
 
 ---
 
@@ -321,7 +321,7 @@ Iterate over the string one character at a time.  If it's an opening bracket, (,
   + O(N) / O(1)
 
 ## [whiteboard](./whiteboards/multi-bracket.md)<br>
-<!-- ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/MultiBracketValidation.cs) -->
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/MultiBracketValidation.cs)
 
 ---
 
@@ -348,13 +348,14 @@ Iterate through the tree in a breadth first fashion.  At each node check it's va
 ### Challenge Description
 Create a method which takes in an array of integers, and sorts them, in place, into ascending order based on value.
 ### Approach and Efficiency
-Iterate over the array starting at index[1].  During each iteration compare the current and previous indexes.  If the first is larger than the second swap them.
+Iterate over the array starting at index[1].  During each iteration loop down through the array comparing each value to it's previous, always swapping the greater value up.
   + `InsertionSort.Sort({3, 7, 1, 7, 4})` => `{1, 3, 4, 7, 7}`
   + O(N) / O(1)
   + Time: Iterate over the array (N)
   + Space: Change in place, no return (1)
 
-## [blog](assets/insertionSort-blog.md)
+## [blog](assets/insertionSort/insertionSort-blog.md)
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/InsertionSort.cs)
 
 ---
 
