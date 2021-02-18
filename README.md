@@ -359,4 +359,18 @@ Iterate over the array starting at index[1].  During each iteration loop down th
 
 ---
 
+## **QuickSort**
+### Challenge Description
+Create a method which takes in an array of integers, and sorts them, in place, into ascending order based on value, using a separate and conquer approach.
+### Approach and Efficiency
+We select an element as pivot, partition the array around pivot and recur for subarrays on left and right of pivot.
+  + `QuickSort.Sort({3, 7, 1, 7, 4})` => `{1, 3, 4, 7, 7}`
+  + O(NlogN) / O(1)
+
+
+## [blog](assets/quicksort/quick-sort-blog.md)
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/QuickSort.cs)
+
+---
+
 [return to top of page](#data-structures-and-algorithms)
