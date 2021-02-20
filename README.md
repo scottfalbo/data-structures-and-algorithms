@@ -17,6 +17,8 @@
 
 + **[K-ary Trees](#k-ary-trees)**
 
++ **[HashMap](#hashmap)**
+
 
 
 ### Challenges
@@ -29,6 +31,7 @@
 + [Multi Bracket Validation](#multi-bracket-validation)
 + [Fizz Buzz Tree](#fizzbuzztree)
 + [InsertionSort](#insertionsort)
++ [QuickSort](#quicksort)
 
 ---
 
@@ -219,7 +222,28 @@ A binary tree that lets each node have a variable amount of child nodes.
 
 ---
 
-## Challenges
+## HashMap
+A `HashMap` is an array of `LinkedLists` called buckets, which hold `KeyValuePairs`.  When a `KeyValuePair` is put into the `HashMap` the key is hashed into an integer within range of the array's length.  The `KeyValuePair` is then inserted into the list in the bucket at the hashed index.  
+The data can later be referenced by the key creating an `O(1)` search time.
+
++ ### `Add()`
+  + Add a `KeyValuePair` to the `HashMap`
+
++ ### `Get()`
+  + Retrieve a `KeyValuePair` by key from the `HashMap`
+
++ ### `Contains()`
+  + Boolean to see if a `KeyValuePair` exists in the `HashMap`
+
++ ### `Hash()`
+  + Helper method that hashes the key into an integer within the range of the array length.
+
+
+<br>
+
+---
+
+# Challenges
 
 
 ## **Reverse an Array**
