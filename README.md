@@ -226,6 +226,8 @@ A binary tree that lets each node have a variable amount of child nodes.
 A `HashMap` is an array of `LinkedLists` called buckets, which hold `KeyValuePairs`.  When a `KeyValuePair` is put into the `HashMap` the key is hashed into an integer within range of the array's length.  The `KeyValuePair` is then inserted into the list in the bucket at the hashed index.  
 The data can later be referenced by the key creating an `O(1)` search time.
 
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/DataStructures/Implementations/HashMap.cs)<br>
+
 + ### `Map`
   + An array of `n` length defined by the constructor at instantiation.  This array holds our buckets.
 
