@@ -20,17 +20,16 @@ namespace DataStructuresTests
         public void Retrieve_The_Correct_Item_Based_On_Key()
         {
             HashMap<string> testMap = PopulatedHashMap();
-            KeyValuePair<string, string> actual = testMap.Get("Spaceghost");
+            var actual = testMap.Get("Spaceghost");
             string expected = "More like SpaceLoaf";
-            Assert.Equal(expected, actual.Value);
+            Assert.Equal(expected, actual.Value.Value);
         }
 
         [Fact]
         public void Successfully_Return_Null_If_Key_Does_Not_Exist_In_Hash_Map()
         {
             HashMap<string> testMap = PopulatedHashMap();
-            var actual = testMap.Get("ManBearPig");
-            Assert.Null(actual);
+            Assert.Null(testMap.Get("ManBearPig"));
         }
 
         [Fact]
@@ -50,8 +49,8 @@ namespace DataStructuresTests
             HashMap<string> testMap = PopulatedHashMap();
             testMap.Set("lehtE", "Colision is a happening");
             var actual = testMap.Get("Ethel");
-            string expected = "The Boss";
-            Assert.Equal(expected, actual.Value);
+            string expected = "The boss";
+            Assert.Equal(expected, actual.Value.Value);
         }
 
         [Fact]
@@ -61,6 +60,29 @@ namespace DataStructuresTests
             int actual = testMap.Hash("Spaceghost");
             int expected = 565;
             Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Successfully_Remove_A_Key_And_Value_From_A_HashMap()
+        {
+            HashMap<string> testMap = PopulatedHashMap();
+            testMap.Remove("Spaceghost");
+            Assert.Null(testMap.Get("Spaceghost"));
+        }
+
+        [Fact]
+        public void Successfully_Remove_A_Key_Pair_Value_From_A_Bucket_With_Colision()
+        {
+            HashMap<string> testMap = PopulatedHashMap();
+            testMap.Set("arHry", "Making some colisions");
+            testMap.Set("arrHy", "Making some colisions");
+            testMap.Set("rarHy", "Delete me");
+            testMap.Set("rHrya", "Making some colisions");
+
+            testMap.Remove("rarHy");
+            int index = testMap.Hash("Harry");
+
+            Assert.Equal(4, testMap.Map[index].counter);
         }
 
         /// <summary>

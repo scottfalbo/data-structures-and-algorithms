@@ -65,6 +65,34 @@ namespace DataStructures
         }
 
         /// <summary>
+        /// Remove a Node from a LinkedList
+        /// </summary>
+        /// <param name="value">  </param>
+        public void RemoveNode(T value)
+        {
+            Node<T> current = Head;
+            Node<T> holder = Head;
+
+            if (current != null && current.Value.Equals(value))
+            {
+                Head = current.Next;
+                return;
+            }
+
+            while (current != null && current.Value.Equals(value))
+            {
+                holder = current;
+                current = current.Next;
+            }
+
+            if (current == null)
+                return;
+
+            counter--;
+            holder.Next = current.Next;
+        }
+
+        /// <summary>
         /// Iterate over the list with a while loop and write the Linked List
         /// </summary>
         public override string ToString()
