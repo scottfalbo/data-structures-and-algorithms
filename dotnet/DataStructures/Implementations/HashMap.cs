@@ -4,18 +4,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Datastructures
+namespace DataStructures
 {
     public class HashMap<T>
     {
-        private DataStructures.LinkedList<KeyValuePair<T, T>>[] Map { get; set; }
+        public DataStructures.LinkedList<KeyValuePair<T, T>>[] Map { get; set; }
 
         public HashMap(int size)
         {
             Map = new DataStructures.LinkedList<KeyValuePair<T, T>>[size];
         }
 
-        private int Hash (T key)
+        public int Hash (T key)
         {
             int hashValue = 0;
 
@@ -24,7 +24,7 @@ namespace Datastructures
             {
                 hashValue += letters[i];
             }
-            hashValue = (hashValue * 999) % Map.Length;
+            hashValue = (hashValue * 997) % Map.Length;
 
             return hashValue;
         }
@@ -43,9 +43,9 @@ namespace Datastructures
         }
 
         // get a value by key
-        public T Get (T key)
+        public KeyValuePair<T, T> Get (T key)
         {
-            return key;
+            return new KeyValuePair<T, T>();
         }
 
         // bool, contains the key
