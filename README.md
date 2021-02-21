@@ -226,19 +226,27 @@ A binary tree that lets each node have a variable amount of child nodes.
 A `HashMap` is an array of `LinkedLists` called buckets, which hold `KeyValuePairs`.  When a `KeyValuePair` is put into the `HashMap` the key is hashed into an integer within range of the array's length.  The `KeyValuePair` is then inserted into the list in the bucket at the hashed index.  
 The data can later be referenced by the key creating an `O(1)` search time.
 
-+ ### `Add()`
-  + Add a `KeyValuePair` to the `HashMap`
++ ### `Map`
+  + An array of `n` length defined by the constructor at instantiation.  This array holds our buckets.
 
-+ ### `Get()`
-  + Retrieve a `KeyValuePair` by key from the `HashMap`
++ ### `Add(key, value)`
+  + Add a `KeyValuePair` to the `HashMap`.
+  + Hashes the given `key`, and inserts `Node(value)` into the bucket at the hashed index.  
 
-+ ### `Contains()`
-  + Boolean to see if a `KeyValuePair` exists in the `HashMap`
++ ### `Get(key)`
+  + Retrieve a `KeyValuePair` by key from the `HashMap`.
+  + Checks returns the `Node` with the given key.  Returns `null` if the ket does not exist.
 
-+ ### `Hash()`
++ ### `Contains(key)`
+  + Boolean to see if a `KeyValuePair` exists in the `HashMap`.
+  + Iterates over `Map` and each of the `LinkedLists` within.  If the key exists in the table return `true : false`
+
++ ### `Hash(key)`
   + Helper method that hashes the key into an integer within the range of the array length.
 
-
++ ### `Remove(key)`
+  + Removes a `KeyValuePair` from the `HashMap`.
+  
 <br>
 
 ---
