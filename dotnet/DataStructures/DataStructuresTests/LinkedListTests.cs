@@ -328,6 +328,20 @@ namespace DataStructuresTests
             Assert.Equal(expected, result);
         }
 
+        [Fact]
+        public void Can_Delete_A_Node_And_Keep_The_Rest_Of_List()
+        {
+            LinkedList<int> testList = new LinkedList<int>();
+            testList = PopulateList(testList);
+            testList.RemoveNode(24);
+            testList.RemoveNode(2);
+            testList.RemoveNode(35);
+            testList.RemoveNode(6);
+            int actual = testList.counter;
+            int expected = 36;
+            Assert.Equal(expected, actual);
+        }
+
         // Helper method to populate a generic linked list for the following tests
         public LinkedList<int> PopulateList(LinkedList<int> list)
         {
@@ -360,6 +374,8 @@ namespace DataStructuresTests
             // return the value of the middle node 
             return current.Value;
         }
+
+
     }
 }
 

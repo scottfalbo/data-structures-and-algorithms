@@ -4,18 +4,23 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Datastructures
+namespace DataStructures
 {
     public class HashMap<T>
     {
-        private DataStructures.LinkedList<KeyValuePair<T, T>>[] Map { get; set; }
+        public DataStructures.LinkedList<KeyValuePair<T, T>>[] Map { get; set; }
 
         public HashMap(int size)
         {
             Map = new DataStructures.LinkedList<KeyValuePair<T, T>>[size];
         }
 
-        private int Hash (T key)
+        /// <summary>
+        /// Hashes a key into an integer within range of the Map
+        /// </summary>
+        /// <param name="key"> key value to be hashed </param>
+        /// <returns> integer index value </returns>
+        public int Hash (T key)
         {
             int hashValue = 0;
 
@@ -24,12 +29,16 @@ namespace Datastructures
             {
                 hashValue += letters[i];
             }
-            hashValue = (hashValue * 999) % Map.Length;
+            hashValue = (hashValue * 997) % Map.Length;
 
             return hashValue;
         }
 
-        // set a keyvalue pair
+        /// <summary>
+        /// Puts a key:value pair into a bucket at the hashed index of key
+        /// </summary>
+        /// <param name="key"> key </param>
+        /// <param name="value"> value </param>
         public void Set(T key, T value)
         {
             int hashKey = Hash(key);
@@ -42,24 +51,80 @@ namespace Datastructures
             Map[hashKey].Insert(entry);
         }
 
-        // get a value by key
-        public T Get (T key)
+        /// <summary>
+        /// Retrieve a Node with a KeyPairValue by key, or null of key does not exist.
+        /// </summary>
+        /// <param name="key"> key value </param>
+        /// <returns> Node with Value of KeyPairValue </returns>
+        public Node<KeyValuePair<T, T>> Get (T key)
         {
-            return key;
+            int index = Hash(key);
+
+            if (!Contains(key))
+                return null;
+            else
+            {
+                var bucket = Map[index];
+                Node<KeyValuePair<T, T>> current = bucket.Head;
+                while (current != null)
+                {
+                    if (current.Value.Key.Equals(key))
+                        return current;
+                    current = current.Next;
+                }
+            }
+            throw new Exception("Something has gone amiss");
         }
 
-        // bool, contains the key
+        /// <summary>
+        /// Checks to see if a key is in the HashMap and returns true:false
+        /// </summary>
+        /// <param name="key"> key value </param>
+        /// <returns> true : false</returns>
         public bool Contains (T key)
         {
+            for (int i = 0; i < Map.Length; i++)
+            {
+                if (Map[i] != null)
+                {
+                    Node<KeyValuePair<T, T>> current = Map[i].Head;
+                    while (current != null)
+                    {
+                        if (current.Value.Key.Equals(key))
+                            return true;
+                        current = current.Next;
+                    }
+                }
+            }
             return false;
         }
 
-        // remove a keyvalue pair
+        /// <summary>
+        /// Remove the Node object with the KeyPairValue of key
+        /// </summary>
+        /// <param name="key"> key value </param>
         public void Remove (T key)
         {
+            int index = Hash(key);
 
+            if (Contains(key))
+            {
+                Node<KeyValuePair<T, T>> current = Map[index].Head;
+                while (current != null)
+                {
+                    if (current.Value.Key.Equals(key))
+                    {
+                        Map[index].RemoveNode(current.Value);
+                        break;
+                    }
+                    current = current.Next;
+                }
+            }
         }
 
+        /// <summary>
+        /// Print the values of the HashMap to the terminal
+        /// </summary>
         public void Print()
         {
             for (int i =0; i < Map.Length; i++)
@@ -77,9 +142,7 @@ namespace Datastructures
                     Console.WriteLine("");
                 }
                 else
-                {
                     Console.WriteLine($"bucket {i}: empty");
-                }
             }
         }
     }
