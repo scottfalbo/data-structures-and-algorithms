@@ -32,6 +32,7 @@
 + [Fizz Buzz Tree](#fizzbuzztree)
 + [InsertionSort](#insertionsort)
 + [QuickSort](#quicksort)
++ [Repeated Word](#repeated-word)
 
 ---
 
@@ -404,6 +405,20 @@ We select an element as pivot, partition the array around pivot and recur for su
 
 ## [blog](assets/quicksort/quick-sort-blog.md)
 ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/QuickSort.cs)
+
+---
+
+## **Repeated Word**
+### Challenge Description
+Create a method which takes in a lengthy string phrase and returns the first word that repeats.
+### Approach and Efficiency
+Normalize the string by removing punctuation and changing it all to lower case.  Then split the string into an array of words.  Iterate over the array checking to see if the current word has been saved to a Hashmap.  If it has return that word, if not set it in the HashMap.
+  + `string result = RepeatedWord.RepeatWord(inputString);`
+  + O(N) / O(N)
+
+
+## [whiteboard](./whiteboards/repeated-word.md)
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/RepeatedWord.cs)
 
 ---
 
