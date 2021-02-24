@@ -33,6 +33,7 @@
 + [InsertionSort](#insertionsort)
 + [QuickSort](#quicksort)
 + [Repeated Word](#repeated-word)
++ [Tree Intersections](#tree-intersection)
 
 ---
 
@@ -419,6 +420,22 @@ Normalize the string by removing punctuation and changing it all to lower case. 
 
 ## [whiteboard](./whiteboards/repeated-word.md)
 ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/RepeatedWord.cs)
+
+---
+
+## **Tree Intersection**
+### Challenge Description
+Write a function called tree_intersection that takes two binary tree parameters.
+Without utilizing any of the built-in library methods available to your language, return a set of values found in both trees.
+### Approach and Efficiency
+Take in two binary trees.  Traverse the first tree putting its values into a HashMap.  Then traverse the second tree checking for collisions.  If a value is repeated add it to a list.  Return the list of intersecting values.
+
+  + `list<int> list = Intersection(tree1, tree2);`
+  + O(N) / O(N)
+
+
+## [whiteboard](./whiteboards/tree-intersection.md)
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/TreeIntersection.cs)
 
 ---
 

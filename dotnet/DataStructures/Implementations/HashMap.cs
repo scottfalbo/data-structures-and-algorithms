@@ -10,6 +10,8 @@ namespace DataStructures
     {
         public DataStructures.LinkedList<KeyValuePair<T, T>>[] Map { get; set; }
 
+        public int counter = 0;
+
         public HashMap(int size)
         {
             Map = new DataStructures.LinkedList<KeyValuePair<T, T>>[size];
@@ -49,6 +51,7 @@ namespace DataStructures
             KeyValuePair<T, T> entry = new KeyValuePair<T, T>(key, value);
 
             Map[hashKey].Insert(entry);
+            counter++;
         }
 
         /// <summary>
@@ -119,6 +122,7 @@ namespace DataStructures
                     }
                     current = current.Next;
                 }
+                counter--;
             }
         }
 
