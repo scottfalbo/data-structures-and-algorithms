@@ -34,6 +34,7 @@
 + [QuickSort](#quicksort)
 + [Repeated Word](#repeated-word)
 + [Tree Intersections](#tree-intersection)
++ [Left Sort](#left-sort)
 
 ---
 
@@ -438,5 +439,16 @@ Take in two binary trees.  Traverse the first tree putting its values into a Has
 ### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/TreeIntersection.cs)
 
 ---
+## **Left Sort**
+### Challenge Description
+Given a left and right table, return a list of all key/value pairs in the left table, along with any values that match the same key in the right table.
+### Approach and Efficiency
+Iterate over the left table.  At each populated bucket check to see if the right table contains the key.  If so put left key/value and right value into an object and into a list.  If there is no match put the left key/value and null into the object.
+  + `list<Object> list = LeftSort(leftTable, rightTable);`
+  + O(N logN) / O(N)
+
+
+## [whiteboard](./whiteboards/left-sort.md)
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/LeftSort.cs)
 
 [return to top of page](#data-structures-and-algorithms)

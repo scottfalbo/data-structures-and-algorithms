@@ -10,41 +10,47 @@ namespace Challenges
         static void Main(string[] args)
         {
 
-            // last leaves
-            KNode<int> n1 = new KNode<int>(7);
-            KNode<int> n2 = new KNode<int>(13);
-            KNode<int> n3 = new KNode<int>(30);
-            KNode<int> n4 = new KNode<int>(10);
-            KNode<int> n5 = new KNode<int>(3);
-            KNode<int> n6 = new KNode<int>(8);
-            KNode<int> n7 = new KNode<int>(6);
-
-            // middle tier
-            List<KNode<int>> children = new List<KNode<int>>() { n1, n2, n3 };
-            KNode<int> n8 = new KNode<int>(4, children);
-
-            children = new List<KNode<int>>() { n4 };
-            KNode<int> n9 = new KNode<int>(5, children);
-
-            children = new List<KNode<int>>() { n5, n6, n7 };
-            KNode<int> n10 = new KNode<int>(15, children);
-
-            //root
-            children = new List<KNode<int>>() { n8, n9, n10 };
-            KNode<int> n11 = new KNode<int>(3, children);
-
-            KAryTree<int> newTree = new KAryTree<int>(3)
+            HashMap<string> left = LeftTable();
+            HashMap<string> right = RightTable();
+            List<ReturnObject> list = LeftJoin.Join(left, right);
+            List<string> actual = ObjectListToString(list);
+            foreach (string word in actual)
             {
-                Root = n11
-            };
+                Console.WriteLine($"{word}, ");
+            }
 
-            FizzBuzzTree fizzbuzz = new FizzBuzzTree();
-            KAryTree<string> fizzBuzzedTree = fizzbuzz.FizzBuzzer(newTree);
-            List<string> actual = fizzBuzzedTree.PreOrder();
+        }
 
-            foreach (string n in actual)
-              Console.Write($"[ {n} ] -");
-  
+        private static List<string> ObjectListToString(List<ReturnObject> objectList)
+        {
+            List<string> newList = new List<string>();
+            foreach (ReturnObject item in objectList)
+            {
+                newList.Add(item.Key);
+                newList.Add(item.LeftValue);
+                newList.Add(item.RightValue);
+            }
+            return newList;
+        }
+        private static HashMap<string> LeftTable()
+        {
+            HashMap<string> leftTable = new HashMap<string>(1024);
+            leftTable.Set("fond", "enamored");
+            leftTable.Set("wrath", "anger");
+            leftTable.Set("diligent", "employed");
+            leftTable.Set("outfit", "garb");
+            leftTable.Set("guide", "usher");
+            return leftTable;
+        }
+        private static HashMap<string> RightTable()
+        {
+            HashMap<string> rightTable = new HashMap<string>(1024);
+            rightTable.Set("fond", "averse");
+            rightTable.Set("wrath", "delight");
+            rightTable.Set("diligent", "idle");
+            rightTable.Set("guide", "follow");
+            rightTable.Set("flow", "jam");
+            return rightTable;
         }
     }
 }
