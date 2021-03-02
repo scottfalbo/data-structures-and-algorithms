@@ -18,7 +18,7 @@ namespace CodeChallengeTests
             List<string> actual = ObjectListToString(list);
             List<string> expected = new List<string>() { 
                 "fond", "enamored", "averse", "wrath", "anger", "delight", "diligent",
-                "emplyed", "idle", "outfit", "garb", null, "guide", "usher", "follow" };
+                "employed", "idle", "outfit", "garb", null, "guide", "usher", "follow" };
             Assert.Equal(expected, actual);
         }
 
