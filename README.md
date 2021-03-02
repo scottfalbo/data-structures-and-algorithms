@@ -19,6 +19,8 @@
 
 + **[HashMap](#hashmap)**
 
++ **[Graph](#Graph)**
+
 
 
 ### Challenges
@@ -253,6 +255,34 @@ The data can later be referenced by the key creating an `O(1)` search time.
   + Removes a `KeyValuePair` from the `HashMap`.
   
 <br>
+
+---
+
+## Graph
+A `Graph` is a collection of vertices, or nodes, connected, or not, by edges. A `Vertex` is an object that like a node that holds a value.  An `Edge` has a `Vertex` and a `Weight`.  Each `Vertex` is put into a `Dictionary` with a `List` of connected edges.
+
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/DataStructures/Implementations/Graph.cs)<br>
+
++ ### `AddNode()`
+  + Instantiate and add a `Vertex` to the `Graph`
+
++ ### `AddDirectionalEdge()`
+  + Add a directional edge edge between two vertices.
+
++ ### `AddUnDirectionalEdge()`
+  + Add a nondirectional edge between two vertices.
+
++ ### `GetNodes()`
+  + Return a collection of all vertices contained in the `Graph`
+
++ ### `GetNeighbors()`
+  + Get a list a `Vertex` neighbors.
+
++ ### `GetSize()`
+  + Returns the total count of vertices in the `Graph`
+
++ ### `BreadthFirst()`
+  + Traverse the vertices in the `Graph` in a breadth first order.  Return of a list of a visited nodes.
 
 ---
 
