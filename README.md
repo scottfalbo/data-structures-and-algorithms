@@ -261,7 +261,7 @@ The data can later be referenced by the key creating an `O(1)` search time.
 ## Graph
 A `Graph` is a collection of vertices, or nodes, connected, or not, by edges. A `Vertex` is an object that like a node that holds a value.  An `Edge` has a `Vertex` and a `Weight`.  Each `Vertex` is put into a `Dictionary` with a `List` of connected edges.
 
-### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/DataStructures/Implementations/Graph.cs)<br>
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/DataStructures/Implementations/Graph/Graph.cs)<br>
 
 + ### `AddNode()`
   + Instantiate and add a `Vertex` to the `Graph`
