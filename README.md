@@ -480,6 +480,6 @@ Iterate over the left table.  At each populated bucket check to see if the right
 
 
 ## [whiteboard](./whiteboards/left-sort.md)
-### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/LeftSort.cs)
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/LeftJoin.cs)
 
 [return to top of page](#data-structures-and-algorithms)
