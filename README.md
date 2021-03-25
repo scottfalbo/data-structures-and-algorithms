@@ -356,7 +356,7 @@ Make a class called PseudoQueue, which using two Stack objects to mimic the beha
 Used two stacks to slinky the nodes back and forth.  `Pop()` all of nodes in stack1 into stack2.  `Peek()` or `Pop()` the `Top` of stack2.  Then `Pop()` all of the nodes back into stack1.  If it's enqueue push the new value.
 
 ## [whiteboard](./whiteboards/queue-with-stacks.md)<br>
-### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/queue-with-stacks/dotnet/CodeChallenges/LinkedLists/QueueWithStacks.cs)
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/QueueWithStacks.cs)
 
 ---
 
