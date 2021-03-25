@@ -2,7 +2,7 @@
 ## Table of Contents
 
 
-## C# .NET
+## C#
 
 ### Data Structures
   + *links contain each structs methods*
