@@ -3,7 +3,7 @@
 
 <br>
 
-![append whiteboard](./assets/TreeIntersection.png)
+![append whiteboard](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/whiteboards/assets/TreeIntersection.PNG)
 
 <br>
 
