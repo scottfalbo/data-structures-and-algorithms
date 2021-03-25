@@ -3,7 +3,7 @@
 
 <br>
 
-![append whiteboard](./../assets/insertShiftArray.png)
+![append whiteboard](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/whiteboards/assets/insertShiftArray.png)
 
 <br>
 
