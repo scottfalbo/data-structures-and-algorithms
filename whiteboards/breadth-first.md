@@ -3,7 +3,7 @@
 
 <br>
 
-![breadth-first whiteboard](assets/breadth-first.png)
+![breadth-first whiteboard](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/whiteboards/assets/breadth-first.PNG)
 
 <br>
 
