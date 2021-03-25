@@ -342,7 +342,7 @@ Create a new `LinkedList`.  Iterate through the 2 provided lists at the same tim
   + O(N) / O(1)
 
 ## [whiteboard](./whiteboards/ziplist.md)<br>
-### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/queue-with-stacks/dotnet/CodeChallenges/LinkedLists/LLZip.cs)
+### [code](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/dotnet/CodeChallenges/LinkedLists/LLZip.cs)
 
 ---
 
