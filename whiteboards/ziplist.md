@@ -3,7 +3,7 @@
 
 <br>
 
-![append whiteboard](./assets/ziplist.png)
+![append whiteboard](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/whiteboards/assets/ziplist.PNG)
 
 <br>
 
