@@ -3,7 +3,7 @@
 
 <br>
 
-![breadth-first whiteboard](./assets/breadth-first.png)
+![breadth-first whiteboard](assets/breadth-first.png)
 
 <br>
 
