@@ -3,7 +3,7 @@
 
 <br>
 
-![append whiteboard](./assets/multi-bracket-valid.png)
+![append whiteboard](https://github.com/scottfalbo/data-structures-and-algorithms/blob/master/whiteboards/assets/multi-bracket-valid.PNG)
 
 <br>
 
