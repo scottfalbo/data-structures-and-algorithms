@@ -99,15 +99,17 @@ namespace DataStructures
         /// <returns> counter prop, int value total nodes </returns>
         public int Size() => counter;
 
-        public List<Vertex<T>> BreadthFirst(Vertex<T> node)
+        public List<Vertex<T>> BreadthFirst(Vertex<T> vertex)
         {
             List<Vertex<T>> nodes = new List<Vertex<T>>();
             List<Vertex<T>> visited = new List<Vertex<T>>
             {
-                node
+                vertex
             };
 
             Queue<Vertex<T>> q = new Queue<Vertex<T>>();
+            q.Enqueue(vertex);
+
             while (q.counter > 0)
             {
                 Vertex<T> current = q.Dequeue();

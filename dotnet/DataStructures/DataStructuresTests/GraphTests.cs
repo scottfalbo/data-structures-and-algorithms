@@ -77,7 +77,30 @@ namespace DataStructuresTests
         }
 
         [Fact]
+        public void CanPerformBreadthFirstTraversalFromSpecificVertex()
+        {
+            Graph<int> testGraph = new Graph<int>();
+            Vertex<int> nodeA = testGraph.AddVertex(6);
+            Vertex<int> nodeB = testGraph.AddVertex(3);
+            Vertex<int> nodeC = testGraph.AddVertex(5);
+            Vertex<int> nodeD = testGraph.AddVertex(9);
+            Vertex<int> nodeE = testGraph.AddVertex(1);
+            Vertex<int> nodeF = testGraph.AddVertex(4);
+            testGraph.AddUndirectedEdge(nodeA, nodeB);
+            testGraph.AddUndirectedEdge(nodeB, nodeC);
+            testGraph.AddUndirectedEdge(nodeA, nodeD);
+            testGraph.AddUndirectedEdge(nodeD, nodeF);
+            testGraph.AddUndirectedEdge(nodeE, nodeA);
 
+            List<Vertex<int>> expected = new List<Vertex<int>>
+            { 
+                nodeA, nodeB, nodeD, nodeE, nodeC, nodeF
+            };
+            List<Vertex<int>> actual = testGraph.BreadthFirst(nodeA);
+
+            Assert.Equal(expected, actual);
+
+        }
 
         public Graph<int> PopulateGraph()
         {
