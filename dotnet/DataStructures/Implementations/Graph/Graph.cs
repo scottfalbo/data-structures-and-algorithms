@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DataStructures
@@ -98,11 +99,31 @@ namespace DataStructures
         /// <returns> counter prop, int value total nodes </returns>
         public int Size() => counter;
 
-        public void BreadthFirst(Vertex<int> node)
+        public List<Vertex<T>> BreadthFirst(Vertex<T> node)
         {
+            List<Vertex<T>> nodes = new List<Vertex<T>>();
+            List<Vertex<T>> visited = new List<Vertex<T>>
+            {
+                node
+            };
 
+            Queue<Vertex<T>> q = new Queue<Vertex<T>>();
+            while (q.counter > 0)
+            {
+                Vertex<T> current = q.Dequeue();
+                nodes.Add(current);
+
+                if (AdjacencyList.ContainsKey(current))
+                {
+                    foreach (var neighbor in AdjacencyList[current].Where(x => !visited.Contains(x.Vertex)))
+                    {
+                        visited.Add(neighbor.Vertex);
+                        q.Enqueue(neighbor.Vertex);
+                    }
+                }
+            }
+            return nodes;
         }
-
     }
 
 

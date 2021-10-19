@@ -76,6 +76,9 @@ namespace DataStructuresTests
             Assert.Null(testGraph.GetNodes());
         }
 
+        [Fact]
+
+
         public Graph<int> PopulateGraph()
         {
             Graph<int> testGraph = new Graph<int>();
