@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using DataStructures.Trees;
+using Practice;
 
 namespace PracticeTests
 {
-    public class BinaryTreePractice
+    public class BinaryTreePracticeTests
     {
         [Fact]
         public void CanReturnCorrectTotalValue()
         {
-
+            BinaryTree<int> tree = MakeTree();
+            int expected = 39;
+            int actual = BinaryTreePractice.FindValue(tree);
+            Assert.Equal(expected, actual);
         }
 
         /// <summary>

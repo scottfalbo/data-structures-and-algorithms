@@ -7,7 +7,7 @@ namespace Practice
 {
     public class BinaryTreePractice
     {
-        public int FindValue(BinaryTree<int> tree)
+        public static int FindValue(BinaryTree<int> tree)
         {
             int total = 0;
 
