@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataStructures\Implementations\Implementations.csproj" />
     <ProjectReference Include="..\Practice\Practice.csproj" />
   </ItemGroup>
 
